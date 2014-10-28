@@ -1,0 +1,13 @@
+E:\Programming Ventures\C#_Projects\AutoFences\bin\Debug\AutoFences.dll
+E:\Programming Ventures\C#_Projects\AutoFences\bin\Debug\AutoFences.pdb
+E:\Programming Ventures\C#_Projects\AutoFences\bin\Debug\AutoFences.dll.mdb
+E:\Programming Ventures\C#_Projects\AutoFences\bin\Debug\AutoFences.AutoFences.apk
+E:\Programming Ventures\C#_Projects\AutoFences\bin\Debug\AutoFences.AutoFences-Signed.apk
+E:\Programming Ventures\C#_Projects\AutoFences\obj\Debug\AutoFences.dll
+E:\Programming Ventures\C#_Projects\AutoFences\obj\Debug\AutoFences.pdb
+E:\Programming Ventures\C#_Projects\AutoFences\obj\Debug\android\bin\AutoFences.AutoFences.apk
+E:\Programming Ventures\C#_Projects\AutoFences\obj\Debug\res\layout\main.xml
+E:\Programming Ventures\C#_Projects\AutoFences\obj\Debug\res\values\strings.xml
+E:\Programming Ventures\C#_Projects\AutoFences\obj\Debug\res\drawable\icon.png
+E:\Programming Ventures\C#_Projects\AutoFences\obj\Debug\R.cs.flag
+E:\Programming Ventures\C#_Projects\AutoFences\obj\Debug\uploadflags.txt

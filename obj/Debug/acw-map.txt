@@ -1,0 +1,1 @@
+AutoFences.MainActivity;autofences.MainActivity
