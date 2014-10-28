@@ -14,7 +14,7 @@ namespace AutoFences
     {
         protected override void OnCreate (Bundle bundle)
         {
-            base.OnCreate (bundle); // Always the superclass.
+            base.OnCreate (bundle); // Always call the superclass.
 
             SetContentView (Resource.Layout.Main);
 
