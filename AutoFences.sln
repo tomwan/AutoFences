@@ -3,16 +3,28 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 2012
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AutoFences", "AutoFences.csproj", "{D1311EB8-1EF3-4991-8F52-009759D68F25}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Mojio", "lib\Mojio.Client-master\Src\Mojio\Mojio.csproj", "{FAECCBE3-5E0C-4140-90F0-FF35059673E9}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Mojio.Client", "lib\Mojio.Client-master\Src\Mojio.Client\Mojio.Client.csproj", "{64B1AA53-3183-400B-82D7-DC34CA2EE35A}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{64B1AA53-3183-400B-82D7-DC34CA2EE35A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{64B1AA53-3183-400B-82D7-DC34CA2EE35A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{64B1AA53-3183-400B-82D7-DC34CA2EE35A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{64B1AA53-3183-400B-82D7-DC34CA2EE35A}.Release|Any CPU.Build.0 = Release|Any CPU
 		{D1311EB8-1EF3-4991-8F52-009759D68F25}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{D1311EB8-1EF3-4991-8F52-009759D68F25}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{D1311EB8-1EF3-4991-8F52-009759D68F25}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{D1311EB8-1EF3-4991-8F52-009759D68F25}.Release|Any CPU.Build.0 = Release|Any CPU
+		{FAECCBE3-5E0C-4140-90F0-FF35059673E9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FAECCBE3-5E0C-4140-90F0-FF35059673E9}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FAECCBE3-5E0C-4140-90F0-FF35059673E9}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FAECCBE3-5E0C-4140-90F0-FF35059673E9}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(MonoDevelopProperties) = preSolution
 		StartupItem = AutoFences.csproj
