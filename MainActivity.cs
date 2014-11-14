@@ -20,38 +20,22 @@ namespace AutoFences
 
             SetContentView (Resource.Layout.Main);
 
-			Guid appID = new Guid("a2394021-c43c-4991-b0e7-04b8cf0107cd");
-			Guid secretKey = new Guid("66c05a5b-32c5-4cd2-a9ac-b29e996b06c1");
+			Guid appID = new Guid (); // Insert appID and secretKey
+			Guid secretKey = new Guid();
 
-			MojioClient client = new MojioClient(
-				appID, 
-				secretKey,
-				MojioClient.Sandbox
-			);
+			MojioClient client = new MojioClient(MojioClient.Live);
 
 			client.PageSize = 15;
+
+			client.BeginAsync (appID, secretKey); // Begin Async auth
 
 			EditText email = FindViewById<EditText> (Resource.Id.email);
 			EditText password = FindViewById<EditText> (Resource.Id.password);
 			Button confirmButton = FindViewById<Button> (Resource.Id.confirmButton);
 
 			confirmButton.Click += (o, e) => {
-				client.SetUser(email.Text, password.Text);
+				client.SetUserAsync(email.Text, password.Text);
 			};
-
-
-
         }
-
-        //        protected override void OnResume ()
-        //        {
-        //            base.OnResume (); //Always call the superclass
-        //
-        //        }
-        //
-        //        protected override void OnPause ()
-        //        {
-        //            base.OnPause (); //Always call the superclass
-        //        }
-    }
+	}
 }
