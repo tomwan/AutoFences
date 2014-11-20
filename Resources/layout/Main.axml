@@ -8,15 +8,20 @@
     <EditText
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:id="@+id/email" />
+        android:id="@+id/email"
+        android:hint="@string/usernamehint"
+        android:gravity="center" />
     <EditText
         android:inputType="textPassword"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:id="@+id/password" />
+        android:id="@+id/password"
+        android:hint="@string/passwordhint"
+        android:gravity="center" />
     <Button
-        android:text="Button"
+        android:text="@string/loginbutton"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:id="@+id/confirmButton" />
+        android:id="@+id/loginbutton"
+        android:gravity="center" />
 </LinearLayout>
