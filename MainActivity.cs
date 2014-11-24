@@ -1,7 +1,6 @@
 ﻿using System;
 using System.Threading;
 using System.Threading.Tasks;
-
 using Android.App;
 using Android.Content;
 using Android.Runtime;
@@ -10,6 +9,7 @@ using Android.Widget;
 using Android.OS;
 using Mojio;
 using Mojio.Client;
+
 
 namespace AutoFences
 {
@@ -22,8 +22,11 @@ namespace AutoFences
 
             SetContentView (Resource.Layout.Main);
 
-			Guid appID = new Guid (""); // Insert public key
-			Guid secretKey = new Guid("");// Insert Secret Key
+
+			//string appID = ConfigurationManager.AppSettings["appID"];
+			//ConfigurationManager.AppSettings["secretKey"];
+			Guid appID = new Guid (Configuration.appID); // Insert public key
+			Guid secretKey = new Guid(Configuration.secretKey);// Insert Secret Key
 
 			MojioClient client = new MojioClient(MojioClient.Live); //Despite the naming, Live and Sandbox are both MojioClient.Live; Horrible naming is horrible.
 
