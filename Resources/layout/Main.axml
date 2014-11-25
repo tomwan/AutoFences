@@ -5,23 +5,153 @@
     android:layout_height="fill_parent"
     android:minWidth="25px"
     android:minHeight="25px">
-    <EditText
+    <Space
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:id="@+id/email"
-        android:hint="@string/usernamehint"
-        android:gravity="center" />
-    <EditText
-        android:inputType="textPassword"
+        android:id="@+id/space3"
+        android:layout_weight="1" />
+    <LinearLayout
+        android:orientation="horizontal"
+        android:minWidth="25px"
+        android:minHeight="25px"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:id="@+id/password"
-        android:hint="@string/passwordhint"
-        android:gravity="center" />
-    <Button
-        android:text="@string/loginbutton"
+        android:id="@+id/linearLayout1"
+        android:padding="10dp">
+        <Space
+            android:id="@+id/space2"
+            android:layout_height="match_parent"
+            android:layout_width="wrap_content"
+            android:layout_weight="1" />
+        <TextView
+            android:text="@string/loginmessage"
+            android:textAppearance="?android:attr/textAppearanceSmall"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:id="@+id/textView1" />
+        <Space
+            android:id="@+id/space1"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_weight="1" />
+    </LinearLayout>
+    <Space
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:id="@+id/loginbutton"
-        android:gravity="center" />
+        android:id="@+id/space9"
+        android:layout_weight=".5" />
+    <LinearLayout
+        android:orientation="vertical"
+        android:minWidth="25px"
+        android:minHeight="25px"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/linearLayout2"
+        android:layout_weight="1">
+        <LinearLayout
+            android:orientation="horizontal"
+            android:minWidth="25px"
+            android:minHeight="25px"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/linearLayout3">
+            <Space
+                android:layout_height="match_parent"
+                android:id="@+id/space5"
+                android:layout_weight=".5"
+                android:layout_width="wrap_content" />
+            <EditText
+                android:id="@+id/email"
+                android:hint="@string/usernamehint"
+                android:gravity="center"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="3" />
+            <Space
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:id="@+id/space6"
+                android:layout_weight=".5" />
+        </LinearLayout>
+        <LinearLayout
+            android:orientation="horizontal"
+            android:minWidth="25px"
+            android:minHeight="25px"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/linearLayout4">
+            <Space
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:id="@+id/space7"
+                android:layout_weight=".5" />
+            <EditText
+                android:inputType="textPassword"
+                android:id="@+id/password"
+                android:hint="@string/passwordhint"
+                android:gravity="center"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="3" />
+            <Space
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:id="@+id/space8"
+                android:layout_weight=".5" />
+        </LinearLayout>
+        <LinearLayout
+            android:orientation="horizontal"
+            android:minWidth="25px"
+            android:minHeight="25px"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/linearLayout1">
+            <Space
+                android:id="@+id/space2"
+                android:layout_height="match_parent"
+                android:layout_width="wrap_content"
+                android:layout_weight="1" />
+            <Button
+                android:text="@string/loginbutton"
+                android:id="@+id/loginbutton"
+                android:gravity="center"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent" />
+            <Space
+                android:id="@+id/space1"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_weight="1" />
+        </LinearLayout>
+    </LinearLayout>
+    <Space
+        android:id="@+id/space4"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_weight="1.5" />
+    <LinearLayout
+        android:orientation="horizontal"
+        android:minWidth="25px"
+        android:minHeight="25px"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/linearLayout1"
+        android:padding="10dp">
+        <Space
+            android:id="@+id/space2"
+            android:layout_height="match_parent"
+            android:layout_width="wrap_content"
+            android:layout_weight="1" />
+        <TextView
+            android:text="@string/poweredby"
+            android:textAppearance="?android:attr/textAppearanceSmall"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:id="@+id/textView1" />
+        <Space
+            android:id="@+id/space1"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_weight="1" />
+    </LinearLayout>
 </LinearLayout>
