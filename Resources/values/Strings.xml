@@ -4,4 +4,6 @@
 	<string name="usernamehint">Username or Email</string>
 	<string name="passwordhint">Password</string>
 	<string name="loginbutton">Log In</string>
+    <string name="loginmessage">Please enter your MOJIO username and password</string>
+    <string name="poweredby">Powered by MOJIO</string>
 </resources>

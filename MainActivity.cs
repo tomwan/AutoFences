@@ -22,9 +22,6 @@ namespace AutoFences
 
             SetContentView (Resource.Layout.Main);
 
-
-			//string appID = ConfigurationManager.AppSettings["appID"];
-			//ConfigurationManager.AppSettings["secretKey"];
 			Guid appID = new Guid (Configuration.appID); // Insert public key
 			Guid secretKey = new Guid(Configuration.secretKey);// Insert Secret Key
 
