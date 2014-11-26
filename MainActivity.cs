@@ -13,6 +13,10 @@ using Mojio.Client;
 
 namespace AutoFences
 {
+	public static class Globals	{
+		public static MojioClient client = new MojioClient(MojioClient.Live);
+	}
+
     [Activity (Label = "AutoFences", MainLauncher = true, Icon = "@drawable/icon")]
     public class MainActivity : Activity
     {
@@ -22,13 +26,11 @@ namespace AutoFences
 
             SetContentView (Resource.Layout.Main);
 
-			Guid appID = new Guid (Configuration.appID); // Insert public key
-			Guid secretKey = new Guid(Configuration.secretKey);// Insert Secret Key
-
-			MojioClient client = new MojioClient(MojioClient.Live); //Despite the naming, Live and Sandbox are both MojioClient.Live; Horrible naming is horrible.
+			Guid appID = new Guid (Configuration.appID); 
+			Guid secretKey = new Guid(Configuration.secretKey);
 
 			try {
-				await client.BeginAsync (appID, secretKey);
+				await Globals.client.BeginAsync (appID, secretKey);
 			} catch (UnauthorizedAccessException uae) {
 				Toast.MakeText (this, uae.Message, ToastLength.Short).Show (); 
 			}
@@ -39,31 +41,24 @@ namespace AutoFences
 			Button logInButton = FindViewById<Button> (Resource.Id.loginbutton);
 
 			logInButton.Click += async (o, e) => {
-				try {
-					await client.SetUserAsync(email.Text, password.Text);// Logs the user in.
-				} catch (Exception exception) {
-					Toast.MakeText (this, exception.Message, ToastLength.Short).Show (); 
-				}
-
-				if(client.IsLoggedIn()) {
-					Toast.MakeText (this, "Log in successful.", ToastLength.Short).Show ();
+				if (string.IsNullOrEmpty(email.Text)) {
+					Toast.MakeText (this, "Please enter a valid username.", ToastLength.Short).Show (); 
+				} else if (string.IsNullOrEmpty(password.Text)) {
+					Toast.MakeText (this, "Please enter a valid password.", ToastLength.Short).Show (); 
 				} else {
-					Toast.MakeText (this, "The credentials provided are invalid.", ToastLength.Short).Show ();
-				}
+					try {
+						await Globals.client.SetUserAsync(email.Text, password.Text); // Logs the user in.
+					} catch (Exception exception) {
+						Toast.MakeText (this, exception.Message, ToastLength.Short).Show (); 
+					}
 
-
-				//Temporary Prototype 1 Code; Move elsewhere after. 
-				//Currently shows the list of end times from oldest to newest.
-				client.PageSize = 15; //Gets 15 results
-				MojioResponse<Results<Trip>> response = await client.GetAsync<Trip>();
-				Results<Trip> result = response.Data;
-
-				// Iterate over each trip
-				foreach( Trip trip in result.Data )
-				{
-					Toast.MakeText (this, trip.EndTime.ToString(), ToastLength.Short).Show ();
+					if(Globals.client.IsLoggedIn()) {
+						StartActivity(typeof(DisplayActivity));
+					} else {
+						Toast.MakeText (this, "The credentials provided are invalid.", ToastLength.Short).Show ();
+					}
 				}
 			};
-        }
+		}
 	}
 }
