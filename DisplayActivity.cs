@@ -23,8 +23,10 @@ namespace AutoFences
 
 			SetContentView (Resource.Layout.Display);
 
-			Globals.client.PageSize = 15; //Gets 15 results
-			MojioResponse<Results<Trip>> response = await Globals.client.GetAsync<Trip>();
+			MojioClient client = Globals.client;
+
+			client.PageSize = 15; //Gets 15 results
+			MojioResponse<Results<Trip>> response = await client.GetAsync<Trip>();
 			Results<Trip> result = response.Data;
 
 			var results = FindViewById<TextView> (Resource.Id.tripResults);

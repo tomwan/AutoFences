@@ -13,10 +13,6 @@ using Mojio.Client;
 
 namespace AutoFences
 {
-	public static class Globals	{
-		public static MojioClient client = new MojioClient(MojioClient.Live);
-	}
-
     [Activity (Label = "AutoFences", MainLauncher = true, Icon = "@drawable/icon")]
     public class MainActivity : Activity
     {
@@ -26,11 +22,13 @@ namespace AutoFences
 
             SetContentView (Resource.Layout.Main);
 
+			MojioClient client = Globals.client;
+
 			Guid appID = new Guid (Configuration.appID); 
 			Guid secretKey = new Guid(Configuration.secretKey);
 
 			try {
-				await Globals.client.BeginAsync (appID, secretKey);
+				await client.BeginAsync (appID, secretKey);
 			} catch (UnauthorizedAccessException uae) {
 				Toast.MakeText (this, uae.Message, ToastLength.Short).Show (); 
 			}
@@ -47,12 +45,12 @@ namespace AutoFences
 					Toast.MakeText (this, "Please enter a valid password.", ToastLength.Short).Show (); 
 				} else {
 					try {
-						await Globals.client.SetUserAsync(email.Text, password.Text); // Logs the user in.
+						await client.SetUserAsync(email.Text, password.Text); // Logs the user in.
 					} catch (Exception exception) {
 						Toast.MakeText (this, exception.Message, ToastLength.Short).Show (); 
 					}
 
-					if(Globals.client.IsLoggedIn()) {
+					if(client.IsLoggedIn()) {
 						StartActivity(typeof(DisplayActivity));
 					} else {
 						Toast.MakeText (this, "The credentials provided are invalid.", ToastLength.Short).Show ();
