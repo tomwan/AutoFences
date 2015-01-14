@@ -191,6 +191,11 @@
     <AndroidResource Include="Resources\drawable-xxhdpi\ic_logo.png" />
     <AndroidResource Include="Resources\drawable-xxxhdpi\ic_logo.png" />
     <AndroidResource Include="Resources\layout\Display.axml" />
+    <AndroidResource Include="Resources\drawable-xxhdpi\map_placeholder.png" />
+    <AndroidResource Include="Resources\drawable-xhdpi\map_placeholder.png" />
+    <AndroidResource Include="Resources\drawable-mdpi\map_placeholder.png" />
+    <AndroidResource Include="Resources\drawable-hdpi\map_placeholder.png" />
+    <AndroidResource Include="Resources\drawable\map_placeholder.png" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Novell\Novell.MonoDroid.CSharp.targets" />
   <Import Project="packages\Microsoft.Bcl.Build.1.0.21\build\Microsoft.Bcl.Build.targets" Condition="Exists('packages\Microsoft.Bcl.Build.1.0.21\build\Microsoft.Bcl.Build.targets')" />
