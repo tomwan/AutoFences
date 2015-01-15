@@ -27,6 +27,38 @@ Global
 		{FAECCBE3-5E0C-4140-90F0-FF35059673E9}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(MonoDevelopProperties) = preSolution
-		StartupItem = AutoFences.csproj
+		Policies = $0
+		$0.TextStylePolicy = $1
+		$1.FileWidth = 120
+		$1.inheritsSet = VisualStudio
+		$1.inheritsScope = text/plain
+		$1.scope = text/x-csharp
+		$0.CSharpFormattingPolicy = $2
+		$2.AfterDelegateDeclarationParameterComma = True
+		$2.inheritsSet = Mono
+		$2.inheritsScope = text/x-csharp
+		$2.scope = text/x-csharp
+		$0.TextStylePolicy = $3
+		$3.FileWidth = 120
+		$3.inheritsSet = VisualStudio
+		$3.inheritsScope = text/plain
+		$3.scope = application/xml
+		$0.XmlFormattingPolicy = $4
+		$4.inheritsSet = Mono
+		$4.inheritsScope = application/xml
+		$4.scope = application/xml
+		$0.TextStylePolicy = $5
+		$5.FileWidth = 120
+		$5.inheritsSet = VisualStudio
+		$5.inheritsScope = text/plain
+		$5.scope = text/plain
+		$0.TextStylePolicy = $6
+		$6.FileWidth = 120
+		$6.inheritsSet = VisualStudio
+		$6.inheritsScope = text/plain
+		$6.scope = application/config+xml
+		$0.XmlFormattingPolicy = $7
+		$7.inheritsSet = null
+		$7.scope = application/config+xml
 	EndGlobalSection
 EndGlobal
