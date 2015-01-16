@@ -22,41 +22,61 @@ namespace AutoFences
 
             SetContentView (Resource.Layout.Main);
 
-			MojioClient client = Globals.client;
+            // TODO: Move the following code to the splash screen. This activity should only be for login.
+            var prefs = Application.Context.GetSharedPreferences ("settings", FileCreationMode.Private); // These two lines should be duplicated when moved.
+            var prefEditor = prefs.Edit(); //Please tidy up comments after move.
 
-			Guid appID = new Guid (Configuration.appID); 
-			Guid secretKey = new Guid(Configuration.secretKey);
+            MojioClient client = Globals.client;
 
-			try {
-				await client.BeginAsync (appID, secretKey);
-			} catch (UnauthorizedAccessException uae) {
-				Toast.MakeText (this, uae.Message, ToastLength.Short).Show (); 
-			}
-			Toast.MakeText (this, "Connection OK.", ToastLength.Short).Show ();
+            Guid appID = new Guid (Configuration.appID);
+            Guid secretKey = new Guid (Configuration.secretKey);
 
-			EditText email = FindViewById<EditText> (Resource.Id.email);
-			EditText password = FindViewById<EditText> (Resource.Id.password);
-			Button logInButton = FindViewById<Button> (Resource.Id.loginbutton);
+            try {
+                await client.BeginAsync (appID, secretKey);
+            } catch (UnauthorizedAccessException uae) {
+                Toast.MakeText (this, uae.Message, ToastLength.Short).Show ();
+            }
+            Toast.MakeText (this, "Connection OK.", ToastLength.Short).Show ();
 
-			logInButton.Click += async (o, e) => {
-				if (string.IsNullOrEmpty(email.Text)) {
-					Toast.MakeText (this, "Please enter a valid username.", ToastLength.Short).Show (); 
-				} else if (string.IsNullOrEmpty(password.Text)) {
-					Toast.MakeText (this, "Please enter a valid password.", ToastLength.Short).Show (); 
-				} else {
-					try {
-						await client.SetUserAsync(email.Text, password.Text); // Logs the user in.
-					} catch (Exception exception) {
-						Toast.MakeText (this, exception.Message, ToastLength.Short).Show (); 
-					}
+            if ((prefs.GetString ("email", null)) != null && (prefs.GetString("password",null)) != null) { //Check if credentials have already been entered. If so, log in.
+                try {
+                    await client.SetUserAsync (prefs.GetString ("email", null), prefs.GetString ("password", null)); // Logs the user in.
+                } catch (Exception exception) {
+                    Toast.MakeText (this, exception.Message, ToastLength.Short).Show ();
+                }
 
-					if(client.IsLoggedIn()) {
-						StartActivity(typeof(DisplayActivity));
-					} else {
-						Toast.MakeText (this, "The credentials provided are invalid.", ToastLength.Short).Show ();
-					}
-				}
-			};
-		}
-	}
+                if (client.IsLoggedIn ()) {
+                    StartActivity (typeof(DisplayActivity));
+                }
+            }
+            // See above.
+
+            EditText email = FindViewById<EditText> (Resource.Id.email);
+            EditText password = FindViewById<EditText> (Resource.Id.password);
+            Button logInButton = FindViewById<Button> (Resource.Id.loginbutton);
+
+            logInButton.Click += async (o, e) => {
+                if (string.IsNullOrEmpty (email.Text)) {
+                    Toast.MakeText (this, "Please enter a valid username or email.", ToastLength.Short).Show ();
+                } else if (string.IsNullOrEmpty (password.Text)) {
+                    Toast.MakeText (this, "Please enter a valid password.", ToastLength.Short).Show ();
+                } else {
+                    try {
+                        await client.SetUserAsync (email.Text, password.Text); // Logs the user in.
+                    } catch (Exception exception) {
+                        Toast.MakeText (this, exception.Message, ToastLength.Short).Show ();
+                    }
+
+                    if (client.IsLoggedIn ()) {
+                        prefEditor.PutString("email", email.Text);
+                        prefEditor.PutString("password",password.Text);
+                        prefEditor.Apply();
+                        StartActivity (typeof(DisplayActivity));
+                    } else {
+                        Toast.MakeText (this, "The credentials provided are invalid.", ToastLength.Short).Show ();
+                    }
+                }
+            };
+        }
+    }
 }

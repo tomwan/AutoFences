@@ -4,24 +4,24 @@ using Mojio.Client;
 
 namespace AutoFences
 {
-	public class Globals 
-	{
-		private static Globals instance;
+    public class Globals
+    {
+        private static Globals instance;
 
-		private Globals() {}
+        private Globals ()
+        {
+        }
 
-		public static Globals Instance {
-			get 
-			{
-				if (instance == null)
-				{
-					instance = new Globals();
-				}
-				return instance;
-			}
-		}
+        public static Globals Instance {
+            get {
+                if (instance == null) {
+                    instance = new Globals ();
+                }
+                return instance;
+            }
+        }
 
-		public static MojioClient client = new MojioClient(MojioClient.Live);
-	}
+        public static MojioClient client = new MojioClient (MojioClient.Live);
+    }
 }
 
