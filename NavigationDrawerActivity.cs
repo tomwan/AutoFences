@@ -20,14 +20,14 @@ using Fragment = Android.App.Fragment;
 namespace AutoFences
 {
     [Activity (Label = "@string/app_name", Icon = "@drawable/icon", NoHistory=true)]
-	public class NavigationDrawerActivity : Activity, PlanetAdapter.OnItemClickListener
+	public class NavigationDrawerActivity : Activity, FragmentAdapter.OnItemClickListener
 	{
 		private DrawerLayout mDrawerLayout;
 		private RecyclerView mDrawerList;
 		private ActionBarDrawerToggle mDrawerToggle;
 
 		private string mDrawerTitle;
-        private String[] mPlanetTitles = new string[3];
+        private String[] navDrawerTitles = new string[3];
 
 		protected override void OnCreate (Bundle savedInstanceState)
 		{
@@ -36,10 +36,9 @@ namespace AutoFences
 			SetContentView (Resource.Layout.activity_navigation_drawer);
 
 			mDrawerTitle = this.Title;
-			//mPlanetTitles = this.Resources.GetStringArray (Resource.Array.planets_array);
-            mPlanetTitles[0] = this.Resources.GetString (Resource.String.select_device);
-            mPlanetTitles[1] = this.Resources.GetString (Resource.String.settings);
-            mPlanetTitles[2] = this.Resources.GetString (Resource.String.help);
+            navDrawerTitles[0] = this.Resources.GetString (Resource.String.select_device);
+            navDrawerTitles[1] = this.Resources.GetString (Resource.String.settings);
+            navDrawerTitles[2] = this.Resources.GetString (Resource.String.help);
 			mDrawerLayout = FindViewById<DrawerLayout> (Resource.Id.drawer_layout);
 			mDrawerList = FindViewById<RecyclerView> (Resource.Id.left_drawer);
 
@@ -50,7 +49,7 @@ namespace AutoFences
 			mDrawerList.SetLayoutManager (new LinearLayoutManager (this));
 
 			// set up the drawer's list view with items and click listener
-			mDrawerList.SetAdapter (new PlanetAdapter (mPlanetTitles, this));
+			mDrawerList.SetAdapter (new FragmentAdapter (navDrawerTitles, this));
 			// enable ActionBar app icon to behave as action to toggle nav drawer
 			this.ActionBar.SetDisplayHomeAsUpEnabled (true);
 			this.ActionBar.SetHomeButtonEnabled (true);
@@ -115,22 +114,8 @@ namespace AutoFences
 			if (mDrawerToggle.OnOptionsItemSelected (item)) {
 				return true;
 			}
-			// Handle action buttons
-//			switch (item.ItemId) {
-//			case Resource.Id.action_websearch:
-//				// create intent to perform web search for this planet
-//				Intent intent = new Intent (Intent.ActionWebSearch);
-//				intent.PutExtra (SearchManager.Query, this.ActionBar.Title);
-//				// catch event that there's no activity to handle intent
-//				if (intent.ResolveActivity (this.PackageManager) != null) {
-//					StartActivity (intent);
-//				} else {
-//					Toast.MakeText (this, Resource.String.app_not_available, ToastLength.Long).Show ();
-//				}
-//				return true;
-//			default:
-				return base.OnOptionsItemSelected (item);
-//			}
+			return base.OnOptionsItemSelected (item);
+			
 		}
 
 		/* The click listener for RecyclerView in the navigation drawer */
@@ -159,7 +144,6 @@ namespace AutoFences
 			ft.Commit ();
 
 			// update selected item title, then close the drawer
-			//Title = mPlanetTitles [position];
 			mDrawerLayout.CloseDrawer (mDrawerList);
 		}
 
@@ -199,7 +183,6 @@ namespace AutoFences
 	     */
 		internal class DisplayFragment : Fragment
 		{
-			public const string ARG_PLANET_NUMBER = "planet_number";
 
 			public DisplayFragment ()
 			{
@@ -250,8 +233,6 @@ namespace AutoFences
          */
         internal class SettingsFragment : Fragment
         {
-            public const string ARG_PLANET_NUMBER = "planet_number";
-
             public SettingsFragment ()
             {
                 // Empty constructor required for fragment subclasses
@@ -278,8 +259,6 @@ namespace AutoFences
          */
         internal class HelpFragment : Fragment
         {
-            public const string ARG_PLANET_NUMBER = "planet_number";
-
             public HelpFragment ()
             {
                 // Empty constructor required for fragment subclasses

@@ -70,8 +70,8 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Globals.cs" />
     <Compile Include="NavigationDrawerActivity.cs" />
-    <Compile Include="PlanetAdapter.cs" />
     <Compile Include="Configurations.cs" />
+    <Compile Include="FragmentAdapter.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\AboutResources.txt" />
