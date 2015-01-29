@@ -63,91 +63,106 @@ namespace AutoFences
 			public const int ab_transparent_autofences = 2130837509;
 			
 			// aapt resource value: 0x7f020006
-			public const int btn_cab_done_autofences = 2130837510;
+			public const int action_search = 2130837510;
 			
 			// aapt resource value: 0x7f020007
-			public const int btn_cab_done_default_autofences = 2130837511;
+			public const int btn_cab_done_autofences = 2130837511;
 			
 			// aapt resource value: 0x7f020008
-			public const int btn_cab_done_focused_autofences = 2130837512;
+			public const int btn_cab_done_default_autofences = 2130837512;
 			
 			// aapt resource value: 0x7f020009
-			public const int btn_cab_done_pressed_autofences = 2130837513;
+			public const int btn_cab_done_focused_autofences = 2130837513;
 			
 			// aapt resource value: 0x7f02000a
-			public const int cab_background_bottom_autofences = 2130837514;
+			public const int btn_cab_done_pressed_autofences = 2130837514;
 			
 			// aapt resource value: 0x7f02000b
-			public const int cab_background_top_autofences = 2130837515;
+			public const int cab_background_bottom_autofences = 2130837515;
 			
 			// aapt resource value: 0x7f02000c
-			public const int ic_logo = 2130837516;
+			public const int cab_background_top_autofences = 2130837516;
 			
 			// aapt resource value: 0x7f02000d
-			public const int Icon = 2130837517;
+			public const int drawer_shadow = 2130837517;
 			
 			// aapt resource value: 0x7f02000e
-			public const int list_focused_autofences = 2130837518;
+			public const int ic_drawer = 2130837518;
 			
 			// aapt resource value: 0x7f02000f
-			public const int list_pressed_autofences = 2130837519;
+			public const int ic_logo = 2130837519;
 			
 			// aapt resource value: 0x7f020010
-			public const int map_placeholder = 2130837520;
+			public const int Icon = 2130837520;
 			
 			// aapt resource value: 0x7f020011
-			public const int menu_dropdown_panel_autofences = 2130837521;
+			public const int list_focused_autofences = 2130837521;
 			
 			// aapt resource value: 0x7f020012
-			public const int progress_bg_autofences = 2130837522;
+			public const int list_pressed_autofences = 2130837522;
 			
 			// aapt resource value: 0x7f020013
-			public const int progress_horizontal_autofences = 2130837523;
+			public const int map_placeholder = 2130837523;
 			
 			// aapt resource value: 0x7f020014
-			public const int progress_primary_autofences = 2130837524;
+			public const int menu_dropdown_panel_autofences = 2130837524;
 			
 			// aapt resource value: 0x7f020015
-			public const int progress_secondary_autofences = 2130837525;
+			public const int progress_bg_autofences = 2130837525;
 			
 			// aapt resource value: 0x7f020016
-			public const int selectable_background_autofences = 2130837526;
+			public const int progress_horizontal_autofences = 2130837526;
 			
 			// aapt resource value: 0x7f020017
-			public const int spinner_ab_default_autofences = 2130837527;
+			public const int progress_primary_autofences = 2130837527;
 			
 			// aapt resource value: 0x7f020018
-			public const int spinner_ab_disabled_autofences = 2130837528;
+			public const int progress_secondary_autofences = 2130837528;
 			
 			// aapt resource value: 0x7f020019
-			public const int spinner_ab_focused_autofences = 2130837529;
+			public const int sample_dashboard_item_background = 2130837529;
 			
 			// aapt resource value: 0x7f02001a
-			public const int spinner_ab_pressed_autofences = 2130837530;
+			public const int selectable_background_autofences = 2130837530;
 			
 			// aapt resource value: 0x7f02001b
-			public const int spinner_background_ab_autofences = 2130837531;
+			public const int spinner_ab_default_autofences = 2130837531;
 			
 			// aapt resource value: 0x7f02001c
-			public const int tab_indicator_ab_autofences = 2130837532;
+			public const int spinner_ab_disabled_autofences = 2130837532;
 			
 			// aapt resource value: 0x7f02001d
-			public const int tab_selected_autofences = 2130837533;
+			public const int spinner_ab_focused_autofences = 2130837533;
 			
 			// aapt resource value: 0x7f02001e
-			public const int tab_selected_focused_autofences = 2130837534;
+			public const int spinner_ab_pressed_autofences = 2130837534;
 			
 			// aapt resource value: 0x7f02001f
-			public const int tab_selected_pressed_autofences = 2130837535;
+			public const int spinner_background_ab_autofences = 2130837535;
 			
 			// aapt resource value: 0x7f020020
-			public const int tab_unselected_autofences = 2130837536;
+			public const int tab_indicator_ab_autofences = 2130837536;
 			
 			// aapt resource value: 0x7f020021
-			public const int tab_unselected_focused_autofences = 2130837537;
+			public const int tab_selected_autofences = 2130837537;
 			
 			// aapt resource value: 0x7f020022
-			public const int tab_unselected_pressed_autofences = 2130837538;
+			public const int tab_selected_focused_autofences = 2130837538;
+			
+			// aapt resource value: 0x7f020023
+			public const int tab_selected_pressed_autofences = 2130837539;
+			
+			// aapt resource value: 0x7f020024
+			public const int tab_unselected_autofences = 2130837540;
+			
+			// aapt resource value: 0x7f020025
+			public const int tab_unselected_focused_autofences = 2130837541;
+			
+			// aapt resource value: 0x7f020026
+			public const int tab_unselected_pressed_autofences = 2130837542;
+			
+			// aapt resource value: 0x7f020027
+			public const int tile = 2130837543;
 			
 			static Drawable()
 			{
@@ -162,74 +177,89 @@ namespace AutoFences
 		public partial class Id
 		{
 			
-			// aapt resource value: 0x7f060005
-			public const int currentSpeed = 2131099653;
+			// aapt resource value: 0x7f070001
+			public const int content_frame = 2131165185;
 			
-			// aapt resource value: 0x7f06000f
-			public const int email = 2131099663;
+			// aapt resource value: 0x7f070008
+			public const int currentSpeed = 2131165192;
 			
-			// aapt resource value: 0x7f060004
-			public const int fuelUsage = 2131099652;
+			// aapt resource value: 0x7f070000
+			public const int drawer_layout = 2131165184;
 			
-			// aapt resource value: 0x7f060001
-			public const int imageView1 = 2131099649;
+			// aapt resource value: 0x7f070013
+			public const int email = 2131165203;
 			
-			// aapt resource value: 0x7f060006
-			public const int lastTripTime = 2131099654;
+			// aapt resource value: 0x7f070007
+			public const int fuelUsage = 2131165191;
 			
-			// aapt resource value: 0x7f060000
-			public const int linearLayout1 = 2131099648;
+			// aapt resource value: 0x7f07000c
+			public const int helpText = 2131165196;
 			
-			// aapt resource value: 0x7f060002
-			public const int linearLayout2 = 2131099650;
+			// aapt resource value: 0x7f070004
+			public const int imageView1 = 2131165188;
 			
-			// aapt resource value: 0x7f060003
-			public const int linearLayout3 = 2131099651;
+			// aapt resource value: 0x7f070009
+			public const int lastTripTime = 2131165193;
 			
-			// aapt resource value: 0x7f060011
-			public const int linearLayout4 = 2131099665;
+			// aapt resource value: 0x7f070002
+			public const int left_drawer = 2131165186;
 			
-			// aapt resource value: 0x7f060015
-			public const int loginbutton = 2131099669;
+			// aapt resource value: 0x7f070003
+			public const int linearLayout1 = 2131165187;
 			
-			// aapt resource value: 0x7f060013
-			public const int password = 2131099667;
+			// aapt resource value: 0x7f070005
+			public const int linearLayout2 = 2131165189;
 			
-			// aapt resource value: 0x7f060007
-			public const int scrollView1 = 2131099655;
+			// aapt resource value: 0x7f070006
+			public const int linearLayout3 = 2131165190;
 			
-			// aapt resource value: 0x7f06000c
-			public const int space1 = 2131099660;
+			// aapt resource value: 0x7f070015
+			public const int linearLayout4 = 2131165205;
 			
-			// aapt resource value: 0x7f06000a
-			public const int space2 = 2131099658;
+			// aapt resource value: 0x7f070019
+			public const int loginbutton = 2131165209;
 			
-			// aapt resource value: 0x7f060009
-			public const int space3 = 2131099657;
+			// aapt resource value: 0x7f070017
+			public const int password = 2131165207;
 			
-			// aapt resource value: 0x7f060016
-			public const int space4 = 2131099670;
+			// aapt resource value: 0x7f07000a
+			public const int scrollView1 = 2131165194;
 			
-			// aapt resource value: 0x7f06000e
-			public const int space5 = 2131099662;
+			// aapt resource value: 0x7f07001b
+			public const int settingsText = 2131165211;
 			
-			// aapt resource value: 0x7f060010
-			public const int space6 = 2131099664;
+			// aapt resource value: 0x7f070010
+			public const int space1 = 2131165200;
 			
-			// aapt resource value: 0x7f060012
-			public const int space7 = 2131099666;
+			// aapt resource value: 0x7f07000e
+			public const int space2 = 2131165198;
 			
-			// aapt resource value: 0x7f060014
-			public const int space8 = 2131099668;
+			// aapt resource value: 0x7f07000d
+			public const int space3 = 2131165197;
 			
-			// aapt resource value: 0x7f06000d
-			public const int space9 = 2131099661;
+			// aapt resource value: 0x7f07001a
+			public const int space4 = 2131165210;
 			
-			// aapt resource value: 0x7f06000b
-			public const int textView1 = 2131099659;
+			// aapt resource value: 0x7f070012
+			public const int space5 = 2131165202;
 			
-			// aapt resource value: 0x7f060008
-			public const int tripResults = 2131099656;
+			// aapt resource value: 0x7f070014
+			public const int space6 = 2131165204;
+			
+			// aapt resource value: 0x7f070016
+			public const int space7 = 2131165206;
+			
+			// aapt resource value: 0x7f070018
+			public const int space8 = 2131165208;
+			
+			// aapt resource value: 0x7f070011
+			public const int space9 = 2131165201;
+			
+			// aapt resource value: 0x7f07000f
+			public const int textView1 = 2131165199;
+			
+			// aapt resource value: 0x7f07000b
+			public const int tripResults = 2131165195;
 			
 			static Id()
 			{
@@ -245,10 +275,22 @@ namespace AutoFences
 		{
 			
 			// aapt resource value: 0x7f030000
-			public const int Display = 2130903040;
+			public const int activity_navigation_drawer = 2130903040;
 			
 			// aapt resource value: 0x7f030001
-			public const int Main = 2130903041;
+			public const int Display = 2130903041;
+			
+			// aapt resource value: 0x7f030002
+			public const int drawer_list_item = 2130903042;
+			
+			// aapt resource value: 0x7f030003
+			public const int Help = 2130903043;
+			
+			// aapt resource value: 0x7f030004
+			public const int Main = 2130903044;
+			
+			// aapt resource value: 0x7f030005
+			public const int Settings = 2130903045;
 			
 			static Layout()
 			{
@@ -260,11 +302,39 @@ namespace AutoFences
 			}
 		}
 		
+		public partial class Menu
+		{
+			
+			// aapt resource value: 0x7f060000
+			public const int navigation_drawer = 2131099648;
+			
+			static Menu()
+			{
+				global::Android.Runtime.ResourceIdManager.UpdateIdValues();
+			}
+			
+			private Menu()
+			{
+			}
+		}
+		
 		public partial class String
 		{
 			
 			// aapt resource value: 0x7f040000
 			public const int app_name = 2130968576;
+			
+			// aapt resource value: 0x7f04000a
+			public const int drawer_close = 2130968586;
+			
+			// aapt resource value: 0x7f040009
+			public const int drawer_open = 2130968585;
+			
+			// aapt resource value: 0x7f040008
+			public const int help = 2130968584;
+			
+			// aapt resource value: 0x7f04000b
+			public const int help_placeholder = 2130968587;
 			
 			// aapt resource value: 0x7f040003
 			public const int loginbutton = 2130968579;
@@ -277,6 +347,15 @@ namespace AutoFences
 			
 			// aapt resource value: 0x7f040005
 			public const int poweredby = 2130968581;
+			
+			// aapt resource value: 0x7f040006
+			public const int select_device = 2130968582;
+			
+			// aapt resource value: 0x7f040007
+			public const int settings = 2130968583;
+			
+			// aapt resource value: 0x7f04000c
+			public const int settings_placeholder = 2130968588;
 			
 			// aapt resource value: 0x7f040001
 			public const int usernamehint = 2130968577;

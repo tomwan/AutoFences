@@ -28,8 +28,8 @@ namespace AutoFences
 
             MojioClient client = Globals.client;
 
-            Guid appID = new Guid (Configuration.appID);
-            Guid secretKey = new Guid (Configuration.secretKey);
+            Guid appID = new Guid (Configurations.appID);
+            Guid secretKey = new Guid (Configurations.secretKey);
 
             try {
                 await client.BeginAsync (appID, secretKey);
@@ -46,7 +46,8 @@ namespace AutoFences
                 }
 
                 if (client.IsLoggedIn ()) {
-                    StartActivity (typeof(DisplayActivity));
+                    StartActivity (typeof(NavigationDrawerActivity));
+                    Finish ();
                 }
             }
             // See above.
@@ -71,7 +72,8 @@ namespace AutoFences
                         prefEditor.PutString("email", email.Text);
                         prefEditor.PutString("password",password.Text);
                         prefEditor.Apply();
-                        StartActivity (typeof(DisplayActivity));
+                        StartActivity (typeof(NavigationDrawerActivity));
+                        Finish();
                     } else {
                         Toast.MakeText (this, "The credentials provided are invalid.", ToastLength.Short).Show ();
                     }
