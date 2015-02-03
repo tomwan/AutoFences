@@ -10,7 +10,7 @@ using Android.OS;
 
 namespace AutoFences
 {
-    [Activity (Label = "AutoFences", MainLauncher = true, Icon = "@drawable/icon")]
+    [Activity (Label = "AutoFences", Icon = "@drawable/icon")]
     public class MainActivity : Activity
     {
         protected async override void OnCreate (Bundle bundle)
@@ -19,15 +19,8 @@ namespace AutoFences
 
             SetContentView (Resource.Layout.Main);
 
-            // TODO: Move the following code to the splash screen. This activity should only be for login.
-            var prefs = Application.Context.GetSharedPreferences ("settings", FileCreationMode.Private); // These two lines should be duplicated when moved.
+            var prefs = Application.Context.GetSharedPreferences ("settings", FileCreationMode.Private);
             var prefEditor = prefs.Edit();
-
-            if (await MojioConnectionHelper.setupMojioConnection (prefs)) {
-                Toast.MakeText (this, "Log In successful.", ToastLength.Short).Show ();
-                StartActivity (typeof(NavigationDrawerActivity));
-                Finish ();
-            }
 
             EditText email = FindViewById<EditText> (Resource.Id.email);
             EditText password = FindViewById<EditText> (Resource.Id.password);

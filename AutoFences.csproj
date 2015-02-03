@@ -73,6 +73,7 @@
     <Compile Include="Configurations.cs" />
     <Compile Include="FragmentAdapter.cs" />
     <Compile Include="MojioConnectionHelper.cs" />
+    <Compile Include="Splash.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\AboutResources.txt" />
@@ -222,6 +223,7 @@
     <AndroidResource Include="Resources\layout\drawer_list_item.xml" />
     <AndroidResource Include="Resources\layout\Settings.xml" />
     <AndroidResource Include="Resources\layout\Help.xml" />
+    <AndroidResource Include="Resources\layout\Splash.axml" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Novell\Novell.MonoDroid.CSharp.targets" />
   <Import Project="packages\Microsoft.Bcl.Build.1.0.21\build\Microsoft.Bcl.Build.targets" Condition="Exists('packages\Microsoft.Bcl.Build.1.0.21\build\Microsoft.Bcl.Build.targets')" />

@@ -177,6 +177,12 @@ namespace AutoFences
 		public partial class Id
 		{
 			
+			// aapt resource value: 0x7f07001d
+			public const int Placeholder = 2131165213;
+			
+			// aapt resource value: 0x7f07001c
+			public const int SplashScreen = 2131165212;
+			
 			// aapt resource value: 0x7f070001
 			public const int content_frame = 2131165185;
 			
@@ -291,6 +297,9 @@ namespace AutoFences
 			
 			// aapt resource value: 0x7f030005
 			public const int Settings = 2130903045;
+			
+			// aapt resource value: 0x7f030006
+			public const int Splash = 2130903046;
 			
 			static Layout()
 			{
