@@ -72,6 +72,7 @@
     <Compile Include="NavigationDrawerActivity.cs" />
     <Compile Include="Configurations.cs" />
     <Compile Include="FragmentAdapter.cs" />
+    <Compile Include="MojioConnectionHelper.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\AboutResources.txt" />
