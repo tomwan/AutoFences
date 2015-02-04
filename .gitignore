@@ -7,9 +7,6 @@
 *.userosscache
 *.sln.docstates
 
-# Class containing secret keys
-Configuration.cs
-
 # Build results
 [Dd]ebug/
 [Dd]ebugPublic/
