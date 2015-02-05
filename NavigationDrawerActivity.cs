@@ -63,8 +63,11 @@ namespace AutoFences
                 Resource.String.drawer_close);
 
             mDrawerLayout.SetDrawerListener (mDrawerToggle);
-            if (savedInstanceState == null) //first launch
+            if (savedInstanceState == null){
+                //first launch
                 selectItem (0);
+                SetTitle("AutoFences");
+            }
         }
 
         internal class MyActionBarDrawerToggle : ActionBarDrawerToggle
@@ -144,11 +147,11 @@ namespace AutoFences
             mDrawerLayout.CloseDrawer (mDrawerList);
         }
 
-        //      private void SetTitle (string title)
-        //      {
-        //          this.Title = title;
-        //          this.ActionBar.Title = title;
-        //      }
+        private void SetTitle (string title)
+        {
+          this.Title = title;
+          this.ActionBar.Title = title;
+        }
 
         protected override void OnTitleChanged (Java.Lang.ICharSequence title, Android.Graphics.Color color)
         {

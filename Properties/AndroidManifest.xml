@@ -1,7 +1,7 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android" android:versionCode="1" android:versionName="1.0" package="AutoFences.AutoFences">
     <uses-sdk android:targetSdkVersion="21" android:minSdkVersion="19" />
-    <application android:label="AutoFences" android:theme="@style/Theme.Autofences" android:logo="@drawable/ic_logo">
+    <application android:label="AutoFences" android:theme="@style/CustomTheme" android:logo="@drawable/ic_logo">
     </application>
     <uses-permission android:name="android.permission.INTERNET" />
 </manifest>

@@ -1,0 +1,12 @@
+﻿<?xml version="1.0" encoding="UTF-8" ?>
+<resources>
+    <!-- Inherit from the light Material Theme -->
+    <style name="CustomTheme" parent="android:Theme.Material.Light">
+        <!-- Override the app bar color -->
+        <item name="android:colorPrimary">#1E88E5</item>
+        <!-- Override the color of UI controls -->
+        <item name="android:colorAccent">#90CAF9</item>
+        <item name="android:textColorPrimary">#FFFFFF</item>
+        <item name="android:statusBarColor">#90CAF9</item>
+    </style>
+</resources>
