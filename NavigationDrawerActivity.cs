@@ -69,6 +69,7 @@ namespace AutoFences
                 SetTitle("AutoFences");
 
             }
+
         }
 
         internal class MyActionBarDrawerToggle : ActionBarDrawerToggle
@@ -230,6 +231,12 @@ namespace AutoFences
             {
                 View rootView = inflater.Inflate (Resource.Layout.Display, container, false);
                 getTripData (rootView);
+                Button launchMap = rootView.FindViewById<Button> (Resource.Id.MapButton);
+
+                launchMap.Click += delegate {
+                    //StartActivity (typeof(mapActivity));
+                    StartActivity(new Intent(Activity, typeof(mapActivity)));
+                };
                 return rootView;
             }
 
