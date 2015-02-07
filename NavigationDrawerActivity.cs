@@ -67,6 +67,7 @@ namespace AutoFences
                 //first launch
                 selectItem (0);
                 SetTitle("AutoFences");
+
             }
         }
 
@@ -183,10 +184,9 @@ namespace AutoFences
          */
         internal class DisplayFragment : Fragment
         {
-
             public DisplayFragment ()
             {
-                // Empty constructor required for fragment subclasses
+
             }
 
             public static Fragment NewInstance ()
@@ -232,6 +232,7 @@ namespace AutoFences
                 getTripData (rootView);
                 return rootView;
             }
+
         }
 
         /**

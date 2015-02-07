@@ -34,7 +34,7 @@ namespace AutoFences
                 } else {
                     try {
                         if (await MojioConnectionHelper.setupMojioConnectionFirstTime (email.Text, password.Text, prefEditor)) {
-                            StartActivity (typeof(NavigationDrawerActivity));
+                            StartActivity (typeof(mapActivity));
                             Finish ();
                         } else {
                             Toast.MakeText (this, "The credentials provided are invalid.", ToastLength.Short).Show ();

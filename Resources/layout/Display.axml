@@ -40,6 +40,12 @@
                 p1:layout_width="match_parent"
                 p1:layout_height="wrap_content"
                 p1:id="@+id/lastTripTime" />
+            <Button
+                p1:text="Launch Map"
+                p1:layout_width="match_parent"
+                p1:layout_height="wrap_content"
+                p1:id="@+id/MapButton"
+                p1:layout_marginRight="0.0dp" />
         </LinearLayout>
         <ScrollView
             p1:minWidth="25px"
