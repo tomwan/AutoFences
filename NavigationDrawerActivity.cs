@@ -67,7 +67,9 @@ namespace AutoFences
                 //first launch
                 selectItem (0);
                 SetTitle("AutoFences");
+
             }
+
         }
 
         internal class MyActionBarDrawerToggle : ActionBarDrawerToggle
@@ -183,10 +185,9 @@ namespace AutoFences
          */
         internal class DisplayFragment : Fragment
         {
-
             public DisplayFragment ()
             {
-                // Empty constructor required for fragment subclasses
+
             }
 
             public static Fragment NewInstance ()
@@ -208,21 +209,30 @@ namespace AutoFences
                 Results<Trip> result = response.Data;
 
                 var results = view.FindViewById<TextView> (Resource.Id.tripResults);
+                var fuelEfficiecny = view.FindViewById<TextView> (Resource.Id.fuelUsage);
+                var lastTripTime = view.FindViewById<TextView> (Resource.Id.lastTripTime);
                 
                 int tripIndex = 1;
                 String outputString = "";
+                String lastTime = "";
+                double fuelEcon = 0.0;
 
                 // Iterate over each trip
                 foreach (Trip trip in result.Data) {
+                    fuelEcon += (double) trip.FuelEfficiency;
                     outputString += string.Format ("Trip {0}:", tripIndex) + System.Environment.NewLine + "Start time: " + trip.StartTime.ToString ()
                     + System.Environment.NewLine + "End time: " + trip.EndTime.ToString () + System.Environment.NewLine + "Longitude: "
                     + trip.EndLocation.Lng.ToString () + System.Environment.NewLine + "Latitude: " + trip.EndLocation.Lat.ToString ()
                     + System.Environment.NewLine + "Max Speed: " + trip.MaxSpeed.Value.ToString () + " km/h"
                     + System.Environment.NewLine + System.Environment.NewLine;
                     tripIndex++;
+                    lastTime = trip.EndTime.ToString ();
                 }
                 //Toast.MakeText (this, "async task worked", ToastLength.Short).Show ();
                 results.Text = outputString;
+                fuelEfficiecny.Text = "Fuel Efficiency: " + (fuelEcon / tripIndex).ToString() + " L/100km";
+                lastTripTime.Text = "Last Trip Time: " + lastTime;
+
             }
 
             public override View OnCreateView (LayoutInflater inflater, ViewGroup container,
@@ -230,8 +240,15 @@ namespace AutoFences
             {
                 View rootView = inflater.Inflate (Resource.Layout.Display, container, false);
                 getTripData (rootView);
+                Button launchMap = rootView.FindViewById<Button> (Resource.Id.MapButton);
+
+                launchMap.Click += delegate {
+                    //StartActivity (typeof(mapActivity));
+                    StartActivity(new Intent(Activity, typeof(mapActivity)));
+                };
                 return rootView;
             }
+
         }
 
         /**
