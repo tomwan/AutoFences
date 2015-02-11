@@ -1582,14 +1582,14 @@ namespace AutoFences
 		public partial class Id
 		{
 			
-			// aapt resource value: 0x7f0b005d
-			public const int MapButton = 2131427421;
+			// aapt resource value: 0x7f0b005b
+			public const int MapButton = 2131427419;
 			
-			// aapt resource value: 0x7f0b0079
-			public const int Placeholder = 2131427449;
+			// aapt resource value: 0x7f0b0077
+			public const int Placeholder = 2131427447;
 			
-			// aapt resource value: 0x7f0b0078
-			public const int SplashScreen = 2131427448;
+			// aapt resource value: 0x7f0b0076
+			public const int SplashScreen = 2131427446;
 			
 			// aapt resource value: 0x7f0b0045
 			public const int action_bar = 2131427397;
@@ -1669,9 +1669,6 @@ namespace AutoFences
 			// aapt resource value: 0x7f0b0054
 			public const int content_frame = 2131427412;
 			
-			// aapt resource value: 0x7f0b005b
-			public const int currentSpeed = 2131427419;
-			
 			// aapt resource value: 0x7f0b0043
 			public const int decor_content_parent = 2131427395;
 			
@@ -1696,8 +1693,8 @@ namespace AutoFences
 			// aapt resource value: 0x7f0b0047
 			public const int edit_query = 2131427399;
 			
-			// aapt resource value: 0x7f0b0067
-			public const int email = 2131427431;
+			// aapt resource value: 0x7f0b0065
+			public const int email = 2131427429;
 			
 			// aapt resource value: 0x7f0b0014
 			public const int end = 2131427348;
@@ -1708,14 +1705,14 @@ namespace AutoFences
 			// aapt resource value: 0x7f0b003c
 			public const int expanded_menu = 2131427388;
 			
-			// aapt resource value: 0x7f0b005a
-			public const int fuelUsage = 2131427418;
+			// aapt resource value: 0x7f0b0059
+			public const int fuelUsage = 2131427417;
 			
 			// aapt resource value: 0x7f0b0030
 			public const int grayscale = 2131427376;
 			
-			// aapt resource value: 0x7f0b0060
-			public const int helpText = 2131427424;
+			// aapt resource value: 0x7f0b005e
+			public const int helpText = 2131427422;
 			
 			// aapt resource value: 0x7f0b0023
 			public const int holo_dark = 2131427363;
@@ -1741,11 +1738,8 @@ namespace AutoFences
 			// aapt resource value: 0x7f0b0037
 			public const int image = 2131427383;
 			
-			// aapt resource value: 0x7f0b0057
-			public const int imageView1 = 2131427415;
-			
-			// aapt resource value: 0x7f0b005c
-			public const int lastTripTime = 2131427420;
+			// aapt resource value: 0x7f0b005a
+			public const int lastTripTime = 2131427418;
 			
 			// aapt resource value: 0x7f0b0055
 			public const int left_drawer = 2131427413;
@@ -1753,14 +1747,14 @@ namespace AutoFences
 			// aapt resource value: 0x7f0b0056
 			public const int linearLayout1 = 2131427414;
 			
+			// aapt resource value: 0x7f0b0057
+			public const int linearLayout2 = 2131427415;
+			
 			// aapt resource value: 0x7f0b0058
-			public const int linearLayout2 = 2131427416;
+			public const int linearLayout3 = 2131427416;
 			
-			// aapt resource value: 0x7f0b0059
-			public const int linearLayout3 = 2131427417;
-			
-			// aapt resource value: 0x7f0b0069
-			public const int linearLayout4 = 2131427433;
+			// aapt resource value: 0x7f0b0067
+			public const int linearLayout4 = 2131427431;
 			
 			// aapt resource value: 0x7f0b0009
 			public const int listMode = 2131427337;
@@ -1768,29 +1762,29 @@ namespace AutoFences
 			// aapt resource value: 0x7f0b0039
 			public const int list_item = 2131427385;
 			
-			// aapt resource value: 0x7f0b006d
-			public const int loginbutton = 2131427437;
+			// aapt resource value: 0x7f0b006b
+			public const int loginbutton = 2131427435;
 			
-			// aapt resource value: 0x7f0b0071
-			public const int map = 2131427441;
+			// aapt resource value: 0x7f0b006f
+			public const int map = 2131427439;
 			
 			// aapt resource value: 0x7f0b002a
 			public const int match_parent = 2131427370;
 			
-			// aapt resource value: 0x7f0b0075
-			public const int media_route_control_frame = 2131427445;
-			
-			// aapt resource value: 0x7f0b0076
-			public const int media_route_disconnect_button = 2131427446;
-			
-			// aapt resource value: 0x7f0b0072
-			public const int media_route_list = 2131427442;
-			
 			// aapt resource value: 0x7f0b0073
-			public const int media_route_volume_layout = 2131427443;
+			public const int media_route_control_frame = 2131427443;
 			
 			// aapt resource value: 0x7f0b0074
-			public const int media_route_volume_slider = 2131427444;
+			public const int media_route_disconnect_button = 2131427444;
+			
+			// aapt resource value: 0x7f0b0070
+			public const int media_route_list = 2131427440;
+			
+			// aapt resource value: 0x7f0b0071
+			public const int media_route_volume_layout = 2131427441;
+			
+			// aapt resource value: 0x7f0b0072
+			public const int media_route_volume_slider = 2131427442;
 			
 			// aapt resource value: 0x7f0b0015
 			public const int middle = 2131427349;
@@ -1807,8 +1801,8 @@ namespace AutoFences
 			// aapt resource value: 0x7f0b000a
 			public const int normal = 2131427338;
 			
-			// aapt resource value: 0x7f0b006b
-			public const int password = 2131427435;
+			// aapt resource value: 0x7f0b0069
+			public const int password = 2131427433;
 			
 			// aapt resource value: 0x7f0b0025
 			public const int production = 2131427365;
@@ -1828,8 +1822,8 @@ namespace AutoFences
 			// aapt resource value: 0x7f0b0021
 			public const int satellite = 2131427361;
 			
-			// aapt resource value: 0x7f0b005e
-			public const int scrollView1 = 2131427422;
+			// aapt resource value: 0x7f0b005c
+			public const int scrollView1 = 2131427420;
 			
 			// aapt resource value: 0x7f0b0049
 			public const int search_badge = 2131427401;
@@ -1864,8 +1858,8 @@ namespace AutoFences
 			// aapt resource value: 0x7f0b0029
 			public const int selectionDetails = 2131427369;
 			
-			// aapt resource value: 0x7f0b0077
-			public const int settingsText = 2131427447;
+			// aapt resource value: 0x7f0b0075
+			public const int settingsText = 2131427445;
 			
 			// aapt resource value: 0x7f0b003e
 			public const int shortcut = 2131427390;
@@ -1879,32 +1873,32 @@ namespace AutoFences
 			// aapt resource value: 0x7f0b0011
 			public const int showTitle = 2131427345;
 			
-			// aapt resource value: 0x7f0b0064
-			public const int space1 = 2131427428;
-			
 			// aapt resource value: 0x7f0b0062
-			public const int space2 = 2131427426;
+			public const int space1 = 2131427426;
 			
-			// aapt resource value: 0x7f0b0061
-			public const int space3 = 2131427425;
+			// aapt resource value: 0x7f0b0060
+			public const int space2 = 2131427424;
 			
-			// aapt resource value: 0x7f0b006e
-			public const int space4 = 2131427438;
-			
-			// aapt resource value: 0x7f0b0066
-			public const int space5 = 2131427430;
-			
-			// aapt resource value: 0x7f0b0068
-			public const int space6 = 2131427432;
-			
-			// aapt resource value: 0x7f0b006a
-			public const int space7 = 2131427434;
+			// aapt resource value: 0x7f0b005f
+			public const int space3 = 2131427423;
 			
 			// aapt resource value: 0x7f0b006c
-			public const int space8 = 2131427436;
+			public const int space4 = 2131427436;
 			
-			// aapt resource value: 0x7f0b0065
-			public const int space9 = 2131427429;
+			// aapt resource value: 0x7f0b0064
+			public const int space5 = 2131427428;
+			
+			// aapt resource value: 0x7f0b0066
+			public const int space6 = 2131427430;
+			
+			// aapt resource value: 0x7f0b0068
+			public const int space7 = 2131427432;
+			
+			// aapt resource value: 0x7f0b006a
+			public const int space8 = 2131427434;
+			
+			// aapt resource value: 0x7f0b0063
+			public const int space9 = 2131427427;
 			
 			// aapt resource value: 0x7f0b0007
 			public const int split_action_bar = 2131427335;
@@ -1921,14 +1915,14 @@ namespace AutoFences
 			// aapt resource value: 0x7f0b0022
 			public const int terrain = 2131427362;
 			
-			// aapt resource value: 0x7f0b0063
-			public const int textView1 = 2131427427;
+			// aapt resource value: 0x7f0b0061
+			public const int textView1 = 2131427425;
 			
 			// aapt resource value: 0x7f0b003b
 			public const int title = 2131427387;
 			
-			// aapt resource value: 0x7f0b005f
-			public const int tripResults = 2131427423;
+			// aapt resource value: 0x7f0b005d
+			public const int tripResults = 2131427421;
 			
 			// aapt resource value: 0x7f0b0008
 			public const int up = 2131427336;
@@ -1942,11 +1936,11 @@ namespace AutoFences
 			// aapt resource value: 0x7f0b001d
 			public const int wrap_content = 2131427357;
 			
-			// aapt resource value: 0x7f0b006f
-			public const int zoomInButton = 2131427439;
+			// aapt resource value: 0x7f0b006d
+			public const int zoomInButton = 2131427437;
 			
-			// aapt resource value: 0x7f0b0070
-			public const int zoomOutButton = 2131427440;
+			// aapt resource value: 0x7f0b006e
+			public const int zoomOutButton = 2131427438;
 			
 			static Id()
 			{

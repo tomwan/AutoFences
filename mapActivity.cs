@@ -20,12 +20,13 @@ namespace AutoFences
         private GoogleMap _map;
         private MapFragment _mapFragment;
         private LocationManager locMgr;
-        private LatLng currentLocation = new LatLng(49.2677, -123.2564);
+        private LatLng currentLocation;//= new LatLng(49.2677, -123.2564);
 
         protected override void OnCreate (Bundle bundle)
         {
             base.OnCreate (bundle);
             SetContentView (Resource.Layout.mapLayout);
+            currentLocation = GetCurrentLocation ();
             InitMapFragment();
             SetupMapIfNeeded();
             SetupZoomInButton ();
@@ -56,6 +57,25 @@ namespace AutoFences
                 fragTx.Commit();
 
             }
+        }
+
+        private LatLng GetCurrentLocation() { 
+
+            Criteria locationCriteria = new Criteria();
+            locationCriteria.Accuracy = Accuracy.Coarse;
+            locationCriteria.PowerRequirement = Power.Medium;
+
+            var service = (LocationManager)GetSystemService(LocationService); 
+            var provider = service.GetBestProvider(locationCriteria, true); 
+            var location = service.GetLastKnownLocation(provider); 
+
+            if (provider != null) {
+                service.RequestLocationUpdates (provider, 2000, 1, this);
+            } else {
+                Toast.MakeText (this, "No location providers available", ToastLength.Short).Show ();
+            }
+
+            return new LatLng(location.Latitude, location.Longitude);          
         }
 
         private void SetupMapIfNeeded()
@@ -101,7 +121,6 @@ namespace AutoFences
         }
         public void OnLocationChanged (Android.Locations.Location location)
         {
-
         }
 
     }
