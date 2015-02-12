@@ -17,13 +17,11 @@ namespace AutoFences
 {
     public class SignalRHelper
     {
-        private static View view;
-        public async static Task SignalRSetup (View v)
+        public async static Task SignalRSetup ()
         {
             Guid appID = new Guid (Configurations.appID);
             Guid secretKey = new Guid (Configurations.secretKey);
             Guid vehicleID = new Guid (Configurations.vehicleID);
-            view = v;
 
             //--------------------Subscribing to SignalR Events--------------------------//
             EventType[] types = new EventType[] {
@@ -72,25 +70,19 @@ namespace AutoFences
             };
             Globals.client.Unsubscribe<Vehicle> (vehicleID, types);
         }
-        // Flags for Event Type
-        public static bool ignitionOff = false;
-        public static bool ignitionOn = false;
-        public static bool speed = false;
-        public static bool fenceEntered = false;
-        public static bool fenceExited = false;
 
         public static void ReceiveEvent (Event events)
         {
             if (events.EventType == EventType.IgnitionOff) {
-                Console.WriteLine ("Ignition Off !");
-                Notification.Builder builder = new Notification.Builder (view.Context)
+                Console.WriteLine ("Ignition Off!");
+                Notification.Builder builder = new Notification.Builder (Application.Context)
                     .SetContentTitle ("Mojio Notification")
                     .SetContentText ("Vehicle Ignition is Off!")
                     .SetSmallIcon (Resource.Drawable.Icon);
 
                 // Get the notification manager:
-                NotificationManager notificationManager = view.Context.GetSystemService (Context.NotificationService) as NotificationManager;
-
+                NotificationManager notificationManager = Application.Context.GetSystemService (Context.NotificationService) as NotificationManager;
+                builder.SetDefaults (NotificationDefaults.Sound | NotificationDefaults.Vibrate);
                 Notification notification = builder.Build();
 
                 // Publish the notification:
@@ -98,28 +90,61 @@ namespace AutoFences
                 notificationManager.Notify (notificationId, notification);
 
             } else if (events.EventType == EventType.IgnitionOn) {
-                Console.WriteLine ("Ignition On !");
-                Notification.Builder builder = new Notification.Builder (view.Context)
+                Console.WriteLine ("Ignition On!");
+                Notification.Builder builder = new Notification.Builder (Application.Context)
                     .SetContentTitle ("Mojio Notification")
                     .SetContentText ("Vehicle Ignition is On!")
                     .SetSmallIcon (Resource.Drawable.Icon);
 
-                NotificationManager notificationManager = view.Context.GetSystemService (Context.NotificationService) as NotificationManager;
-
+                NotificationManager notificationManager = Application.Context.GetSystemService (Context.NotificationService) as NotificationManager;
+                builder.SetDefaults (NotificationDefaults.Sound | NotificationDefaults.Vibrate);
                 Notification notification = builder.Build();
 
                 // Publish the notification:
                 const int notificationId = 0;
                 notificationManager.Notify (notificationId, notification);
             } else if (events.EventType == EventType.Speed) {
-                AutoFences.SignalRHelper.speed = true;
                 Console.WriteLine ("Speed !");
+                Notification.Builder builder = new Notification.Builder (Application.Context)
+                    .SetContentTitle ("Mojio Notification")
+                    .SetContentText ("Vehicle Speeding!")
+                    .SetSmallIcon (Resource.Drawable.Icon);
+
+                NotificationManager notificationManager = Application.Context.GetSystemService (Context.NotificationService) as NotificationManager;
+                builder.SetDefaults (NotificationDefaults.Sound | NotificationDefaults.Vibrate);
+                Notification notification = builder.Build();
+
+                // Publish the notification:
+                const int notificationId = 0;
+                notificationManager.Notify (notificationId, notification);
             } else if (events.EventType == EventType.FenceEntered) {
-                AutoFences.SignalRHelper.fenceEntered = true;
                 Console.WriteLine ("FenceEntered !");
+                Notification.Builder builder = new Notification.Builder (Application.Context)
+                    .SetContentTitle ("Mojio Notification")
+                    .SetContentText ("Vehicle Inside Fence!")
+                    .SetSmallIcon (Resource.Drawable.Icon);
+
+                NotificationManager notificationManager = Application.Context.GetSystemService (Context.NotificationService) as NotificationManager;
+                builder.SetDefaults (NotificationDefaults.Sound | NotificationDefaults.Vibrate);
+                Notification notification = builder.Build();
+
+                // Publish the notification:
+                const int notificationId = 0;
+                notificationManager.Notify (notificationId, notification);
             } else if (events.EventType == EventType.FenceExited) {
-                AutoFences.SignalRHelper.fenceExited = true;
                 Console.WriteLine ("FenceExited !");
+                Notification.Builder builder = new Notification.Builder (Application.Context)
+                    .SetContentTitle ("Mojio Notification")
+                    .SetContentText ("Vehicle Outside!")
+                    .SetSmallIcon (Resource.Drawable.Icon);
+
+                NotificationManager notificationManager = Application.Context.GetSystemService (Context.NotificationService) as NotificationManager;
+                builder.SetDefaults (NotificationDefaults.Sound | NotificationDefaults.Vibrate);
+                Notification notification = builder.Build();
+
+                // Publish the notification:
+                const int notificationId = 0;
+                notificationManager.Notify (notificationId, notification);
             }
         }
     }

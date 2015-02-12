@@ -241,7 +241,7 @@ namespace AutoFences
                                       Bundle savedInstanceState)
             {
                 View rootView = inflater.Inflate (Resource.Layout.Display, container, false);
-                SignalRHelper.SignalRSetup (this.View);
+                SignalRHelper.SignalRSetup ();
                 getTripData (rootView);
                 Button launchMap = rootView.FindViewById<Button> (Resource.Id.MapButton);
 
