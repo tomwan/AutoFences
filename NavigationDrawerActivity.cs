@@ -19,7 +19,7 @@ using Fragment = Android.App.Fragment;
 
 namespace AutoFences
 {
-    [Activity (Label = "@string/app_name", Icon = "@drawable/icon", NoHistory = true)]
+    [Activity (Label = "@string/app_name", Icon = "@drawable/ic_logo")]
     public class NavigationDrawerActivity : Activity, FragmentAdapter.OnItemClickListener
     {
         private DrawerLayout mDrawerLayout;
@@ -193,6 +193,7 @@ namespace AutoFences
             public static Fragment NewInstance ()
             {
                 Fragment fragment = new DisplayFragment ();
+                fragment.RetainInstance = true;
                 return fragment;
             }
 
@@ -230,8 +231,8 @@ namespace AutoFences
                 }
                 //Toast.MakeText (this, "async task worked", ToastLength.Short).Show ();
                 results.Text = outputString;
-                fuelEfficiecny.Text = "Fuel Efficiency: " + (fuelEcon / tripIndex).ToString() + " L/100km";
-                lastTripTime.Text = "Last Trip Time: " + lastTime;
+                fuelEfficiecny.Text = "Fuel Efficiency:\n" + (fuelEcon / tripIndex).ToString() + " L/100km";
+                lastTripTime.Text = "Last Trip Time: \n" + lastTime;
 
             }
 

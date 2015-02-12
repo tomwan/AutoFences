@@ -14,7 +14,7 @@ using Android.Gms.Maps.Model;
 
 namespace AutoFences
 {
-    [Activity (Label = "mapActivity")]            
+    [Activity (Label = "Set Map")]            
     public class mapActivity : Activity, ILocationListener
     {
         private GoogleMap _map;
@@ -41,11 +41,11 @@ namespace AutoFences
 
         }
 
-        public override void OnBackPressed(){
+        /*public override void OnBackPressed(){
             StartActivity (typeof(NavigationDrawerActivity));
             //StartActivity(new Intent(Activity, typeof(NavigationDrawerActivity)));
             Finish ();
-        }
+        }*/
 
 
         private void InitMapFragment()

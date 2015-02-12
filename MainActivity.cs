@@ -10,7 +10,7 @@ using Android.OS;
 
 namespace AutoFences
 {
-    [Activity (Label = "AutoFences", Icon = "@drawable/ic_logo")]
+    [Activity (Label = "AutoFences", Icon = "@drawable/ic_logo", NoHistory=true)]
     public class MainActivity : Activity
     {
         protected async override void OnCreate (Bundle bundle)
