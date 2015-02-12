@@ -13,7 +13,7 @@ using Android.Widget;
 
 namespace AutoFences
 {
-    [Activity (Label = "AutoFences", MainLauncher = true, Icon = "@drawable/icon")]
+    [Activity (Label = "AutoFences", MainLauncher = true, Icon = "@drawable/ic_logo", NoHistory=true)]
     public class Splash : Activity
     {
         protected override async void OnCreate (Bundle bundle)
