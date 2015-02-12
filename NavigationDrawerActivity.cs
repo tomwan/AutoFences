@@ -13,6 +13,7 @@ using Android.Support.V4.Widget;
 using Android.Support.V7.Widget;
 using Mojio.Client;
 using Mojio;
+using Mojio.Events;
 
 //Ambiguities
 using Fragment = Android.App.Fragment;
@@ -240,6 +241,7 @@ namespace AutoFences
                                       Bundle savedInstanceState)
             {
                 View rootView = inflater.Inflate (Resource.Layout.Display, container, false);
+                SignalRHelper.SignalRSetup (this.View);
                 getTripData (rootView);
                 Button launchMap = rootView.FindViewById<Button> (Resource.Id.MapButton);
 

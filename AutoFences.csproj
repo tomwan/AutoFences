@@ -90,6 +90,7 @@
     <Compile Include="MojioConnectionHelper.cs" />
     <Compile Include="Splash.cs" />
     <Compile Include="mapActivity.cs" />
+    <Compile Include="SignalRHelper.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\AboutResources.txt" />
