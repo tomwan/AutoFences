@@ -41,6 +41,13 @@ namespace AutoFences
 
         }
 
+        public override void OnBackPressed(){
+            StartActivity (typeof(NavigationDrawerActivity));
+            //StartActivity(new Intent(Activity, typeof(NavigationDrawerActivity)));
+            Finish ();
+        }
+
+
         private void InitMapFragment()
         {
             _mapFragment = FragmentManager.FindFragmentByTag("map") as MapFragment;
