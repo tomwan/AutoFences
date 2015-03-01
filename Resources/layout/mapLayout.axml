@@ -3,16 +3,13 @@
     p1:orientation="vertical"
     p1:layout_width="fill_parent"
     p1:layout_height="fill_parent">
-    <Button
-        p1:id="@+id/zoomInButton"
-        p1:layout_width="fill_parent"
+    <SeekBar
+        p1:layout_width="match_parent"
         p1:layout_height="wrap_content"
-        p1:text="Zoom In" />
-    <Button
-        p1:id="@+id/zoomOutButton"
-        p1:layout_width="fill_parent"
-        p1:layout_height="wrap_content"
-        p1:text="Zoom Out" />
+        p1:id="@+id/seekBarRadius"
+        p1:indeterminate="false"
+        p1:max="10000"
+        p1:progress="0" />
     <FrameLayout
         p1:id="@+id/map"
         p1:layout_width="fill_parent"
