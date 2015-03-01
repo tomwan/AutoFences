@@ -1639,8 +1639,8 @@ namespace AutoFences
 			// aapt resource value: 0x7f0b005b
 			public const int MapButton = 2131427419;
 			
-			// aapt resource value: 0x7f0b0076
-			public const int SplashScreen = 2131427446;
+			// aapt resource value: 0x7f0b0075
+			public const int SplashScreen = 2131427445;
 			
 			// aapt resource value: 0x7f0b0045
 			public const int action_bar = 2131427397;
@@ -1789,8 +1789,8 @@ namespace AutoFences
 			// aapt resource value: 0x7f0b0037
 			public const int image = 2131427383;
 			
-			// aapt resource value: 0x7f0b0077
-			public const int imageView1 = 2131427447;
+			// aapt resource value: 0x7f0b0076
+			public const int imageView1 = 2131427446;
 			
 			// aapt resource value: 0x7f0b005a
 			public const int lastTripTime = 2131427418;
@@ -1819,26 +1819,26 @@ namespace AutoFences
 			// aapt resource value: 0x7f0b006b
 			public const int loginbutton = 2131427435;
 			
-			// aapt resource value: 0x7f0b006f
-			public const int map = 2131427439;
+			// aapt resource value: 0x7f0b006e
+			public const int map = 2131427438;
 			
 			// aapt resource value: 0x7f0b002a
 			public const int match_parent = 2131427370;
 			
-			// aapt resource value: 0x7f0b0073
-			public const int media_route_control_frame = 2131427443;
+			// aapt resource value: 0x7f0b0072
+			public const int media_route_control_frame = 2131427442;
 			
-			// aapt resource value: 0x7f0b0074
-			public const int media_route_disconnect_button = 2131427444;
+			// aapt resource value: 0x7f0b0073
+			public const int media_route_disconnect_button = 2131427443;
+			
+			// aapt resource value: 0x7f0b006f
+			public const int media_route_list = 2131427439;
 			
 			// aapt resource value: 0x7f0b0070
-			public const int media_route_list = 2131427440;
+			public const int media_route_volume_layout = 2131427440;
 			
 			// aapt resource value: 0x7f0b0071
-			public const int media_route_volume_layout = 2131427441;
-			
-			// aapt resource value: 0x7f0b0072
-			public const int media_route_volume_slider = 2131427442;
+			public const int media_route_volume_slider = 2131427441;
 			
 			// aapt resource value: 0x7f0b0015
 			public const int middle = 2131427349;
@@ -1909,11 +1909,14 @@ namespace AutoFences
 			// aapt resource value: 0x7f0b0052
 			public const int search_voice_btn = 2131427410;
 			
+			// aapt resource value: 0x7f0b006d
+			public const int seekBarRadius = 2131427437;
+			
 			// aapt resource value: 0x7f0b0029
 			public const int selectionDetails = 2131427369;
 			
-			// aapt resource value: 0x7f0b0075
-			public const int settingsText = 2131427445;
+			// aapt resource value: 0x7f0b0074
+			public const int settingsText = 2131427444;
 			
 			// aapt resource value: 0x7f0b003e
 			public const int shortcut = 2131427390;
@@ -1989,12 +1992,6 @@ namespace AutoFences
 			
 			// aapt resource value: 0x7f0b001d
 			public const int wrap_content = 2131427357;
-			
-			// aapt resource value: 0x7f0b006d
-			public const int zoomInButton = 2131427437;
-			
-			// aapt resource value: 0x7f0b006e
-			public const int zoomOutButton = 2131427438;
 			
 			static Id()
 			{

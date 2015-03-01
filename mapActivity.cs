@@ -18,20 +18,22 @@ namespace AutoFences
     public class mapActivity : Activity, ILocationListener
     {
         private GoogleMap _map;
+        private int radius;
         private MapFragment _mapFragment;
         private LocationManager locMgr;
-        private LatLng currentLocation;//= new LatLng(49.2677, -123.2564);
+        private LatLng currentLocation;
+        SeekBar seekBar;
+        private Circle _circle;
 
-        protected override void OnCreate (Bundle bundle)
-        {
+        protected override void OnCreate (Bundle bundle){
             base.OnCreate (bundle);
-            SetContentView (Resource.Layout.mapLayout);
+            SetContentView (Resource.Layout.mapLayout);           
+
+            seekBar = FindViewById<SeekBar>(Resource.Id.seekBarRadius);
+
             currentLocation = GetCurrentLocation ();
             InitMapFragment();
-            SetupMapIfNeeded();
-            SetupZoomInButton ();
-            SetupZoomOutButton();
-
+            seekBar.ProgressChanged += new EventHandler<SeekBar.ProgressChangedEventArgs>(seekBarProgressChanged);
         }
 
         protected override void OnResume()
@@ -41,13 +43,30 @@ namespace AutoFences
 
         }
 
+        void seekBarProgressChanged(object sender, SeekBar.ProgressChangedEventArgs e) {
+            radius = e.Progress;
+            if (_map != null) {
+                if (_circle == null) {
+                    CircleOptions circleOptions = new CircleOptions ();
+                    circleOptions.InvokeCenter (currentLocation);
+                    circleOptions.InvokeRadius (radius);
+                    circleOptions.InvokeFillColor (Convert.ToInt32 ("0x3000ffff", 16));
+                    circleOptions.InvokeStrokeColor (Convert.ToInt32 ("0x3000ffff", 16));
+                    //_circle = new Circle (circleOptions);
+                    _circle = _map.AddCircle(circleOptions);
+                } else {
+                    _circle.Radius = radius;
+                }
+            }
+        }
+           
+
         /*public override void OnBackPressed(){
             StartActivity (typeof(NavigationDrawerActivity));
             //StartActivity(new Intent(Activity, typeof(NavigationDrawerActivity)));
             Finish ();
         }*/
-
-
+       
         private void InitMapFragment()
         {
             _mapFragment = FragmentManager.FindFragmentByTag("map") as MapFragment;
@@ -90,8 +109,7 @@ namespace AutoFences
             if (_map == null)
             {
                 _map = _mapFragment.Map;
-                if (_map != null)
-                {
+                if (_map != null) {
                     MarkerOptions marker1 = new MarkerOptions();
                     marker1.SetPosition(currentLocation);
                     _map.AddMarker(marker1);
@@ -99,20 +117,9 @@ namespace AutoFences
                     // We create an instance of CameraUpdate, and move the map to it.
                     CameraUpdate cameraUpdate = CameraUpdateFactory.NewLatLngZoom(currentLocation, 15);
                     _map.MoveCamera(cameraUpdate);
+                   
                 }
             }
-        }
-
-        private void SetupZoomInButton()
-        {
-            Button zoomInButton = FindViewById<Button>(Resource.Id.zoomInButton);
-            zoomInButton.Click += (sender, e) => { _map.AnimateCamera(CameraUpdateFactory.ZoomIn()); };
-        }
-
-        private void SetupZoomOutButton()
-        {
-            Button zoomOutButton = FindViewById<Button>(Resource.Id.zoomOutButton);
-            zoomOutButton.Click += (sender, e) => { _map.AnimateCamera(CameraUpdateFactory.ZoomOut()); };
         }
         public void OnProviderEnabled (string provider)
         {
