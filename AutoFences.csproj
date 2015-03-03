@@ -91,6 +91,7 @@
     <Compile Include="Splash.cs" />
     <Compile Include="mapActivity.cs" />
     <Compile Include="SignalRHelper.cs" />
+    <Compile Include="TripData.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\AboutResources.txt" />
@@ -102,12 +103,6 @@
     <AndroidResource Include="Resources\layout\Main.axml" />
     <AndroidResource Include="Resources\values\Strings.xml" />
     <AndroidResource Include="Resources\drawable\Icon.png" />
-    <AndroidResource Include="Resources\drawable\ab_background_textured_autofences.xml" />
-    <AndroidResource Include="Resources\drawable\btn_cab_done_autofences.xml" />
-    <AndroidResource Include="Resources\drawable\progress_horizontal_autofences.xml" />
-    <AndroidResource Include="Resources\drawable\selectable_background_autofences.xml" />
-    <AndroidResource Include="Resources\drawable\spinner_background_ab_autofences.xml" />
-    <AndroidResource Include="Resources\drawable\tab_indicator_ab_autofences.xml" />
     <AndroidResource Include="Resources\drawable-hdpi\ab_bottom_solid_autofences.9.png" />
     <AndroidResource Include="Resources\drawable-hdpi\ab_solid_autofences.9.png" />
     <AndroidResource Include="Resources\drawable-hdpi\ab_stacked_solid_autofences.9.png" />
@@ -217,7 +212,6 @@
     <AndroidResource Include="Resources\drawable-xhdpi\ic_logo.png" />
     <AndroidResource Include="Resources\drawable-xxhdpi\ic_logo.png" />
     <AndroidResource Include="Resources\drawable-xxxhdpi\ic_logo.png" />
-    <AndroidResource Include="Resources\layout\Display.axml" />
     <AndroidResource Include="Resources\drawable-xxhdpi\map_placeholder.png" />
     <AndroidResource Include="Resources\drawable-xhdpi\map_placeholder.png" />
     <AndroidResource Include="Resources\drawable-mdpi\map_placeholder.png" />
@@ -244,6 +238,12 @@
     <AndroidResource Include="Resources\drawable\ic_logo.png" />
     <AndroidResource Include="Resources\drawable-xxhdpi\ic_drawer.png" />
     <AndroidResource Include="Resources\layout\mapLayout.axml" />
+    <AndroidResource Include="Resources\layout\Display.xml" />
+    <AndroidResource Include="Resources\drawable\adventure.png" />
+    <AndroidResource Include="Resources\drawable\gas.png" />
+    <AndroidResource Include="Resources\drawable\speedometer.png" />
+    <AndroidResource Include="Resources\drawable\stopwatch.png" />
+    <AndroidResource Include="Resources\drawable\mapButton.png" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Novell\Novell.MonoDroid.CSharp.targets" />
   <Import Project="packages\Microsoft.Bcl.Build.1.0.21\build\Microsoft.Bcl.Build.targets" Condition="Exists('packages\Microsoft.Bcl.Build.1.0.21\build\Microsoft.Bcl.Build.targets')" />

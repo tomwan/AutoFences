@@ -1,5 +1,5 @@
 ﻿using System;
-
+using System.Collections.Generic;
 using Android.App;
 using Android.Content;
 using Android.Content.Res;
@@ -206,34 +206,111 @@ namespace AutoFences
                 if (MojioConnectionHelper.isClientLoggedIn()) {
                     await MojioConnectionHelper.setupMojioConnection (prefs);
                 }
-                Globals.client.PageSize = 15; //Gets 15 results
+                Globals.client.PageSize = 50; //Gets 15 results
                 MojioResponse<Results<Trip>> response = await Globals.client.GetAsync<Trip> ();
                 Results<Trip> result = response.Data;
 
-                var results = view.FindViewById<TextView> (Resource.Id.tripResults);
+                //var results = view.FindViewById<TextView> (Resource.Id.tripResults);
                 var fuelEfficiecny = view.FindViewById<TextView> (Resource.Id.fuelUsage);
                 var lastTripTime = view.FindViewById<TextView> (Resource.Id.lastTripTime);
                 
-                int tripIndex = 1;
+                int tripIndex = 0;
                 String outputString = "";
                 String lastTime = "";
                 double fuelEcon = 0.0;
-
-                // Iterate over each trip
-                foreach (Trip trip in result.Data) {
-                    fuelEcon += (double) trip.FuelEfficiency;
-                    outputString += string.Format ("Trip {0}:", tripIndex) + System.Environment.NewLine + "Start time: " + trip.StartTime.ToString ()
-                    + System.Environment.NewLine + "End time: " + trip.EndTime.ToString () + System.Environment.NewLine + "Longitude: "
-                    + trip.EndLocation.Lng.ToString () + System.Environment.NewLine + "Latitude: " + trip.EndLocation.Lat.ToString ()
-                    + System.Environment.NewLine + "Max Speed: " + trip.MaxSpeed.Value.ToString () + " km/h"
-                    + System.Environment.NewLine + System.Environment.NewLine;
-                    tripIndex++;
-                    lastTime = trip.EndTime.ToString ();
+                // Iterate over each trip to find fuel econ
+                try{
+                    foreach (Trip trip in result.Data) {
+                        tripIndex++;
+                        fuelEcon += (double) trip.FuelEfficiency;
+                        lastTime = trip.EndTime.ToString ();
+                    }
+                } catch(Exception e){
+                    Console.WriteLine ("Exception:" + e);
                 }
-                //Toast.MakeText (this, "async task worked", ToastLength.Short).Show ();
-                results.Text = outputString;
-                fuelEfficiecny.Text = "Fuel Efficiency:\n" + (fuelEcon / tripIndex).ToString() + " L/100km";
-                lastTripTime.Text = "Last Trip Time: \n" + lastTime;
+                tripIndex--;
+
+                List<TripData> list = new List<TripData>();
+                //iterate over each trip to create TripData for each existing trip.
+                try{
+                    foreach (Trip trip in result.Data) {
+                        TripData td = new TripData(trip.StartTime, trip.EndTime, trip.MaxSpeed.Value.ToString(), trip.EndLocation.Lat.ToString(), trip.EndLocation.Lng.ToString ());
+                        //add new trip to beginning of list, so they are in most recent first
+                        list.Insert(0, td);
+                    }
+                } catch(Exception e){
+                    Console.WriteLine ("Exception:" + e);
+                }
+                int i = 1;
+
+                // programmatically create a view widget for each trip
+                LinearLayout linlay = view.FindViewById<LinearLayout> (Resource.Id.linearLayout3);
+                foreach (TripData td in list) {
+                    ImageView mapButton = new ImageView (Application.Context);
+                    mapButton.SetImageResource (Resource.Drawable.mapButton);
+                    mapButton.SetAdjustViewBounds (true);
+                    linlay.AddView (mapButton);
+
+                    TextView tv = new TextView (Application.Context);
+                    tv.Text = td.startDate + " @ " + td.startTime;
+                    tv.TextSize = 30;
+                    tv.Elevation = 4;
+                    tv.SetPadding (5, 5, 5, 5);
+                    tv.SetBackgroundColor (Android.Graphics.Color.ParseColor("#BBDEFB"));
+                    tv.SetTextColor (Android.Graphics.Color.ParseColor ("#000000"));
+                    linlay.AddView (tv);
+                    i++;
+
+                    LinearLayout innerll1 = new LinearLayout (Application.Context);
+                    innerll1.Orientation = Android.Widget.Orientation.Horizontal;
+                    innerll1.Id = i + 5000;
+                    innerll1.Elevation = 4;
+                    innerll1.SetPadding (5, 5, 5, 5);
+                    innerll1.SetBackgroundColor (Android.Graphics.Color.ParseColor("#BBDEFB"));
+
+                    ImageView iv1 = new ImageView (Application.Context);
+                    iv1.SetImageResource (Resource.Drawable.stopwatch);
+                    iv1.SetMaxHeight (50);
+                    iv1.SetAdjustViewBounds (true);
+                    innerll1.AddView (iv1);
+
+                    TextView tv1 = new TextView (Application.Context);
+                    tv1.Text = "   " + td.tripLength;
+                    tv1.TextSize = 20;
+                    tv1.SetTextColor (Android.Graphics.Color.ParseColor ("#000000"));
+                    innerll1.AddView (tv1);
+                    linlay.AddView (innerll1);
+
+                    LinearLayout innerll2 = new LinearLayout (Application.Context);
+                    innerll2.Orientation = Android.Widget.Orientation.Horizontal;
+                    innerll2.Elevation = 4;
+                    innerll2.SetPadding (5, 5, 5, 5);
+                    innerll2.SetBackgroundColor (Android.Graphics.Color.ParseColor("#BBDEFB"));
+
+                    ImageView iv2 = new ImageView (Application.Context);
+                    iv2.SetImageResource (Resource.Drawable.speedometer);
+                    iv2.SetMaxHeight (50);
+                    iv2.SetAdjustViewBounds (true);
+                    innerll2.AddView (iv2);
+
+                    TextView tv2 = new TextView (Application.Context);
+                    tv2.Text = "   " + td.maxSpeed;
+                    tv2.TextSize = 20;
+                    tv2.Elevation = 4;
+                    tv2.SetTextColor (Android.Graphics.Color.ParseColor ("#000000"));
+                    innerll2.AddView (tv2);
+                    linlay.AddView (innerll2);
+
+                    Space spc = new Space (Application.Context);
+                    spc.SetMinimumHeight (14);
+                    linlay.AddView (spc);
+
+                    lastTime = td.endDateTime;
+                }
+
+                var fe = Math.Round((fuelEcon / tripIndex),1);
+                fuelEfficiecny.Text = "   " + fe + " L/100km";
+                lastTripTime.Text = "   " + lastTime;
 
             }
 
@@ -245,10 +322,6 @@ namespace AutoFences
                 getTripData (rootView);
                 Button launchMap = rootView.FindViewById<Button> (Resource.Id.MapButton);
 
-                launchMap.Click += delegate {
-                    //StartActivity (typeof(mapActivity));
-                    StartActivity(new Intent(Activity, typeof(mapActivity)));
-                };
                 return rootView;
             }
 
@@ -274,9 +347,12 @@ namespace AutoFences
                                                Bundle savedInstanceState)
             {
                 View rootView = inflater.Inflate (Resource.Layout.Settings, container, false);
-                var ht = rootView.FindViewById<TextView> (Resource.Id.settingsText);
-                ht.Text = rootView.Resources.GetString (Resource.String.settings_placeholder);
-                return rootView;
+                Button launchMap = rootView.FindViewById<Button> (Resource.Id.MapButton);
+
+                launchMap.Click += delegate {
+                    //StartActivity (typeof(mapActivity));
+                    StartActivity(new Intent(Activity, typeof(mapActivity)));
+                };return rootView;
             }
         }
 
