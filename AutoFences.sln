@@ -7,6 +7,10 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Mojio", "lib\Mojio.Client-m
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Mojio.Client", "lib\Mojio.Client-master\Src\Mojio.Client\Mojio.Client.csproj", "{64B1AA53-3183-400B-82D7-DC34CA2EE35A}"
 EndProject
+Project("{D954291E-2A0B-460D-934E-DC6B0785DB48}") = "AFLib", "AFLib\AFLib.shproj", "{B6AB21EC-3471-4C82-84BB-9B336B440D15}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AFTest", "AFTest\AFTest.csproj", "{EE2280BA-A3D2-4120-B46E-C41AE3E54AB0}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -21,6 +25,10 @@ Global
 		{D1311EB8-1EF3-4991-8F52-009759D68F25}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{D1311EB8-1EF3-4991-8F52-009759D68F25}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{D1311EB8-1EF3-4991-8F52-009759D68F25}.Release|Any CPU.Build.0 = Release|Any CPU
+		{EE2280BA-A3D2-4120-B46E-C41AE3E54AB0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{EE2280BA-A3D2-4120-B46E-C41AE3E54AB0}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{EE2280BA-A3D2-4120-B46E-C41AE3E54AB0}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{EE2280BA-A3D2-4120-B46E-C41AE3E54AB0}.Release|Any CPU.Build.0 = Release|Any CPU
 		{FAECCBE3-5E0C-4140-90F0-FF35059673E9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{FAECCBE3-5E0C-4140-90F0-FF35059673E9}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{FAECCBE3-5E0C-4140-90F0-FF35059673E9}.Release|Any CPU.ActiveCfg = Release|Any CPU

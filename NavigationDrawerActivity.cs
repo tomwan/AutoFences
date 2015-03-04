@@ -14,6 +14,7 @@ using Android.Support.V7.Widget;
 using Mojio.Client;
 using Mojio;
 using Mojio.Events;
+using AFLib;
 
 //Ambiguities
 using Fragment = Android.App.Fragment;
@@ -229,7 +230,7 @@ namespace AutoFences
                     Console.WriteLine ("Exception:" + e);
                 }
                 tripIndex--;
-
+  
                 List<TripData> list = new List<TripData>();
                 //iterate over each trip to create TripData for each existing trip.
                 try{

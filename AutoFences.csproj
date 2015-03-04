@@ -91,7 +91,6 @@
     <Compile Include="Splash.cs" />
     <Compile Include="mapActivity.cs" />
     <Compile Include="SignalRHelper.cs" />
-    <Compile Include="TripData.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\AboutResources.txt" />
@@ -245,6 +244,7 @@
     <AndroidResource Include="Resources\drawable\stopwatch.png" />
     <AndroidResource Include="Resources\drawable\mapButton.png" />
   </ItemGroup>
+  <Import Project="AFLib\AFLib.projitems" Label="Shared" Condition="Exists('AFLib\AFLib.projitems')" />
   <Import Project="$(MSBuildExtensionsPath)\Novell\Novell.MonoDroid.CSharp.targets" />
   <Import Project="packages\Microsoft.Bcl.Build.1.0.21\build\Microsoft.Bcl.Build.targets" Condition="Exists('packages\Microsoft.Bcl.Build.1.0.21\build\Microsoft.Bcl.Build.targets')" />
   <ItemGroup>

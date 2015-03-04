@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace AutoFences
+namespace AFLib
 {
     public class TripData
     {
@@ -35,7 +35,7 @@ namespace AutoFences
             }
             else {
                 tripLength = "In Progress";
-                endDateTime = "In progress";
+                endDateTime = "In Progress";
             }
 
 
@@ -43,7 +43,7 @@ namespace AutoFences
             setStartTime (dtStart.Hour, dtStart.Minute);
 
 
-           
+
             //set trip max speed
             this.maxSpeed = maxSpeed + "km/h";
 
