@@ -204,9 +204,11 @@ namespace AutoFences
                 var prefs = Application.Context.GetSharedPreferences ("settings", FileCreationMode.Private);
                 var prefEditor = prefs.Edit();
 
-                if (MojioConnectionHelper.isClientLoggedIn()) {
+                if (!MojioConnectionHelper.isClientLoggedIn()) {
                     await MojioConnectionHelper.setupMojioConnection (prefs);
+                    SignalRHelper.SignalRSetup ();
                 }
+
                 Globals.client.PageSize = 50; //Gets 15 results
                 MojioResponse<Results<Trip>> response = await Globals.client.GetAsync<Trip> ();
                 Results<Trip> result = response.Data;
@@ -319,7 +321,6 @@ namespace AutoFences
                                       Bundle savedInstanceState)
             {
                 View rootView = inflater.Inflate (Resource.Layout.Display, container, false);
-                SignalRHelper.SignalRSetup ();
                 getTripData (rootView);
                 Button launchMap = rootView.FindViewById<Button> (Resource.Id.MapButton);
 
