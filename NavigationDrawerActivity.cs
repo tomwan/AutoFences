@@ -206,7 +206,6 @@ namespace AutoFences
 
                 if (!MojioConnectionHelper.isClientLoggedIn()) {
                     await MojioConnectionHelper.setupMojioConnection (prefs);
-                    SignalRHelper.SignalRSetup ();
                 }
 
                 Globals.client.PageSize = 50; //Gets 15 results

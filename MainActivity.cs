@@ -34,7 +34,7 @@ namespace AutoFences
                 } else {
                     try {
                         if (await MojioConnectionHelper.setupMojioConnectionFirstTime (email.Text, password.Text, prefEditor)) {
-                            SignalRHelper.SignalRSetup ();
+                            StartService(new Intent(this, typeof(AutoFencesService)));
                             StartActivity (typeof(NavigationDrawerActivity));
                             Finish ();
                         } else {
