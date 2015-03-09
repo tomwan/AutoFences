@@ -17,7 +17,7 @@ namespace AutoFences
 {
     public class SignalRHelper
     {
-        public async static Task SignalRSetup ()
+        public async static Task SignalRSetup (MojioClient client)
         {
             Guid appID = new Guid (Configurations.appID);
             Guid secretKey = new Guid (Configurations.secretKey);
@@ -31,8 +31,8 @@ namespace AutoFences
                 EventType.FenceEntered,
                 EventType.FenceExited
             };
-            Globals.client.EventHandler += ReceiveEvent;  //Call event handler
-            await Globals.client.Subscribe<Vehicle> (vehicleID, types);  //Subscribe to Mojio events with ID
+            client.EventHandler += ReceiveEvent;  //Call event handler
+            await client.Subscribe<Vehicle> (vehicleID, types);  //Subscribe to Mojio events with ID
             Console.WriteLine ("Subscription to Mojio SignalR events sucessful!");
 
             // Setting up Geographical Spherical Fence
@@ -48,10 +48,10 @@ namespace AutoFences
             var result = await Globals.client.CreateAsync (observer);
 
             // Subscript SignalR to the observer
-            Globals.client.Observe (result.Data);
+            client.Observe (result.Data);
 
             // Register the Event Callback Handler for when a fence is entered or exited.
-            Globals.client.ObserveHandler += (entity) => {
+            client.ObserveHandler += (entity) => {
                 var vehicle = entity as Vehicle;
                 //if (vehicle) {
                 //Will write  something
@@ -59,7 +59,7 @@ namespace AutoFences
             };
         }
 
-        public static void SignalRCleanup () {
+        public static void SignalRCleanup (MojioClient client) {
             Guid vehicleID = new Guid (Configurations.vehicleID);
             EventType[] types = new EventType[] {
                 EventType.IgnitionOn,
@@ -68,7 +68,7 @@ namespace AutoFences
                 EventType.FenceEntered,
                 EventType.FenceExited
             };
-            Globals.client.Unsubscribe<Vehicle> (vehicleID, types);
+            client.Unsubscribe<Vehicle> (vehicleID, types);
         }
 
         public static void ReceiveEvent (Event events)

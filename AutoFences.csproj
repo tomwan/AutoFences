@@ -91,6 +91,7 @@
     <Compile Include="Splash.cs" />
     <Compile Include="mapActivity.cs" />
     <Compile Include="SignalRHelper.cs" />
+    <Compile Include="AutoFencesService.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\AboutResources.txt" />
