@@ -22,7 +22,14 @@ namespace AutoFences
 
         public override StartCommandResult OnStartCommand (Intent intent, StartCommandFlags flags, int startId)
         {
+            var prefs = Application.Context.GetSharedPreferences ("settings", FileCreationMode.Private);
             client = Globals.client;
+
+            if (client == null) {
+                MojioConnectionHelper.setupMojioConnection (prefs);
+                client = Globals.client;
+            }
+
             SignalRHelper.SignalRSetup (client);
             return StartCommandResult.Sticky;
         }
