@@ -26,6 +26,8 @@ namespace AutoFences
 		
 		public static void UpdateIdValues()
 		{
+			global::RestSharp.Portable.Resource.String.ApplicationName = global::AutoFences.Resource.String.ApplicationName;
+			global::RestSharp.Portable.Resource.String.Hello = global::AutoFences.Resource.String.Hello;
 		}
 		
 		public partial class Animation
@@ -2181,6 +2183,12 @@ namespace AutoFences
 		public partial class String
 		{
 			
+			// aapt resource value: 0x7f06003a
+			public const int ApplicationName = 2131099706;
+			
+			// aapt resource value: 0x7f060039
+			public const int Hello = 2131099705;
+			
 			// aapt resource value: 0x7f060006
 			public const int abc_action_bar_home_description = 2131099654;
 			
@@ -2232,8 +2240,8 @@ namespace AutoFences
 			// aapt resource value: 0x7f060018
 			public const int accept = 2131099672;
 			
-			// aapt resource value: 0x7f060039
-			public const int app_name = 2131099705;
+			// aapt resource value: 0x7f06003b
+			public const int app_name = 2131099707;
 			
 			// aapt resource value: 0x7f06001f
 			public const int common_android_wear_notification_needs_update_text = 2131099679;
@@ -2328,23 +2336,23 @@ namespace AutoFences
 			// aapt resource value: 0x7f060019
 			public const int decline = 2131099673;
 			
-			// aapt resource value: 0x7f060043
-			public const int drawer_close = 2131099715;
-			
-			// aapt resource value: 0x7f060042
-			public const int drawer_open = 2131099714;
-			
-			// aapt resource value: 0x7f060041
-			public const int help = 2131099713;
+			// aapt resource value: 0x7f060045
+			public const int drawer_close = 2131099717;
 			
 			// aapt resource value: 0x7f060044
-			public const int help_placeholder = 2131099716;
+			public const int drawer_open = 2131099716;
 			
-			// aapt resource value: 0x7f06003c
-			public const int loginbutton = 2131099708;
+			// aapt resource value: 0x7f060043
+			public const int help = 2131099715;
 			
-			// aapt resource value: 0x7f06003d
-			public const int loginmessage = 2131099709;
+			// aapt resource value: 0x7f060046
+			public const int help_placeholder = 2131099718;
+			
+			// aapt resource value: 0x7f06003e
+			public const int loginbutton = 2131099710;
+			
+			// aapt resource value: 0x7f06003f
+			public const int loginmessage = 2131099711;
 			
 			// aapt resource value: 0x7f060000
 			public const int mr_media_route_button_content_description = 2131099648;
@@ -2364,20 +2372,20 @@ namespace AutoFences
 			// aapt resource value: 0x7f060005
 			public const int mr_user_route_category_name = 2131099653;
 			
-			// aapt resource value: 0x7f06003b
-			public const int passwordhint = 2131099707;
-			
-			// aapt resource value: 0x7f06003e
-			public const int poweredby = 2131099710;
-			
-			// aapt resource value: 0x7f06003f
-			public const int select_device = 2131099711;
+			// aapt resource value: 0x7f06003d
+			public const int passwordhint = 2131099709;
 			
 			// aapt resource value: 0x7f060040
-			public const int settings = 2131099712;
+			public const int poweredby = 2131099712;
 			
-			// aapt resource value: 0x7f060045
-			public const int settings_placeholder = 2131099717;
+			// aapt resource value: 0x7f060041
+			public const int select_device = 2131099713;
+			
+			// aapt resource value: 0x7f060042
+			public const int settings = 2131099714;
+			
+			// aapt resource value: 0x7f060047
+			public const int settings_placeholder = 2131099719;
 			
 			// aapt resource value: 0x7f060017
 			public const int store_picture_message = 2131099671;
@@ -2385,8 +2393,8 @@ namespace AutoFences
 			// aapt resource value: 0x7f060016
 			public const int store_picture_title = 2131099670;
 			
-			// aapt resource value: 0x7f06003a
-			public const int usernamehint = 2131099706;
+			// aapt resource value: 0x7f06003c
+			public const int usernamehint = 2131099708;
 			
 			// aapt resource value: 0x7f060038
 			public const int wallet_buy_button_place_holder = 2131099704;
