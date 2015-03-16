@@ -45,7 +45,8 @@ namespace AFLib
 
 
             //set trip max speed
-            this.maxSpeed = maxSpeed + "km/h";
+            string[] beforePeriod = maxSpeed.Split('.');
+            this.maxSpeed = beforePeriod[0] + " km/h";
 
 
         }

@@ -21,7 +21,7 @@ using Fragment = Android.App.Fragment;
 
 namespace AutoFences
 {
-    [Activity (Label = "@string/app_name", Icon = "@drawable/ic_logo")]
+    [Activity (Icon = "@drawable/ic_logo")]
     public class NavigationDrawerActivity : Activity, FragmentAdapter.OnItemClickListener
     {
         private DrawerLayout mDrawerLayout;
@@ -68,7 +68,7 @@ namespace AutoFences
             if (savedInstanceState == null){
                 //first launch
                 selectItem (0);
-                SetTitle("AutoFences");
+                SetTitle("Trips");
 
             }
 
@@ -128,6 +128,9 @@ namespace AutoFences
         public void OnClick (View view, int position)
         {
             selectItem (position);
+            if(position == 0) SetTitle("Alerts");
+            if(position == 1) SetTitle("Settings");
+            if(position == 2) SetTitle("About");
         }
 
         private void selectItem (int position)
@@ -201,6 +204,10 @@ namespace AutoFences
 
             public async void getTripData (View view)
             {
+
+                //TODO use global preference instead
+                var numTripsToDisplay = 20;
+
                 var prefs = Application.Context.GetSharedPreferences ("settings", FileCreationMode.Private);
                 var prefEditor = prefs.Edit();
 
@@ -208,7 +215,7 @@ namespace AutoFences
                     await MojioConnectionHelper.setupMojioConnection (prefs);
                 }
 
-                Globals.client.PageSize = 50; //Gets 15 results
+                Globals.client.PageSize = 200; //Gets 15 results
                 MojioResponse<Results<Trip>> response = await Globals.client.GetAsync<Trip> ();
                 Results<Trip> result = response.Data;
 
@@ -220,34 +227,45 @@ namespace AutoFences
                 String outputString = "";
                 String lastTime = "";
                 double fuelEcon = 0.0;
-                // Iterate over each trip to find fuel econ
+                // Iterate over each trip to find fuel econ and last trip time
                 try{
                     foreach (Trip trip in result.Data) {
                         tripIndex++;
                         fuelEcon += (double) trip.FuelEfficiency;
-                        lastTime = trip.EndTime.ToString ();
+                        // set last trip time
+                        //lastTime = trip.EndTime.ToString ();
                     }
                 } catch(Exception e){
                     Console.WriteLine ("Exception:" + e);
                 }
+
                 tripIndex--;
-  
+
                 List<TripData> list = new List<TripData>();
                 //iterate over each trip to create TripData for each existing trip.
-                try{
-                    foreach (Trip trip in result.Data) {
-                        TripData td = new TripData(trip.StartTime, trip.EndTime, trip.MaxSpeed.Value.ToString(), trip.EndLocation.Lat.ToString(), trip.EndLocation.Lng.ToString ());
-                        //add new trip to beginning of list, so they are in most recent first
-                        list.Insert(0, td);
-                    }
-                } catch(Exception e){
-                    Console.WriteLine ("Exception:" + e);
-                }
-                int i = 1;
 
+                foreach (Trip trip in result.Data) {
+                    try{
+                        TripData td = new TripData(trip.StartTime, trip.EndTime, trip.MaxSpeed.Value.ToString(), trip.EndLocation.Lat.ToString(), trip.EndLocation.Lng.ToString ());
+                        //add new trip to beginning of list, so they are in most recent first order
+                        list.Insert(0, td);
+                    } catch(Exception e){
+                        Console.WriteLine ("Exception:" + e);
+                    }
+                }
+                
+                int i = 1;
+                var firstTrip = true;
+                var tripsDisplayed = 0;
                 // programmatically create a view widget for each trip
                 LinearLayout linlay = view.FindViewById<LinearLayout> (Resource.Id.linearLayout3);
+
                 foreach (TripData td in list) {
+                    if(tripsDisplayed > numTripsToDisplay){
+                        break;
+                    } else {
+                        tripsDisplayed++;
+                    }
                     ImageView mapButton = new ImageView (Application.Context);
                     mapButton.SetImageResource (Resource.Drawable.mapButton);
                     mapButton.SetAdjustViewBounds (true);
@@ -306,8 +324,11 @@ namespace AutoFences
                     Space spc = new Space (Application.Context);
                     spc.SetMinimumHeight (14);
                     linlay.AddView (spc);
-
-                    lastTime = td.endDateTime;
+                   
+                    if(firstTrip){
+                        lastTime = td.startDate + " @ " + td.startTime;
+                        firstTrip = false;
+                    }
                 }
 
                 var fe = Math.Round((fuelEcon / tripIndex),1);
@@ -377,8 +398,17 @@ namespace AutoFences
                                                Bundle savedInstanceState)
             {
                 View rootView = inflater.Inflate (Resource.Layout.Help, container, false);
-                var ht = rootView.FindViewById<TextView> (Resource.Id.helpText);
-                ht.Text = rootView.Resources.GetString (Resource.String.help_placeholder);
+
+
+
+
+                var mojioHelp = rootView.FindViewById<Button> (Resource.Id.useMojio);
+                mojioHelp.Text = "Moj.io web page";
+                mojioHelp.Click += delegate {
+                    var uri = Android.Net.Uri.Parse ("https://www.moj.io/#howitworks");
+                    var intent = new Intent (Intent.ActionView, uri); 
+                    StartActivity (intent);     
+                };
                 return rootView;
             }
         }

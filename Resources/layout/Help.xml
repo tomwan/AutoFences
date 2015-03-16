@@ -1,6 +1,39 @@
 <?xml version="1.0" encoding="utf-8"?>
-<TextView xmlns:p1="http://schemas.android.com/apk/res/android"
-    p1:text="fuel usage not found"
+<LinearLayout xmlns:p1="http://schemas.android.com/apk/res/android"
+    p1:orientation="vertical"
+    p1:minWidth="25px"
+    p1:minHeight="25px"
     p1:layout_width="match_parent"
-    p1:layout_height="wrap_content"
-    p1:id="@+id/helpText" />
+    p1:layout_height="match_parent"
+    p1:id="@+id/linearLayout1"
+    p1:gravity="center_horizontal">
+    <Space
+        p1:layout_width="match_parent"
+        p1:layout_height="wrap_content"
+        p1:id="@+id/space1"
+        p1:layout_weight=".5" />
+    <Button
+        p1:text="Button"
+        p1:layout_width="wrap_content"
+        p1:layout_height="wrap_content"
+        p1:id="@+id/useMojio"
+        p1:onClick="toMojio" />
+    <Space
+        p1:layout_width="match_parent"
+        p1:layout_height="wrap_content"
+        p1:id="@+id/space1"
+        p1:layout_weight=".1" />
+    <TextView
+        p1:text="Icons used sourced from www.icons8.com"
+        p1:layout_width="match_parent"
+        p1:layout_height="wrap_content"
+        p1:id="@+id/iconAttr"
+        p1:layout_weight="1"
+        p1:layout_gravity="center_horizontal"
+        p1:gravity="center_horizontal" />
+    <Space
+        p1:layout_width="match_parent"
+        p1:layout_height="wrap_content"
+        p1:id="@+id/space1"
+        p1:layout_weight="1" />
+</LinearLayout>
