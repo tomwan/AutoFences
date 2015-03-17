@@ -30,10 +30,16 @@ namespace AutoFences
             SetContentView (Resource.Layout.mapLayout);           
 
             seekBar = FindViewById<SeekBar>(Resource.Id.seekBarRadius);
+            Button confirmRadius = FindViewById<Button> (Resource.Id.setRadius);
 
             currentLocation = GetCurrentLocation ();
             InitMapFragment();
             seekBar.ProgressChanged += new EventHandler<SeekBar.ProgressChangedEventArgs>(seekBarProgressChanged);
+
+            confirmRadius.Click += delegate {
+                // Radius has been set, save to user prefs and use for fenceing.
+                Console.WriteLine ("Location {0}, Radius is: {1}", currentLocation, radius);
+            };
         }
 
         protected override void OnResume()

@@ -8,8 +8,13 @@
         p1:layout_height="wrap_content"
         p1:id="@+id/seekBarRadius"
         p1:indeterminate="false"
-        p1:max="10000"
+        p1:max="30000"
         p1:progress="0" />
+    <Button
+        p1:text="Confirm New Radius"
+        p1:layout_width="match_parent"
+        p1:layout_height="wrap_content"
+        p1:id="@+id/setRadius" />
     <FrameLayout
         p1:id="@+id/map"
         p1:layout_width="fill_parent"
