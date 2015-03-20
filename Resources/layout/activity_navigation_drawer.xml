@@ -19,11 +19,11 @@
         android:id="@+id/left_drawer"
         android:scrollbars="vertical"
         android:layout_width="240dp"
-        android:layout_height="match_parent"
+        android:layout_height="wrap_content"
         android:layout_gravity="left|start"
         android:choiceMode="singleChoice"
         android:divider="@null"
-        android:background="#E3F2FD"
-        android:backgroundStacked="#E3F2FD"
-        android:backgroundSplit="#E3F2FD" />
+        android:background="@color/primary_light"
+        android:backgroundStacked="@color/primary_light"
+        android:backgroundSplit="@color/primary_light" />
 </android.support.v4.widget.DrawerLayout>

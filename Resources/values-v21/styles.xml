@@ -2,12 +2,12 @@
 <resources>
     <!-- Inherit from the light Material Theme -->
     <style name="CustomTheme" parent="android:Theme.Material.Light">
-        <!-- Override the app bar color -->
-        <item name="android:colorPrimary">#1E88E5</item>
-        <!-- Override the color of UI controls -->
-        <item name="android:colorAccent">#90CAF9</item>
-        <item name="android:textColorPrimary">#FFFFFF</item>
-        <item name="android:statusBarColor">#90CAF9</item>
-        <item name="android:colorButtonNormal">#90CAF9</item>
+         <item name="android:colorPrimary">@color/primary</item>
+        <item name="android:colorPrimaryDark">@color/primary_dark</item>
+        <item name="android:colorAccent">@color/accent</item>
+        <item name="android:textColorPrimary">@color/primary_text</item>
+        <item name="android:textColor">@color/secondary_text</item>
+        <item name="android:navigationBarColor">@color/primary_dark</item>
+        <item name="android:colorButtonNormal">@color/accent</item>
     </style>
 </resources>

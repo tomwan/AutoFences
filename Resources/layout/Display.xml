@@ -34,14 +34,12 @@
                     p1:minHeight="25px"
                     p1:layout_width="wrap_content"
                     p1:layout_height="wrap_content"
-                    p1:elevation="4dp"
                     p1:padding="5dp"
                     p1:layout_weight="1"
-                    p1:background="#BBDEFB"
                     p1:id="@+id/linearLayout8">
                     <TextView
                         p1:text="Fuel Economy"
-                        p1:textColor="#000000"
+                        p1:textColor="@color/black_text"
                         p1:textSize="20dp"
                         p1:layout_width="wrap_content"
                         p1:layout_height="match_parent" />
@@ -58,11 +56,11 @@
                             p1:layout_height="match_parent"
                             p1:id="@+id/imageView1"
                             p1:maxHeight="50px"
-                            p1:adjustViewBounds="true" />
+                            p1:adjustViewBounds="true"
+                            p1:tint="@color/accent" />
                         <TextView
                             p1:text="   n/a"
                             p1:id="@+id/fuelUsage"
-                            p1:textColor="#000000"
                             p1:textSize="20dp"
                             p1:layout_width="wrap_content"
                             p1:layout_height="match_parent" />
@@ -76,16 +74,14 @@
                     p1:orientation="vertical"
                     p1:minWidth="25px"
                     p1:minHeight="25px"
-                    p1:elevation="4dp"
                     p1:padding="5dp"
-                    p1:background="#BBDEFB"
                     p1:layout_width="wrap_content"
                     p1:layout_height="wrap_content"
                     p1:layout_weight="1"
                     p1:id="@+id/linearLayout9">
                     <TextView
                         p1:text="Last Trip"
-                        p1:textColor="#000000"
+                        p1:textColor="@color/black_text"
                         p1:textSize="20dp"
                         p1:layout_width="wrap_content"
                         p1:layout_height="match_parent" />
@@ -102,10 +98,10 @@
                             p1:layout_height="match_parent"
                             p1:id="@+id/imageView2"
                             p1:maxHeight="50px"
-                            p1:adjustViewBounds="true" />
+                            p1:adjustViewBounds="true"
+                            p1:tint="@color/accent" />
                         <TextView
                             p1:text="   n/a"
-                            p1:textColor="#000000"
                             p1:id="@+id/lastTripTime"
                             p1:textSize="20dp"
                             p1:layout_width="wrap_content"
@@ -114,9 +110,18 @@
                 </LinearLayout>
             </LinearLayout>
             <Space
+                p1:id="@+id/space1"
                 p1:layout_width="match_parent"
-                p1:layout_height="14dp"
-                p1:id="@+id/space2" />
+                p1:layout_height="10dp" />
+            <View
+                p1:padding="20dp"
+                p1:layout_width="fill_parent"
+                p1:layout_height="1dp"
+                p1:background="@android:color/darker_gray" />
+            <Space
+                p1:id="@+id/space1"
+                p1:layout_width="match_parent"
+                p1:layout_height="10dp" />
         </LinearLayout>
     </LinearLayout>
 </ScrollView>

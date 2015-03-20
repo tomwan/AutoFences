@@ -260,6 +260,7 @@
     <AndroidResource Include="Resources\drawable\speedometer.png" />
     <AndroidResource Include="Resources\drawable\stopwatch.png" />
     <AndroidResource Include="Resources\drawable\mapButton.png" />
+    <AndroidResource Include="Resources\values\colors.xml" />
   </ItemGroup>
   <Import Project="AFLib\AFLib.projitems" Label="Shared" Condition="Exists('AFLib\AFLib.projitems')" />
   <Import Project="$(MSBuildExtensionsPath)\Novell\Novell.MonoDroid.CSharp.targets" />
