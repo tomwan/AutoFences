@@ -14,6 +14,7 @@
         p1:layout_weight=".5" />
     <Button
         p1:text="Button"
+        p1:textColor="@color/primary_text"
         p1:layout_width="wrap_content"
         p1:layout_height="wrap_content"
         p1:id="@+id/useMojio"

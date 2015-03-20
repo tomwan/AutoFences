@@ -774,29 +774,29 @@ namespace AutoFences
 		public partial class Color
 		{
 			
-			// aapt resource value: 0x7f08004c
-			public const int abc_background_cache_hint_selector_material_dark = 2131230796;
+			// aapt resource value: 0x7f080055
+			public const int abc_background_cache_hint_selector_material_dark = 2131230805;
 			
-			// aapt resource value: 0x7f08004d
-			public const int abc_background_cache_hint_selector_material_light = 2131230797;
+			// aapt resource value: 0x7f080056
+			public const int abc_background_cache_hint_selector_material_light = 2131230806;
 			
 			// aapt resource value: 0x7f080004
 			public const int abc_input_method_navigation_guard = 2131230724;
 			
-			// aapt resource value: 0x7f08004e
-			public const int abc_primary_text_disable_only_material_dark = 2131230798;
+			// aapt resource value: 0x7f080057
+			public const int abc_primary_text_disable_only_material_dark = 2131230807;
 			
-			// aapt resource value: 0x7f08004f
-			public const int abc_primary_text_disable_only_material_light = 2131230799;
+			// aapt resource value: 0x7f080058
+			public const int abc_primary_text_disable_only_material_light = 2131230808;
 			
-			// aapt resource value: 0x7f080050
-			public const int abc_primary_text_material_dark = 2131230800;
+			// aapt resource value: 0x7f080059
+			public const int abc_primary_text_material_dark = 2131230809;
 			
-			// aapt resource value: 0x7f080051
-			public const int abc_primary_text_material_light = 2131230801;
+			// aapt resource value: 0x7f08005a
+			public const int abc_primary_text_material_light = 2131230810;
 			
-			// aapt resource value: 0x7f080052
-			public const int abc_search_url_text = 2131230802;
+			// aapt resource value: 0x7f08005b
+			public const int abc_search_url_text = 2131230811;
 			
 			// aapt resource value: 0x7f080005
 			public const int abc_search_url_text_normal = 2131230725;
@@ -807,11 +807,14 @@ namespace AutoFences
 			// aapt resource value: 0x7f080007
 			public const int abc_search_url_text_selected = 2131230727;
 			
-			// aapt resource value: 0x7f080053
-			public const int abc_secondary_text_material_dark = 2131230803;
+			// aapt resource value: 0x7f08005c
+			public const int abc_secondary_text_material_dark = 2131230812;
 			
-			// aapt resource value: 0x7f080054
-			public const int abc_secondary_text_material_light = 2131230804;
+			// aapt resource value: 0x7f08005d
+			public const int abc_secondary_text_material_light = 2131230813;
+			
+			// aapt resource value: 0x7f08004f
+			public const int accent = 2131230799;
 			
 			// aapt resource value: 0x7f080008
 			public const int accent_material_dark = 2131230728;
@@ -830,6 +833,9 @@ namespace AutoFences
 			
 			// aapt resource value: 0x7f08000d
 			public const int background_material_light = 2131230733;
+			
+			// aapt resource value: 0x7f080051
+			public const int black_text = 2131230801;
 			
 			// aapt resource value: 0x7f08000e
 			public const int bright_foreground_disabled_material_dark = 2131230734;
@@ -897,11 +903,11 @@ namespace AutoFences
 			// aapt resource value: 0x7f08003a
 			public const int common_signin_btn_light_text_pressed = 2131230778;
 			
-			// aapt resource value: 0x7f080055
-			public const int common_signin_btn_text_dark = 2131230805;
+			// aapt resource value: 0x7f08005e
+			public const int common_signin_btn_text_dark = 2131230814;
 			
-			// aapt resource value: 0x7f080056
-			public const int common_signin_btn_text_light = 2131230806;
+			// aapt resource value: 0x7f08005f
+			public const int common_signin_btn_text_light = 2131230815;
 			
 			// aapt resource value: 0x7f080016
 			public const int dim_foreground_disabled_material_dark = 2131230742;
@@ -915,6 +921,9 @@ namespace AutoFences
 			// aapt resource value: 0x7f080019
 			public const int dim_foreground_material_light = 2131230745;
 			
+			// aapt resource value: 0x7f080054
+			public const int divider = 2131230804;
+			
 			// aapt resource value: 0x7f08001a
 			public const int highlighted_text_material_dark = 2131230746;
 			
@@ -926,6 +935,9 @@ namespace AutoFences
 			
 			// aapt resource value: 0x7f08001d
 			public const int hint_foreground_material_light = 2131230749;
+			
+			// aapt resource value: 0x7f080053
+			public const int icons = 2131230803;
 			
 			// aapt resource value: 0x7f08001e
 			public const int link_text_material_dark = 2131230750;
@@ -948,17 +960,29 @@ namespace AutoFences
 			// aapt resource value: 0x7f080024
 			public const int material_deep_teal_500 = 2131230756;
 			
+			// aapt resource value: 0x7f08004c
+			public const int primary = 2131230796;
+			
+			// aapt resource value: 0x7f08004d
+			public const int primary_dark = 2131230797;
+			
 			// aapt resource value: 0x7f080025
 			public const int primary_dark_material_dark = 2131230757;
 			
 			// aapt resource value: 0x7f080026
 			public const int primary_dark_material_light = 2131230758;
 			
+			// aapt resource value: 0x7f08004e
+			public const int primary_light = 2131230798;
+			
 			// aapt resource value: 0x7f080027
 			public const int primary_material_dark = 2131230759;
 			
 			// aapt resource value: 0x7f080028
 			public const int primary_material_light = 2131230760;
+			
+			// aapt resource value: 0x7f080050
+			public const int primary_text = 2131230800;
 			
 			// aapt resource value: 0x7f080029
 			public const int primary_text_default_material_dark = 2131230761;
@@ -977,6 +1001,9 @@ namespace AutoFences
 			
 			// aapt resource value: 0x7f08002e
 			public const int ripple_material_light = 2131230766;
+			
+			// aapt resource value: 0x7f080052
+			public const int secondary_text = 2131230802;
 			
 			// aapt resource value: 0x7f08002f
 			public const int secondary_text_default_material_dark = 2131230767;
@@ -1035,11 +1062,11 @@ namespace AutoFences
 			// aapt resource value: 0x7f08004b
 			public const int wallet_link_text_light = 2131230795;
 			
-			// aapt resource value: 0x7f080057
-			public const int wallet_primary_text_holo_light = 2131230807;
+			// aapt resource value: 0x7f080060
+			public const int wallet_primary_text_holo_light = 2131230816;
 			
-			// aapt resource value: 0x7f080058
-			public const int wallet_secondary_text_holo_dark = 2131230808;
+			// aapt resource value: 0x7f080061
+			public const int wallet_secondary_text_holo_dark = 2131230817;
 			
 			static Color()
 			{
@@ -1635,11 +1662,11 @@ namespace AutoFences
 		public partial class Id
 		{
 			
-			// aapt resource value: 0x7f0b007a
-			public const int MapButton = 2131427450;
+			// aapt resource value: 0x7f0b0085
+			public const int MapButton = 2131427461;
 			
-			// aapt resource value: 0x7f0b007b
-			public const int SplashScreen = 2131427451;
+			// aapt resource value: 0x7f0b0087
+			public const int SplashScreen = 2131427463;
 			
 			// aapt resource value: 0x7f0b0045
 			public const int action_bar = 2131427397;
@@ -1749,6 +1776,9 @@ namespace AutoFences
 			// aapt resource value: 0x7f0b0014
 			public const int end = 2131427348;
 			
+			// aapt resource value: 0x7f0b007d
+			public const int endTime = 2131427453;
+			
 			// aapt resource value: 0x7f0b0036
 			public const int expand_activities_button = 2131427382;
 			
@@ -1779,8 +1809,8 @@ namespace AutoFences
 			// aapt resource value: 0x7f0b003a
 			public const int icon = 2131427386;
 			
-			// aapt resource value: 0x7f0b0065
-			public const int iconAttr = 2131427429;
+			// aapt resource value: 0x7f0b0064
+			public const int iconAttr = 2131427428;
 			
 			// aapt resource value: 0x7f0b0018
 			public const int ifRoom = 2131427352;
@@ -1893,6 +1923,9 @@ namespace AutoFences
 			// aapt resource value: 0x7f0b0021
 			public const int satellite = 2131427361;
 			
+			// aapt resource value: 0x7f0b007f
+			public const int saveTime = 2131427455;
+			
 			// aapt resource value: 0x7f0b0049
 			public const int search_badge = 2131427401;
 			
@@ -1947,11 +1980,11 @@ namespace AutoFences
 			// aapt resource value: 0x7f0b005e
 			public const int space1 = 2131427422;
 			
-			// aapt resource value: 0x7f0b0063
-			public const int space2 = 2131427427;
-			
 			// aapt resource value: 0x7f0b0066
-			public const int space3 = 2131427430;
+			public const int space2 = 2131427430;
+			
+			// aapt resource value: 0x7f0b0065
+			public const int space3 = 2131427429;
 			
 			// aapt resource value: 0x7f0b0071
 			public const int space4 = 2131427441;
@@ -1974,6 +2007,9 @@ namespace AutoFences
 			// aapt resource value: 0x7f0b0007
 			public const int split_action_bar = 2131427335;
 			
+			// aapt resource value: 0x7f0b007a
+			public const int startTime = 2131427450;
+			
 			// aapt resource value: 0x7f0b0027
 			public const int strict_sandbox = 2131427367;
 			
@@ -1989,8 +2025,35 @@ namespace AutoFences
 			// aapt resource value: 0x7f0b0067
 			public const int textView1 = 2131427431;
 			
+			// aapt resource value: 0x7f0b007e
+			public const int textView10 = 2131427454;
+			
+			// aapt resource value: 0x7f0b0080
+			public const int textView2 = 2131427456;
+			
+			// aapt resource value: 0x7f0b0081
+			public const int textView4 = 2131427457;
+			
+			// aapt resource value: 0x7f0b0083
+			public const int textView5 = 2131427459;
+			
+			// aapt resource value: 0x7f0b0084
+			public const int textView6 = 2131427460;
+			
+			// aapt resource value: 0x7f0b0086
+			public const int textView7 = 2131427462;
+			
+			// aapt resource value: 0x7f0b007b
+			public const int textView8 = 2131427451;
+			
+			// aapt resource value: 0x7f0b007c
+			public const int textView9 = 2131427452;
+			
 			// aapt resource value: 0x7f0b003b
 			public const int title = 2131427387;
+			
+			// aapt resource value: 0x7f0b0082
+			public const int toggleButton = 2131427458;
 			
 			// aapt resource value: 0x7f0b0008
 			public const int up = 2131427336;
@@ -1998,8 +2061,8 @@ namespace AutoFences
 			// aapt resource value: 0x7f0b0012
 			public const int useLogo = 2131427346;
 			
-			// aapt resource value: 0x7f0b0064
-			public const int useMojio = 2131427428;
+			// aapt resource value: 0x7f0b0063
+			public const int useMojio = 2131427427;
 			
 			// aapt resource value: 0x7f0b001a
 			public const int withText = 2131427354;
