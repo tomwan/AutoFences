@@ -269,6 +269,13 @@ namespace AutoFences
                     ImageView mapButton = new ImageView (Application.Context);
                     mapButton.SetImageResource (Resource.Drawable.mapButton);
                     mapButton.SetAdjustViewBounds (true);
+                    mapButton.Click += delegate {
+                        //*******************************************
+                        // TODO dylan, put start activity here and pass the args you want
+                        // use a copy of mapActivity and replace the typeof to that activity
+                        //*******************************************
+                        StartActivity(new Intent(Activity, typeof(mapActivity)));
+                    };
                     linlay.AddView (mapButton);
 
                     TextView tv = new TextView (Application.Context);
@@ -374,7 +381,8 @@ namespace AutoFences
                 launchMap.Click += delegate {
                     //StartActivity (typeof(mapActivity));
                     StartActivity(new Intent(Activity, typeof(mapActivity)));
-                };return rootView;
+                };
+                return rootView;
             }
         }
 
