@@ -9,17 +9,26 @@ namespace AFLib
         public string endDateTime { get; private set; }
         public string tripLength { get; private set; }
         public string maxSpeed { get; private set; }
-        public string lat { get; private set; }
-        public string lng { get; private set; }
+        public string endlocationlat { get; private set; }
+        public string endlocationlng { get; private set; }
+        public string fuelEfficiency { get; private set; }
+        public string fuelLevel { get; private set; }
+        public string startlocationlat { get; private set; }
+        public string startlocationlng { get; private set; }
         /**
          * <summary>
          * Accepts dates of the format "dd/mm/yyyy hh:mm:ss"
          * </summary>
          */ 
-        public TripData (DateTime dtStart, DateTime? dtEnd, string maxSpeed, string lat, string lng)
+        public TripData (DateTime dtStart, DateTime? dtEnd, string maxSpeed, string endlocationlat, string endlocationlng,
+            string fuelEfficiency, string fuelLevel, string startlocationlat, string startlocationlng)
         {
-            this.lat = lat;
-            this.lng = lng;
+            this.endlocationlat = endlocationlat;
+            this.endlocationlng = endlocationlng;
+            this.fuelEfficiency = fuelEfficiency;
+            this.fuelLevel = fuelLevel;
+            this.startlocationlat = startlocationlat;
+            this.startlocationlng = startlocationlng;
             DateTime? dateOrNull = dtEnd;
             //Make sure not null TODO: Make timespan human readable
             if (dateOrNull != null) {
@@ -129,4 +138,3 @@ namespace AFLib
         }
     }
 }
-

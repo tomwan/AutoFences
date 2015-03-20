@@ -156,8 +156,8 @@ namespace AutoFences
 
         private void SetTitle (string title)
         {
-          this.Title = title;
-          this.ActionBar.Title = title;
+            this.Title = title;
+            this.ActionBar.Title = title;
         }
 
         protected override void OnTitleChanged (Java.Lang.ICharSequence title, Android.Graphics.Color color)
@@ -222,7 +222,7 @@ namespace AutoFences
                 //var results = view.FindViewById<TextView> (Resource.Id.tripResults);
                 var fuelEfficiecny = view.FindViewById<TextView> (Resource.Id.fuelUsage);
                 var lastTripTime = view.FindViewById<TextView> (Resource.Id.lastTripTime);
-                
+
                 int tripIndex = 0;
                 String outputString = "";
                 String lastTime = "";
@@ -246,14 +246,15 @@ namespace AutoFences
 
                 foreach (Trip trip in result.Data) {
                     try{
-                        TripData td = new TripData(trip.StartTime, trip.EndTime, trip.MaxSpeed.Value.ToString(), trip.EndLocation.Lat.ToString(), trip.EndLocation.Lng.ToString ());
+                        TripData td = new TripData(trip.StartTime, trip.EndTime, trip.MaxSpeed.Value.ToString(), trip.EndLocation.Lat.ToString(), trip.EndLocation.Lng.ToString(),
+                            trip.FuelEfficiency.ToString(), trip.FuelLevel.ToString(),trip.StartLocation.Lat.ToString(),trip.StartLocation.Lng.ToString());
                         //add new trip to beginning of list, so they are in most recent first order
                         list.Insert(0, td);
                     } catch(Exception e){
                         Console.WriteLine ("Exception:" + e);
                     }
                 }
-                
+
                 int i = 1;
                 var firstTrip = true;
                 var tripsDisplayed = 0;
@@ -292,12 +293,22 @@ namespace AutoFences
                     ImageView mapButton = new ImageView (Application.Context);
                     mapButton.SetImageResource (Resource.Drawable.mapButton);
                     mapButton.SetAdjustViewBounds (true);
-                    mapButton.Click += delegate {
-                        //*******************************************
-                        // TODO dylan, put start activity here and pass the args you want
-                        // use a copy of mapActivity and replace the typeof to that activity
-                        //*******************************************
-                        StartActivity(new Intent(Activity, typeof(mapActivity)));
+                    mapButton.Click += delegate {                      
+                        var tripviewActivity = new Intent (Activity, typeof(tripviewActivity));
+                        // Create bundle to send to tripViewActivity
+                        Bundle extras = new Bundle();
+                        extras.PutString ("endlat", (td.endlocationlat));
+                        extras.PutString("endlng", (td.endlocationlng));
+                        extras.PutString ("startlat", (td.startlocationlat));
+                        extras.PutString("startlng", (td.startlocationlng));
+                        extras.PutString ("fuelEfficiency", (td.fuelEfficiency));
+                        extras.PutString("fuelLevel", (td.fuelLevel));
+                        extras.PutString ("startTime", (td.startTime));
+                        extras.PutString("startDate",(td.startDate));
+                        extras.PutString("maxSpeed", (td.maxSpeed));
+                        extras.PutString("endTime", (td.endDateTime));
+                        tripviewActivity.PutExtra("extras", extras);                     
+                        StartActivity (tripviewActivity);
                     };
                     linlay.AddView (mapButton);
 
@@ -356,7 +367,7 @@ namespace AutoFences
                     Space spc = new Space (Application.Context);
                     spc.SetMinimumHeight (14);
                     linlay.AddView (spc);
-                   
+
 
                 }
 
@@ -367,7 +378,7 @@ namespace AutoFences
             }
 
             public override View OnCreateView (LayoutInflater inflater, ViewGroup container,
-                                      Bundle savedInstanceState)
+                Bundle savedInstanceState)
             {
                 View rootView = inflater.Inflate (Resource.Layout.Display, container, false);
                 getTripData (rootView);
@@ -395,7 +406,7 @@ namespace AutoFences
             }
 
             public override View OnCreateView (LayoutInflater inflater, ViewGroup container,
-                                               Bundle savedInstanceState)
+                Bundle savedInstanceState)
             {
                 View rootView = inflater.Inflate (Resource.Layout.Settings, container, false);
 
@@ -450,7 +461,7 @@ namespace AutoFences
             }
 
             public override View OnCreateView (LayoutInflater inflater, ViewGroup container,
-                                               Bundle savedInstanceState)
+                Bundle savedInstanceState)
             {
                 View rootView = inflater.Inflate (Resource.Layout.Help, container, false);
 

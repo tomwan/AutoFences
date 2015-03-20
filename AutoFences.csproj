@@ -108,6 +108,7 @@
     <Compile Include="mapActivity.cs" />
     <Compile Include="SignalRHelper.cs" />
     <Compile Include="AutoFencesService.cs" />
+    <Compile Include="tripviewActivity.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\AboutResources.txt" />
@@ -261,6 +262,7 @@
     <AndroidResource Include="Resources\drawable\stopwatch.png" />
     <AndroidResource Include="Resources\drawable\mapButton.png" />
     <AndroidResource Include="Resources\values\colors.xml" />
+    <AndroidResource Include="Resources\layout\tripStatus.axml" />
   </ItemGroup>
   <Import Project="AFLib\AFLib.projitems" Label="Shared" Condition="Exists('AFLib\AFLib.projitems')" />
   <Import Project="$(MSBuildExtensionsPath)\Novell\Novell.MonoDroid.CSharp.targets" />
