@@ -22,6 +22,7 @@ namespace AutoFences
         private MapFragment _mapFragment;
         private LocationManager locMgr;
         private LatLng currentLocation;
+        private LatLng newLocation;
         SeekBar seekBar;
         private Circle _circle;
 
@@ -36,6 +37,8 @@ namespace AutoFences
             InitMapFragment();
             seekBar.ProgressChanged += new EventHandler<SeekBar.ProgressChangedEventArgs>(seekBarProgressChanged);
 
+            _map.MapClick += new EventHandler<GoogleMap.MapClickEventArgs> (centerlocationchanged);
+
             confirmRadius.Click += delegate {
                 // Radius has been set, save to user prefs and use for fenceing.
                 Console.WriteLine ("Location {0}, Radius is: {1}", currentLocation, radius);
@@ -47,6 +50,11 @@ namespace AutoFences
             base.OnResume();
             SetupMapIfNeeded();
 
+        }
+
+        void centerlocationchanged(object sender, GoogleMap.MapClickEventArgs e) {
+            newLocation = e.Point;
+            Console.WriteLine ("Location {0} ", newLocation);
         }
 
         void seekBarProgressChanged(object sender, SeekBar.ProgressChangedEventArgs e) {
