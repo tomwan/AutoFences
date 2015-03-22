@@ -24,24 +24,54 @@ namespace AFTest
         public void TripDataTestSetup(){
             var timeStart = new DateTime (2009, 01, 01, 4, 20, 00);
             var timeEnd = new DateTime (2009, 01, 01, 6, 27, 1);
-            string lng = "50";
-            string lat = "50";
+            string startlng = "50";
+            string startlat = "50";
             string maxSpeed = "80";
-            tripData = new TripData (timeStart, timeEnd, maxSpeed, lat, lng);
-            nullTripData = new TripData (timeStart, null, maxSpeed, lat, lng);
+            string fuelEff = "0";
+            string fuelLevel = "50";
+            string endlng = "70";
+            string endlat = "70";
+            tripData = new TripData (timeStart, timeEnd, maxSpeed, endlat, endlng, fuelEff, fuelLevel, startlat,startlng);
+            nullTripData = new TripData (timeStart, null, maxSpeed, endlat, endlng, fuelEff, fuelLevel, startlat,startlng);
         }
 
         //Test that longitude is set correctly
         [Test ()]
-        public void TestLng ()
+        public void TeststartLng ()
         {
-            Assert.AreEqual ("50", tripData.lng);
+            Assert.AreEqual ("50", tripData.startlocationlng);
         }
 
         //test that latitude is set correctly
         [Test ()]
-        public void TestLat (){
-            Assert.AreEqual ("50", tripData.lat);
+        public void TeststartLat (){
+            Assert.AreEqual ("50", tripData.startlocationlat);
+        }
+
+        //Test that longitude is set correctly
+        [Test ()]
+        public void TestendLng ()
+        {
+            Assert.AreEqual ("70", tripData.endlocationlng);
+        }
+
+        //test that latitude is set correctly
+        [Test ()]
+        public void TestendLat (){
+            Assert.AreEqual ("70", tripData.endlocationlat);
+        }
+
+        //Test that longitude is set correctly
+        [Test ()]
+        public void TestFuelLevel ()
+        {
+            Assert.AreEqual ("50", tripData.fuelLevel);
+        }
+
+        //test that latitude is set correctly
+        [Test ()]
+        public void TestFuelEfficiency (){
+            Assert.AreEqual ("0", tripData.fuelEfficiency);
         }
 
         //test that maxSpeed is set correctly
