@@ -33,15 +33,12 @@ namespace AutoFences
             seekBar = FindViewById<SeekBar>(Resource.Id.seekBarRadius);
             Button confirmRadius = FindViewById<Button> (Resource.Id.setRadius);
 
-            currentLocation = GetCurrentLocation ();
+            newLocation = GetCurrentLocation ();
             InitMapFragment();
-            seekBar.ProgressChanged += new EventHandler<SeekBar.ProgressChangedEventArgs>(seekBarProgressChanged);
-
-            _map.MapClick += new EventHandler<GoogleMap.MapClickEventArgs> (centerlocationchanged);
-
+           
             confirmRadius.Click += delegate {
                 // Radius has been set, save to user prefs and use for fenceing.
-                Console.WriteLine ("Location {0}, Radius is: {1}", currentLocation, radius);
+                Console.WriteLine ("Location {0}, Radius is: {1}", newLocation, radius);
             };
         }
 
@@ -49,29 +46,35 @@ namespace AutoFences
         {
             base.OnResume();
             SetupMapIfNeeded();
-
+            seekBar.ProgressChanged += new EventHandler<SeekBar.ProgressChangedEventArgs>(seekBarProgressChanged);
+            _map.MapClick += new EventHandler<GoogleMap.MapClickEventArgs> (updatemap);
         }
 
-        void centerlocationchanged(object sender, GoogleMap.MapClickEventArgs e) {
+        void updatemap(object sender, GoogleMap.MapClickEventArgs e) {
             newLocation = e.Point;
-            Console.WriteLine ("Location {0} ", newLocation);
+            updateMap ();
+
         }
 
         void seekBarProgressChanged(object sender, SeekBar.ProgressChangedEventArgs e) {
             radius = e.Progress;
-            if (_map != null) {
-                if (_circle == null) {
-                    CircleOptions circleOptions = new CircleOptions ();
-                    circleOptions.InvokeCenter (currentLocation);
-                    circleOptions.InvokeRadius (radius);
-                    circleOptions.InvokeFillColor (Convert.ToInt32 ("0x3000ffff", 16));
-                    circleOptions.InvokeStrokeColor (Convert.ToInt32 ("0x3000ffff", 16));
-                    //_circle = new Circle (circleOptions);
-                    _circle = _map.AddCircle(circleOptions);
-                } else {
-                    _circle.Radius = radius;
-                }
-            }
+            updateMap ();
+        }
+
+        void updateMap () {
+            _map.Clear ();
+            MarkerOptions marker1 = new MarkerOptions();
+            marker1.SetPosition(newLocation);
+            _map.AddMarker(marker1);
+        
+            CircleOptions circleOptions = new CircleOptions ();
+            circleOptions.InvokeCenter (newLocation);
+            circleOptions.InvokeRadius (radius);
+            circleOptions.InvokeFillColor (Convert.ToInt32 ("0x3000ffff", 16));
+            circleOptions.InvokeStrokeColor (Convert.ToInt32 ("0x3000ffff", 16));
+            _circle = _map.AddCircle (circleOptions);
+            
+             
         }
            
 
@@ -125,11 +128,11 @@ namespace AutoFences
                 _map = _mapFragment.Map;
                 if (_map != null) {
                     MarkerOptions marker1 = new MarkerOptions();
-                    marker1.SetPosition(currentLocation);
+                    marker1.SetPosition(newLocation);
                     _map.AddMarker(marker1);
 
                     // We create an instance of CameraUpdate, and move the map to it.
-                    CameraUpdate cameraUpdate = CameraUpdateFactory.NewLatLngZoom(currentLocation, 15);
+                    CameraUpdate cameraUpdate = CameraUpdateFactory.NewLatLngZoom(newLocation, 15);
                     _map.MoveCamera(cameraUpdate);
                    
                 }
