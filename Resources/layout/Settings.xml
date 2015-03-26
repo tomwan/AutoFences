@@ -32,7 +32,7 @@
                 p1:layout_width="wrap_content"
                 p1:layout_height="match_parent"
                 p1:width="75dp"
-                p1:hint="10:00"
+                p1:hint="HH:MM"
                 p1:textColor="@color/primary"
                 p1:textColorHint="@color/accent"
                 p1:gravity="center" />
@@ -58,7 +58,7 @@
                 p1:layout_height="match_parent"
                 p1:id="@+id/endTime"
                 p1:width="75dp"
-                p1:hint="6:00"
+                p1:hint="HH:MM"
                 p1:textColor="@color/primary"
                 p1:textColorHint="@color/accent"
                 p1:gravity="center" />
@@ -82,7 +82,7 @@
             p1:layout_width="match_parent"
             p1:layout_height="10dp" />
         <TextView
-            p1:text="If the ignition is turned on between the times above, an alert will be issued. Tap the time to change."
+            p1:text="If the ignition is turned on between the times above, an alert will be issued. The accepted format is HH:MM in 24 hour time."
             p1:textAppearance="?android:attr/textAppearanceSmall"
             p1:layout_width="match_parent"
             p1:layout_height="wrap_content"
@@ -115,7 +115,8 @@
             p1:id="@+id/toggleButton"
             p1:textColor="@color/accent"
             style="?android:attr/borderlessButtonStyle"
-            p1:gravity="center" />
+            p1:gravity="center"
+            p1:checked="true" />
         <TextView
             p1:text="Enable or disable alerts of the vehicle exceeding 70 mp/h or 110 km/h."
             p1:textAppearance="?android:attr/textAppearanceSmall"

@@ -12,6 +12,7 @@ using Android.Locations;
 using Android.Gms.Maps;
 using Android.Gms.Maps.Model;
 
+
 namespace AutoFences
 {
     [Activity (Label = "Set Map")]            
@@ -28,15 +29,22 @@ namespace AutoFences
 
         protected override void OnCreate (Bundle bundle){
             base.OnCreate (bundle);
-            SetContentView (Resource.Layout.mapLayout);           
+            SetContentView (Resource.Layout.mapLayout);
 
             seekBar = FindViewById<SeekBar>(Resource.Id.seekBarRadius);
             Button confirmRadius = FindViewById<Button> (Resource.Id.setRadius);
 
+            var prefs = Application.Context.GetSharedPreferences ("settings", FileCreationMode.Private);
+            var prefEditor = prefs.Edit();
+
             newLocation = GetCurrentLocation ();
             InitMapFragment();
-           
+
             confirmRadius.Click += delegate {
+                prefEditor.PutString("geofencinglatitude", Convert.ToString(newLocation.Latitude));
+                prefEditor.PutString("geofencinglongitude", Convert.ToString(newLocation.Longitude));
+                prefEditor.PutInt("geofencingradius", radius);
+                SignalRHelper.updateGeoFencing(newLocation, radius);
                 // Radius has been set, save to user prefs and use for fenceing.
                 Console.WriteLine ("Location {0}, Radius is: {1}", newLocation, radius);
             };
@@ -73,10 +81,7 @@ namespace AutoFences
             circleOptions.InvokeFillColor (Convert.ToInt32 ("0x3000ffff", 16));
             circleOptions.InvokeStrokeColor (Convert.ToInt32 ("0x3000ffff", 16));
             _circle = _map.AddCircle (circleOptions);
-            
-             
         }
-           
 
         /*public override void OnBackPressed(){
             StartActivity (typeof(NavigationDrawerActivity));

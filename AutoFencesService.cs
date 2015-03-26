@@ -30,7 +30,7 @@ namespace AutoFences
                 client = Globals.client;
             }
 
-            SignalRHelper.SignalRSetup (client);
+            SignalRHelper.SignalRSetup (client, prefs);
             return StartCommandResult.Sticky;
         }
 

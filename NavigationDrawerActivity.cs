@@ -254,6 +254,7 @@ namespace AutoFences
                         Console.WriteLine ("Exception:" + e);
                     }
                 }
+                prefEditor.PutString ("speed", "disabled");
 
                 int i = 1;
                 var firstTrip = true;
@@ -417,23 +418,49 @@ namespace AutoFences
                 var endTime = rootView.FindViewById<EditText> (Resource.Id.endTime);
                 var togglebutton = rootView.FindViewById<ToggleButton>(Resource.Id.toggleButton);
 
+                var prefs = Application.Context.GetSharedPreferences ("settings", FileCreationMode.Private);
+                var prefEditor = prefs.Edit();
 
+                
+
+                if (!prefs.GetBoolean ("speed", true)) {
+                    togglebutton.Checked = false;
+                }
 
                 togglebutton.Click += (o, e) => {
-                    // Perform action on toggle
-                    if (togglebutton.Checked)
-                        //TODO tommy, link this
-                        Console.WriteLine ("Speedfence should be enabled");
-                    else
-                        //TODO tommy, link this
-                        Console.WriteLine ("Speedfence should be disabled");
+                    if(togglebutton.Checked == false) {
+                        prefEditor.PutBoolean("speed", false);
+                        prefEditor.Apply();
+                    } else {
+                        prefEditor.PutBoolean("speed", true);
+                        prefEditor.Apply();
+                    }
                 };
+
+                if (!(prefs.GetInt ("startHour", 25) == 25)) {
+                    startTime.Text = Convert.ToDateTime(prefs.GetInt ("startHour", 0) + ":" + (prefs.GetInt ("startMinute", 0))).ToString("HH:mm");
+                    endTime.Text = Convert.ToDateTime(prefs.GetInt ("endHour", 0) + ":" + (prefs.GetInt ("endMinute", 0))).ToString("HH:mm");
+                }
 
                 //save the chronofence
                 save.Click += delegate {
-                    //TODO tommy, link this
-                    //TODO should probably be a check here to see if input is valid [should be hh:mm]
-                    Console.WriteLine ("Chronofence starts at {0} PM and ends at {1}AM", startTime.Text, endTime.Text);
+                    string[] startTimeArray = startTime.Text.Split(':');
+                    string[] endTimeArray = endTime.Text.Split(':');
+                    if(startTimeArray.Length == 2 && endTimeArray.Length == 2) {
+                        DateTime startTimeCompare = Convert.ToDateTime(startTime.Text);
+                        DateTime endTimeCompare = Convert.ToDateTime(endTime.Text);
+
+                        if(DateTime.Compare(startTimeCompare, endTimeCompare) < 0) { //Make sure start time is less than end time
+                            if(Convert.ToInt32(startTimeArray[0]) < 24 && Convert.ToInt32(startTimeArray[1]) < 60 &&
+                                Convert.ToInt32(endTimeArray[0]) < 24 && Convert.ToInt32(endTimeArray[1]) < 60) { // Make sure all the numbers make sense
+                                prefEditor.PutInt("startHour", Convert.ToInt32(startTimeArray[0]));
+                                prefEditor.PutInt("startMinute",Convert.ToInt32(startTimeArray[1]));
+                                prefEditor.PutInt("endHour", Convert.ToInt32(endTimeArray[0]));
+                                prefEditor.PutInt("endMinute", Convert.ToInt32(endTimeArray[1]));
+                                prefEditor.Apply();
+                            }
+                        }
+                    }
                 };
 
                 launchMap.Click += delegate {
