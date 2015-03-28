@@ -11,6 +11,7 @@ using Android.Systems;
 using Mojio;
 using Mojio.Client;
 using Mojio.Events;
+using Android.Gms.Maps.Model;
 
 
 namespace AutoFences
@@ -22,12 +23,14 @@ namespace AutoFences
         private const int EndTime = 24;
 
         private static Boolean alertedChronoFencing = false, alertedOutsideGeoFence = false;
+        private static ISharedPreferences savedPref;
 
-        public async static Task SignalRSetup (MojioClient client)
+        public async static Task SignalRSetup (MojioClient client, ISharedPreferences prefs)
         {
             Guid appID = new Guid (Configurations.appID);
             Guid secretKey = new Guid (Configurations.secretKey);
             Guid vehicleID = new Guid (Configurations.vehicleID);
+            savedPref = prefs;
 
             //--------------------Subscribing to SignalR Events--------------------------//
             EventType[] types = new EventType[] {
@@ -42,28 +45,31 @@ namespace AutoFences
             await client.Subscribe<Vehicle> (vehicleID, types);  //Subscribe to Mojio events with ID
             Console.WriteLine ("Subscription to Mojio SignalR events sucessful!");
 
-            // Setting up Geographical Spherical Fence
+            //Setting up Geographical Spherical Fence
             var center = new Location {
-                Lat = 49.25,
-                Lng = 123.1
+                Lat = Convert.ToDouble(prefs.GetString("geofencinglatitude", null)),
+                Lng = Convert.ToDouble(prefs.GetString("geofencinglongitude", null))
             };
 
-            var radius = 25;  // radius in km
+            var radius = prefs.GetInt ("geofencingradius", 0);  // radius in km
 
             // Create a new observer
-            var observer = new GeoFenceObserver (vehicleID, center, radius);
-            var result = await Globals.client.CreateAsync (observer);
+            if (center.Lat != null && center.Lng != null && radius > 0) {
+                var observer = new GeoFenceObserver (vehicleID, center, radius);
+                var result = await client.CreateAsync (observer);
 
-            // Subscript SignalR to the observer
-            client.Observe (result.Data);
+                // Subscript SignalR to the observer
+                client.Observe (result.Data);
 
-            // Register the Event Callback Handler for when a fence is entered or exited.
-            client.ObserveHandler += (entity) => {
-                var vehicle = entity as Vehicle;
-                //if (vehicle) {
-                //Will write  something
-                //}
-            };
+                // Register the Event Callback Handler for when a fence is entered or exited.
+                client.ObserveHandler += (entity) => {
+                    var vehicle = entity as Vehicle;
+                    Notification.Builder builder = new Notification.Builder (Application.Context)
+                        .SetContentTitle ("Mojio GeoFencing Alert")
+                        .SetContentText ("Vehicle has crossed the GeoFence.")
+                        .SetSmallIcon (Resource.Drawable.ic_logo);
+                };
+            }
         }
 
         public static void SignalRCleanup (MojioClient client) {
@@ -78,6 +84,29 @@ namespace AutoFences
             client.Unsubscribe<Vehicle> (vehicleID, types);
         }
 
+        public async static Task updateGeoFencing (LatLng newLocation, int radius) {
+            Guid vehicleID = new Guid (Configurations.vehicleID);
+            var center = new Location {
+                Lat = newLocation.Latitude,
+                Lng = newLocation.Longitude
+            };
+            
+            var observer = new GeoFenceObserver (vehicleID, center, radius);
+            var result = await Globals.client.CreateAsync (observer);
+
+            // Subscript SignalR to the observer
+            Globals.client.Observe (result.Data);
+
+            // Register the Event Callback Handler for when a fence is entered or exited.
+            Globals.client.ObserveHandler += (entity) => {
+                var vehicle = entity as Vehicle;
+                Notification.Builder builder = new Notification.Builder (Application.Context)
+                    .SetContentTitle ("Mojio GeoFencing Alert")
+                    .SetContentText ("Vehicle has crossed the GeoFence.")
+                    .SetSmallIcon (Resource.Drawable.ic_logo);
+            };
+        }
+
         //TODO: Remove Console.WriteLine()
         public static void ReceiveEvent (Event events)
         {
@@ -88,15 +117,35 @@ namespace AutoFences
                 Console.WriteLine ("Ignition Off!");
             } else if (events.EventType == EventType.IgnitionOn) {
                 Console.WriteLine ("Ignition On!");
-                //TODO: retrieve preset times from settings.
-                TimeSpan startTime = new TimeSpan (StartTime, 0, 0);//temporarily hardcoded.
-                TimeSpan endTime = new TimeSpan (EndTime, 0, 0);
-                TimeSpan nowTime = DateTime.Now.TimeOfDay;
+                if (!(savedPref.GetInt ("startHour", 25) == 25)) {
+                    TimeSpan startTime = new TimeSpan (savedPref.GetInt ("startHour", 0), savedPref.GetInt ("startMinute", 0), 0);
+                    TimeSpan endTime = new TimeSpan (savedPref.GetInt ("endHour", 0), savedPref.GetInt ("endMinute", 0), 0);
+                    TimeSpan nowTime = DateTime.Now.TimeOfDay;
 
-                if (!((nowTime > startTime) && (nowTime < endTime))) {
-                    Notification.Builder builder = new Notification.Builder (Application.Context)
+                    if (!((nowTime > startTime) && (nowTime < endTime))) {
+                        Console.WriteLine (startTime.Hours + ":" + startTime.Minutes + " " + endTime.Hours + ":" + endTime.Minutes);
+                        Notification.Builder builder = new Notification.Builder (Application.Context)
                     .SetContentTitle ("Mojio ChronoFencing Alert")
                     .SetContentText ("Vehicle has been started outside of the preset timespan!")
+                    .SetSmallIcon (Resource.Drawable.ic_logo);
+
+                        NotificationManager notificationManager = Application.Context.GetSystemService (Context.NotificationService) as NotificationManager;
+                        builder.SetDefaults (NotificationDefaults.Sound | NotificationDefaults.Vibrate);
+                        Notification notification = builder.Build ();
+
+                        // Publish the notification:
+                        const int notificationId = 3;
+                        notificationManager.Notify (notificationId, notification);
+                    } else {
+                        alertedChronoFencing = false;
+                    }
+                }
+            } else if (events.EventType == EventType.Speed) {
+                Console.WriteLine ("Speeding!");
+                if (savedPref.GetBoolean ("speed", true)) {
+                    Notification.Builder builder = new Notification.Builder (Application.Context)
+                    .SetContentTitle ("Mojio Notification")
+                    .SetContentText ("Vehicle Speeding!")
                     .SetSmallIcon (Resource.Drawable.ic_logo);
 
                     NotificationManager notificationManager = Application.Context.GetSystemService (Context.NotificationService) as NotificationManager;
@@ -104,25 +153,9 @@ namespace AutoFences
                     Notification notification = builder.Build ();
 
                     // Publish the notification:
-                    const int notificationId = 3;
+                    const int notificationId = 1;
                     notificationManager.Notify (notificationId, notification);
-                } else {
-                    alertedChronoFencing = false;
                 }
-            } else if (events.EventType == EventType.Speed) {
-                Console.WriteLine ("Speeding!");
-                Notification.Builder builder = new Notification.Builder (Application.Context)
-                    .SetContentTitle ("Mojio Notification")
-                    .SetContentText ("Vehicle Speeding!")
-                    .SetSmallIcon (Resource.Drawable.ic_logo);
-
-                NotificationManager notificationManager = Application.Context.GetSystemService (Context.NotificationService) as NotificationManager;
-                builder.SetDefaults (NotificationDefaults.Sound | NotificationDefaults.Vibrate);
-                Notification notification = builder.Build();
-
-                // Publish the notification:
-                const int notificationId = 1;
-                notificationManager.Notify (notificationId, notification);
             } else if (events.EventType == EventType.FenceEntered) {
                 Console.WriteLine ("Fence Entered!");
                 if (alertedOutsideGeoFence) { //If previously outside of fence
@@ -156,41 +189,42 @@ namespace AutoFences
                 notificationManager.Notify (notificationId, notification);
                 alertedOutsideGeoFence = true;
             } else if (events.EventType == EventType.TripStatus) { //If running
-                //TODO: retrieve preset times from settings.
-                TimeSpan startTime = new TimeSpan (StartTime, 0, 0); //temporarily hardcoded.
-                TimeSpan endTime = new TimeSpan (EndTime, 0, 0); //temporarily hardcoded.
-                TimeSpan nowTime = DateTime.Now.TimeOfDay;
+                if (!(savedPref.GetInt ("startHour", 25) == 25)) {
+                    TimeSpan startTime = new TimeSpan (savedPref.GetInt ("startHour", 0), savedPref.GetInt ("startMinute", 0), 0);
+                    TimeSpan endTime = new TimeSpan (savedPref.GetInt ("endHour", 0), savedPref.GetInt ("endMinute", 0), 0);
+                    TimeSpan nowTime = DateTime.Now.TimeOfDay;
 
-                if (!((nowTime > startTime) && (nowTime < endTime))) { //Not in timespan
-                    Notification.Builder builder = new Notification.Builder (Application.Context)
+                    if (!((nowTime > startTime) && (nowTime < endTime))) { //Not in timespan
+                        Notification.Builder builder = new Notification.Builder (Application.Context)
                     .SetContentTitle ("Mojio ChronoFencing Alert")
                     .SetContentText ("Vehicle is in motion outside of the preset timespan!")
                     .SetSmallIcon (Resource.Drawable.ic_logo);
 
-                    NotificationManager notificationManager = Application.Context.GetSystemService (Context.NotificationService) as NotificationManager;
-                    builder.SetDefaults (NotificationDefaults.Sound | NotificationDefaults.Vibrate);
-                    Notification notification = builder.Build ();
-                    notification.Flags |= Android.App.NotificationFlags.OnlyAlertOnce;
-                    // Publish the notification:
-                    const int notificationId = 3;
-                    notificationManager.Notify (notificationId, notification);
-                    alertedChronoFencing = true;
-                } else { // In timespan
-                    if (alertedChronoFencing) {
-                        Notification.Builder builder = new Notification.Builder (Application.Context)
+                        NotificationManager notificationManager = Application.Context.GetSystemService (Context.NotificationService) as NotificationManager;
+                        builder.SetDefaults (NotificationDefaults.Sound | NotificationDefaults.Vibrate);
+                        Notification notification = builder.Build ();
+                        notification.Flags |= Android.App.NotificationFlags.OnlyAlertOnce;
+                        // Publish the notification:
+                        const int notificationId = 3;
+                        notificationManager.Notify (notificationId, notification);
+                        alertedChronoFencing = true;
+                    } else { // In timespan
+                        if (alertedChronoFencing) {
+                            Notification.Builder builder = new Notification.Builder (Application.Context)
                             .SetContentTitle ("Mojio ChronoFencing Alert")
                             .SetContentText ("Vehicle is now inside of the preset timespan!")
                             .SetSmallIcon (Resource.Drawable.ic_logo);
 
-                        NotificationManager notificationManager = Application.Context.GetSystemService (Context.NotificationService) as NotificationManager;
-                        builder.SetDefaults (NotificationDefaults.Sound | NotificationDefaults.Vibrate);
-                        Notification notification = builder.Build ();
+                            NotificationManager notificationManager = Application.Context.GetSystemService (Context.NotificationService) as NotificationManager;
+                            builder.SetDefaults (NotificationDefaults.Sound | NotificationDefaults.Vibrate);
+                            Notification notification = builder.Build ();
 
-                        // Publish the notification:
-                        const int notificationId = 3;
-                        notificationManager.Notify (notificationId, notification);
+                            // Publish the notification:
+                            const int notificationId = 3;
+                            notificationManager.Notify (notificationId, notification);
+                        }
+                        alertedChronoFencing = false;
                     }
-                    alertedChronoFencing = false;
                 }
             }
         }
