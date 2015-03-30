@@ -90,7 +90,7 @@ namespace AutoFences
                 Lat = newLocation.Latitude,
                 Lng = newLocation.Longitude
             };
-            
+
             var observer = new GeoFenceObserver (vehicleID, center, radius);
             var result = await AFLib.Globals.client.CreateAsync (observer);
 

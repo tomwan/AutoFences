@@ -31,6 +31,14 @@ namespace AutoFences
         private string mDrawerTitle;
         private String[] navDrawerTitles = new string[3];
 
+        //used for refreshing main trip page
+        private static Boolean firstStart = true;
+        private static  List<TripData> list;
+        private static  String outputString = "";
+        private static  String lastTime = "";
+        private static  int tripIndex;
+        private static  double fuelEcon;
+
         protected override void OnCreate (Bundle savedInstanceState)
         {
 
@@ -209,49 +217,41 @@ namespace AutoFences
                 var numTripsToDisplay = 20;
 
                 var prefs = Application.Context.GetSharedPreferences ("settings", FileCreationMode.Private);
-                var prefEditor = prefs.Edit();
+                var prefEditor = prefs.Edit ();
 
-                if (!MojioConnectionHelper.isClientLoggedIn()) {
+                if (!MojioConnectionHelper.isClientLoggedIn ()) {
                     await MojioConnectionHelper.setupMojioConnection (prefs);
                 }
 
-                Globals.client.PageSize = 200; //Gets 15 results
-                MojioResponse<Results<Trip>> response = await Globals.client.GetAsync<Trip> ();
-                Results<Trip> result = response.Data;
 
-                //var results = view.FindViewById<TextView> (Resource.Id.tripResults);
-                var fuelEfficiecny = view.FindViewById<TextView> (Resource.Id.fuelUsage);
-                var lastTripTime = view.FindViewById<TextView> (Resource.Id.lastTripTime);
+                if(firstStart){
+                    firstStart = false;
+                    Globals.client.PageSize = 200; //Gets 15 results
+                    MojioResponse<Results<Trip>> response = await Globals.client.GetAsync<Trip> ();
+                    Results<Trip> result = response.Data;
 
-                int tripIndex = 0;
-                String outputString = "";
-                String lastTime = "";
-                double fuelEcon = 0.0;
-                // Iterate over each trip to find fuel econ and last trip time
-                try{
+                    //var results = view.FindViewById<TextView> (Resource.Id.tripResults);
+
+                    tripIndex = 0;
+                    fuelEcon = 0.0;
+
+
+                    tripIndex--;
+
+                    list = new List<TripData> ();
+                    //iterate over each trip to create TripData for each existing trip.
+
                     foreach (Trip trip in result.Data) {
-                        tripIndex++;
-                        fuelEcon += (double) trip.FuelEfficiency;
-                        // set last trip time
-                        //lastTime = trip.EndTime.ToString ();
-                    }
-                } catch(Exception e){
-                    Console.WriteLine ("Exception:" + e);
-                }
-
-                tripIndex--;
-
-                List<TripData> list = new List<TripData>();
-                //iterate over each trip to create TripData for each existing trip.
-
-                foreach (Trip trip in result.Data) {
-                    try{
-                        TripData td = new TripData(trip.StartTime, trip.EndTime, trip.MaxSpeed.Value.ToString(), trip.EndLocation.Lat.ToString(), trip.EndLocation.Lng.ToString(),
-                            trip.FuelEfficiency.ToString(), trip.FuelLevel.ToString(),trip.StartLocation.Lat.ToString(),trip.StartLocation.Lng.ToString());
-                        //add new trip to beginning of list, so they are in most recent first order
-                        list.Insert(0, td);
-                    } catch(Exception e){
-                        Console.WriteLine ("Exception:" + e);
+                        try {
+                            fuelEcon += (double) trip.FuelEfficiency;
+                            tripIndex++;
+                            TripData td = new TripData (trip.StartTime, trip.EndTime, trip.MaxSpeed.Value.ToString (), trip.EndLocation.Lat.ToString (), trip.EndLocation.Lng.ToString (),
+                                              trip.FuelEfficiency.ToString (), trip.FuelLevel.ToString (), trip.StartLocation.Lat.ToString (), trip.StartLocation.Lng.ToString ());
+                            //add new trip to beginning of list, so they are in most recent first order
+                            list.Insert (0, td);
+                        } catch (Exception e) {
+                            Console.WriteLine ("Exception:" + e);
+                        }
                     }
                 }
                 prefEditor.PutString ("speed", "disabled");
@@ -260,7 +260,15 @@ namespace AutoFences
                 var firstTrip = true;
                 var tripsDisplayed = 0;
                 // programmatically create a view widget for each trip
-                LinearLayout linlay = view.FindViewById<LinearLayout> (Resource.Id.linearLayout3);
+                LinearLayout linlay = view.FindViewById<LinearLayout> (Resource.Id.linearLayout28);
+
+                // remove all old children
+                Console.Write ("NUMCHILDREN: " + linlay.ChildCount);
+
+                for(int j = linlay.ChildCount-1; j >= 0; j--){
+                    linlay.RemoveViewAt (j);
+
+                }
 
                 //places all the UI elements
                 foreach (TripData td in list) {
@@ -372,6 +380,8 @@ namespace AutoFences
 
                 }
 
+                var fuelEfficiecny = view.FindViewById<TextView> (Resource.Id.fuelUsage);
+                var lastTripTime = view.FindViewById<TextView> (Resource.Id.lastTripTime);
                 var fe = Math.Round((fuelEcon / tripIndex),1);
                 fuelEfficiecny.Text = "   " + fe + " L/100km";
                 lastTripTime.Text = "   " + lastTime;
@@ -382,7 +392,23 @@ namespace AutoFences
                 Bundle savedInstanceState)
             {
                 View rootView = inflater.Inflate (Resource.Layout.Display, container, false);
+
+
                 getTripData (rootView);
+
+                var refresher = rootView.FindViewById<SwipeRefreshLayout> (Resource.Id.refresher);
+                refresher.SetColorScheme (Resource.Color.primary_dark,
+                    Resource.Color.accent,
+                    Resource.Color.primary,
+                    Resource.Color.primary_dark);
+                refresher.Refresh += async delegate {
+
+                    firstStart = true;
+                    Toast.MakeText (Application.Context, "Refreshing...", ToastLength.Short).Show ();
+                    getTripData(rootView);
+                    refresher.Refreshing = false;
+                };
+
                 Button launchMap = rootView.FindViewById<Button> (Resource.Id.MapButton);
 
                 return rootView;
@@ -461,6 +487,10 @@ namespace AutoFences
                             }
                         }
                     }
+                    //TODO tommy, link this
+                    //TODO should probably be a check here to see if input is valid [should be hh:mm]
+                    Console.WriteLine ("Chronofence starts at {0} PM and ends at {1}AM", startTime.Text, endTime.Text);
+                    Toast.MakeText (Application.Context, "Saved...", ToastLength.Short).Show ();
                 };
 
                 launchMap.Click += delegate {

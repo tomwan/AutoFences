@@ -37,14 +37,6 @@
                 p1:textColorHint="@color/accent"
                 p1:gravity="center" />
             <TextView
-                p1:text="PM"
-                p1:textAppearance="?android:attr/textAppearanceMedium"
-                p1:layout_width="wrap_content"
-                p1:layout_height="match_parent"
-                p1:id="@+id/textView8"
-                p1:gravity="bottom"
-                p1:width="50dp" />
-            <TextView
                 p1:text="to"
                 p1:textAppearance="?android:attr/textAppearanceMedium"
                 p1:layout_width="wrap_content"
@@ -62,14 +54,6 @@
                 p1:textColor="@color/primary"
                 p1:textColorHint="@color/accent"
                 p1:gravity="center" />
-            <TextView
-                p1:text="AM"
-                p1:textAppearance="?android:attr/textAppearanceMedium"
-                p1:layout_width="wrap_content"
-                p1:layout_height="match_parent"
-                p1:id="@+id/textView10"
-                p1:gravity="bottom"
-                p1:width="50dp" />
             <Button
                 p1:text="Save"
                 p1:layout_width="wrap_content"
