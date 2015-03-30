@@ -23,11 +23,11 @@ namespace AutoFences
         public override StartCommandResult OnStartCommand (Intent intent, StartCommandFlags flags, int startId)
         {
             var prefs = Application.Context.GetSharedPreferences ("settings", FileCreationMode.Private);
-            client = Globals.client;
+            client = AFLib.Globals.client;
 
             if (client == null) {
-                MojioConnectionHelper.setupMojioConnection (prefs);
-                client = Globals.client;
+                AFLib.MojioConnectionHelper.setupMojioConnection (prefs);
+                client = AFLib.Globals.client;
             }
 
             SignalRHelper.SignalRSetup (client, prefs);

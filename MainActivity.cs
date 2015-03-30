@@ -33,7 +33,7 @@ namespace AutoFences
                     Toast.MakeText (this, "Please enter a valid password.", ToastLength.Short).Show ();
                 } else {
                     try {
-                        if (await MojioConnectionHelper.setupMojioConnectionFirstTime (email.Text, password.Text, prefEditor)) {
+                        if (await AFLib.MojioConnectionHelper.setupMojioConnectionFirstTime (email.Text, password.Text, prefEditor)) {
                             StartService(new Intent(this, typeof(AutoFencesService)));
                             StartActivity (typeof(NavigationDrawerActivity));
                             Finish ();
