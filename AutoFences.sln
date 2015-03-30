@@ -3,9 +3,9 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 2012
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AutoFences", "AutoFences.csproj", "{D1311EB8-1EF3-4991-8F52-009759D68F25}"
 EndProject
-Project("{D954291E-2A0B-460D-934E-DC6B0785DB48}") = "AFLib", "AFLib\AFLib.shproj", "{B6AB21EC-3471-4C82-84BB-9B336B440D15}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AFLib", "AFLib\AFLib.csproj", "{F6D43115-56C6-4193-9277-74AEADC8CA6C}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AFTest", "AFTest\AFTest.csproj", "{EE2280BA-A3D2-4120-B46E-C41AE3E54AB0}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AFTest", "AFTest\AFTest.csproj", "{000FB90B-659E-4720-8021-47FF135CAEC6}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -13,14 +13,18 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{000FB90B-659E-4720-8021-47FF135CAEC6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{000FB90B-659E-4720-8021-47FF135CAEC6}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{000FB90B-659E-4720-8021-47FF135CAEC6}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{000FB90B-659E-4720-8021-47FF135CAEC6}.Release|Any CPU.Build.0 = Release|Any CPU
 		{D1311EB8-1EF3-4991-8F52-009759D68F25}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{D1311EB8-1EF3-4991-8F52-009759D68F25}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{D1311EB8-1EF3-4991-8F52-009759D68F25}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{D1311EB8-1EF3-4991-8F52-009759D68F25}.Release|Any CPU.Build.0 = Release|Any CPU
-		{EE2280BA-A3D2-4120-B46E-C41AE3E54AB0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{EE2280BA-A3D2-4120-B46E-C41AE3E54AB0}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{EE2280BA-A3D2-4120-B46E-C41AE3E54AB0}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{EE2280BA-A3D2-4120-B46E-C41AE3E54AB0}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F6D43115-56C6-4193-9277-74AEADC8CA6C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F6D43115-56C6-4193-9277-74AEADC8CA6C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F6D43115-56C6-4193-9277-74AEADC8CA6C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F6D43115-56C6-4193-9277-74AEADC8CA6C}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(MonoDevelopProperties) = preSolution
 		Policies = $0

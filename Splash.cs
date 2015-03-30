@@ -24,7 +24,7 @@ namespace AutoFences
 
             var prefs = Application.Context.GetSharedPreferences ("settings", FileCreationMode.Private);
 
-            if (await MojioConnectionHelper.setupMojioConnection (prefs)) {
+            if (await AFLib.MojioConnectionHelper.setupMojioConnection (prefs)) {
                 StartService(new Intent(this, typeof(AutoFencesService)));
                 Toast.MakeText (this, "Log In successful.", ToastLength.Short).Show ();
                 StartActivity (typeof(NavigationDrawerActivity));

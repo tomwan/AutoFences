@@ -27,9 +27,9 @@ namespace AutoFences
 
         public async static Task SignalRSetup (MojioClient client, ISharedPreferences prefs)
         {
-            Guid appID = new Guid (Configurations.appID);
-            Guid secretKey = new Guid (Configurations.secretKey);
-            Guid vehicleID = new Guid (Configurations.vehicleID);
+            Guid appID = new Guid (AFLib.Configurations.appID);
+            Guid secretKey = new Guid (AFLib.Configurations.secretKey);
+            Guid vehicleID = new Guid (AFLib.Configurations.vehicleID);
             savedPref = prefs;
 
             //--------------------Subscribing to SignalR Events--------------------------//
@@ -73,7 +73,7 @@ namespace AutoFences
         }
 
         public static void SignalRCleanup (MojioClient client) {
-            Guid vehicleID = new Guid (Configurations.vehicleID);
+            Guid vehicleID = new Guid (AFLib.Configurations.vehicleID);
             EventType[] types = new EventType[] {
                 EventType.IgnitionOn,
                 EventType.IgnitionOff,
@@ -85,20 +85,20 @@ namespace AutoFences
         }
 
         public async static Task updateGeoFencing (LatLng newLocation, int radius) {
-            Guid vehicleID = new Guid (Configurations.vehicleID);
+            Guid vehicleID = new Guid (AFLib.Configurations.vehicleID);
             var center = new Location {
                 Lat = newLocation.Latitude,
                 Lng = newLocation.Longitude
             };
             
             var observer = new GeoFenceObserver (vehicleID, center, radius);
-            var result = await Globals.client.CreateAsync (observer);
+            var result = await AFLib.Globals.client.CreateAsync (observer);
 
             // Subscript SignalR to the observer
-            Globals.client.Observe (result.Data);
+            AFLib.Globals.client.Observe (result.Data);
 
             // Register the Event Callback Handler for when a fence is entered or exited.
-            Globals.client.ObserveHandler += (entity) => {
+            AFLib.Globals.client.ObserveHandler += (entity) => {
                 var vehicle = entity as Vehicle;
                 Notification.Builder builder = new Notification.Builder (Application.Context)
                     .SetContentTitle ("Mojio GeoFencing Alert")

@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace AutoFences
+namespace AFLib
 {
     public static class Configurations {
         public const string appID = "0cf32aca-3792-4929-a322-9797d9d5048f";
