@@ -1,127 +1,139 @@
 <?xml version="1.0" encoding="utf-8"?>
-<ScrollView xmlns:p1="http://schemas.android.com/apk/res/android"
-    xmlns:card_view="http://schemas.android.com/apk/res-auto"
-    p1:orientation="vertical"
+<android.support.v4.widget.SwipeRefreshLayout xmlns:p1="http://schemas.android.com/apk/res/android"
+    p1:id="@+id/refresher"
     p1:layout_width="match_parent"
-    p1:layout_height="match_parent"
-    p1:id="@+id/linearLayout1"
-    p1:padding="5dp">
-    <LinearLayout
+    p1:layout_height="match_parent">
+    <ScrollView xmlns:card_view="http://schemas.android.com/apk/res-auto"
         p1:orientation="vertical"
-        p1:minWidth="25px"
-        p1:minHeight="25px"
         p1:layout_width="match_parent"
-        p1:layout_height="wrap_content"
-        p1:id="@+id/linearLayout4">
+        p1:layout_height="match_parent"
+        p1:id="@+id/linearLayout1"
+        p1:padding="5dp">
         <LinearLayout
             p1:orientation="vertical"
             p1:minWidth="25px"
             p1:minHeight="25px"
-            p1:id="@+id/linearLayout3"
-            p1:padding="5dp"
             p1:layout_width="match_parent"
-            p1:layout_height="wrap_content">
+            p1:layout_height="wrap_content"
+            p1:id="@+id/linearLayout4">
             <LinearLayout
-                p1:orientation="horizontal"
+                p1:orientation="vertical"
                 p1:minWidth="25px"
                 p1:minHeight="25px"
+                p1:id="@+id/linearLayout3"
+                p1:padding="5dp"
                 p1:layout_width="match_parent"
-                p1:layout_height="wrap_content"
-                p1:id="@+id/linearLayout7">
+                p1:layout_height="wrap_content">
                 <LinearLayout
-                    p1:orientation="vertical"
+                    p1:orientation="horizontal"
                     p1:minWidth="25px"
                     p1:minHeight="25px"
-                    p1:layout_width="wrap_content"
+                    p1:layout_width="match_parent"
                     p1:layout_height="wrap_content"
-                    p1:padding="5dp"
-                    p1:layout_weight="1"
-                    p1:id="@+id/linearLayout8">
-                    <TextView
-                        p1:text="Fuel Economy"
-                        p1:textColor="@color/black_text"
-                        p1:textSize="20dp"
-                        p1:layout_width="wrap_content"
-                        p1:layout_height="match_parent" />
+                    p1:id="@+id/linearLayout7">
                     <LinearLayout
-                        p1:orientation="horizontal"
+                        p1:orientation="vertical"
                         p1:minWidth="25px"
                         p1:minHeight="25px"
-                        p1:id="@+id/linearLayout5"
-                        p1:layout_width="match_parent"
-                        p1:layout_height="wrap_content">
-                        <ImageView
-                            p1:src="@drawable/gas"
-                            p1:layout_width="wrap_content"
-                            p1:layout_height="match_parent"
-                            p1:id="@+id/imageView1"
-                            p1:maxHeight="50px"
-                            p1:adjustViewBounds="true"
-                            p1:tint="@color/accent" />
+                        p1:layout_width="wrap_content"
+                        p1:layout_height="wrap_content"
+                        p1:padding="5dp"
+                        p1:layout_weight="1"
+                        p1:id="@+id/linearLayout8">
                         <TextView
-                            p1:text="   n/a"
-                            p1:id="@+id/fuelUsage"
+                            p1:text="Fuel Economy"
+                            p1:textColor="@color/black_text"
                             p1:textSize="20dp"
                             p1:layout_width="wrap_content"
                             p1:layout_height="match_parent" />
+                        <LinearLayout
+                            p1:orientation="horizontal"
+                            p1:minWidth="25px"
+                            p1:minHeight="25px"
+                            p1:id="@+id/linearLayout5"
+                            p1:layout_width="match_parent"
+                            p1:layout_height="wrap_content">
+                            <ImageView
+                                p1:src="@drawable/gas"
+                                p1:layout_width="wrap_content"
+                                p1:layout_height="match_parent"
+                                p1:id="@+id/imageView1"
+                                p1:maxHeight="50px"
+                                p1:adjustViewBounds="true"
+                                p1:tint="@color/accent" />
+                            <TextView
+                                p1:text="   n/a"
+                                p1:id="@+id/fuelUsage"
+                                p1:textSize="20dp"
+                                p1:layout_width="wrap_content"
+                                p1:layout_height="match_parent" />
+                        </LinearLayout>
+                    </LinearLayout>
+                    <Space
+                        p1:id="@+id/space1"
+                        p1:layout_width="14dp"
+                        p1:layout_height="match_parent" />
+                    <LinearLayout
+                        p1:orientation="vertical"
+                        p1:minWidth="25px"
+                        p1:minHeight="25px"
+                        p1:padding="5dp"
+                        p1:layout_width="wrap_content"
+                        p1:layout_height="wrap_content"
+                        p1:layout_weight="1"
+                        p1:id="@+id/linearLayout9">
+                        <TextView
+                            p1:text="Last Trip"
+                            p1:textColor="@color/black_text"
+                            p1:textSize="20dp"
+                            p1:layout_width="wrap_content"
+                            p1:layout_height="match_parent" />
+                        <LinearLayout
+                            p1:orientation="horizontal"
+                            p1:minWidth="25px"
+                            p1:minHeight="25px"
+                            p1:id="@+id/linearLayout6"
+                            p1:layout_width="match_parent"
+                            p1:layout_height="wrap_content">
+                            <ImageView
+                                p1:src="@drawable/adventure"
+                                p1:layout_width="wrap_content"
+                                p1:layout_height="match_parent"
+                                p1:id="@+id/imageView2"
+                                p1:maxHeight="50px"
+                                p1:adjustViewBounds="true"
+                                p1:tint="@color/accent" />
+                            <TextView
+                                p1:text="   n/a"
+                                p1:id="@+id/lastTripTime"
+                                p1:textSize="20dp"
+                                p1:layout_width="wrap_content"
+                                p1:layout_height="match_parent" />
+                        </LinearLayout>
                     </LinearLayout>
                 </LinearLayout>
                 <Space
                     p1:id="@+id/space1"
-                    p1:layout_width="14dp"
-                    p1:layout_height="match_parent" />
+                    p1:layout_width="match_parent"
+                    p1:layout_height="10dp" />
+                <View
+                    p1:padding="20dp"
+                    p1:layout_width="fill_parent"
+                    p1:layout_height="1dp"
+                    p1:background="@android:color/darker_gray" />
+                <Space
+                    p1:id="@+id/space1"
+                    p1:layout_width="match_parent"
+                    p1:layout_height="10dp" />
                 <LinearLayout
                     p1:orientation="vertical"
                     p1:minWidth="25px"
                     p1:minHeight="25px"
+                    p1:id="@+id/linearLayout28"
                     p1:padding="5dp"
-                    p1:layout_width="wrap_content"
-                    p1:layout_height="wrap_content"
-                    p1:layout_weight="1"
-                    p1:id="@+id/linearLayout9">
-                    <TextView
-                        p1:text="Last Trip"
-                        p1:textColor="@color/black_text"
-                        p1:textSize="20dp"
-                        p1:layout_width="wrap_content"
-                        p1:layout_height="match_parent" />
-                    <LinearLayout
-                        p1:orientation="horizontal"
-                        p1:minWidth="25px"
-                        p1:minHeight="25px"
-                        p1:id="@+id/linearLayout6"
-                        p1:layout_width="match_parent"
-                        p1:layout_height="wrap_content">
-                        <ImageView
-                            p1:src="@drawable/adventure"
-                            p1:layout_width="wrap_content"
-                            p1:layout_height="match_parent"
-                            p1:id="@+id/imageView2"
-                            p1:maxHeight="50px"
-                            p1:adjustViewBounds="true"
-                            p1:tint="@color/accent" />
-                        <TextView
-                            p1:text="   n/a"
-                            p1:id="@+id/lastTripTime"
-                            p1:textSize="20dp"
-                            p1:layout_width="wrap_content"
-                            p1:layout_height="match_parent" />
-                    </LinearLayout>
-                </LinearLayout>
+                    p1:layout_width="match_parent"
+                    p1:layout_height="wrap_content" />
             </LinearLayout>
-            <Space
-                p1:id="@+id/space1"
-                p1:layout_width="match_parent"
-                p1:layout_height="10dp" />
-            <View
-                p1:padding="20dp"
-                p1:layout_width="fill_parent"
-                p1:layout_height="1dp"
-                p1:background="@android:color/darker_gray" />
-            <Space
-                p1:id="@+id/space1"
-                p1:layout_width="match_parent"
-                p1:layout_height="10dp" />
         </LinearLayout>
-    </LinearLayout>
-</ScrollView>
+    </ScrollView>
+</android.support.v4.widget.SwipeRefreshLayout>
