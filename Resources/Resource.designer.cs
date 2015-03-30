@@ -1878,8 +1878,8 @@ namespace AutoFences
 			// aapt resource value: 0x7f0b0072
 			public const int loginbutton = 2131427442;
 			
-			// aapt resource value: 0x7f0b0076
-			public const int map = 2131427446;
+			// aapt resource value: 0x7f0b0074
+			public const int map = 2131427444;
 			
 			// aapt resource value: 0x7f0b002a
 			public const int match_parent = 2131427370;
@@ -1974,14 +1974,14 @@ namespace AutoFences
 			// aapt resource value: 0x7f0b0052
 			public const int search_voice_btn = 2131427410;
 			
-			// aapt resource value: 0x7f0b0074
-			public const int seekBarRadius = 2131427444;
+			// aapt resource value: 0x7f0b0075
+			public const int seekBarRadius = 2131427445;
 			
 			// aapt resource value: 0x7f0b0029
 			public const int selectionDetails = 2131427369;
 			
-			// aapt resource value: 0x7f0b0075
-			public const int setRadius = 2131427445;
+			// aapt resource value: 0x7f0b0076
+			public const int setRadius = 2131427446;
 			
 			// aapt resource value: 0x7f0b003e
 			public const int shortcut = 2131427390;

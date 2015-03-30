@@ -29,6 +29,9 @@ namespace AFLib
             this.fuelLevel = fuelLevel;
             this.startlocationlat = startlocationlat;
             this.startlocationlng = startlocationlng;
+
+            dtStart = dtStart.ToLocalTime ();
+
             DateTime? dateOrNull = dtEnd;
             //Make sure not null TODO: Make timespan human readable
             if (dateOrNull != null) {

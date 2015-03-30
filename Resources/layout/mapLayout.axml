@@ -3,6 +3,10 @@
     p1:orientation="vertical"
     p1:layout_width="fill_parent"
     p1:layout_height="fill_parent">
+    <FrameLayout
+        p1:id="@+id/map"
+        p1:layout_width="fill_parent"
+        p1:layout_height="fill_parent" />
     <SeekBar
         p1:layout_width="match_parent"
         p1:layout_height="wrap_content"
@@ -17,8 +21,4 @@
         p1:id="@+id/setRadius"
         style="?android:attr/borderlessButtonStyle"
         p1:textColor="@color/accent" />
-    <FrameLayout
-        p1:id="@+id/map"
-        p1:layout_width="fill_parent"
-        p1:layout_height="fill_parent" />
 </LinearLayout>

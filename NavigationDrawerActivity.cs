@@ -226,7 +226,7 @@ namespace AutoFences
 
                 if(firstStart){
                     firstStart = false;
-                    Globals.client.PageSize = 200; //Gets 15 results
+                    Globals.client.PageSize = 500; //Gets 15 results
                     MojioResponse<Results<Trip>> response = await Globals.client.GetAsync<Trip> ();
                     Results<Trip> result = response.Data;
 
