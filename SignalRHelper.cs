@@ -67,7 +67,7 @@ namespace AutoFences
                     Notification.Builder builder = new Notification.Builder (Application.Context)
                         .SetContentTitle ("Mojio GeoFencing Alert")
                         .SetContentText ("Vehicle has crossed the GeoFence.")
-                        .SetSmallIcon (Resource.Drawable.ic_logo);
+                        .SetSmallIcon (Resource.Drawable.logo_white);
                 };
             }
         }
@@ -103,7 +103,7 @@ namespace AutoFences
                 Notification.Builder builder = new Notification.Builder (Application.Context)
                     .SetContentTitle ("Mojio GeoFencing Alert")
                     .SetContentText ("Vehicle has crossed the GeoFence.")
-                    .SetSmallIcon (Resource.Drawable.ic_logo);
+                    .SetSmallIcon (Resource.Drawable.logo_white);
             };
         }
 
@@ -127,7 +127,7 @@ namespace AutoFences
                         Notification.Builder builder = new Notification.Builder (Application.Context)
                     .SetContentTitle ("Mojio ChronoFencing Alert")
                     .SetContentText ("Vehicle has been started outside of the preset timespan!")
-                    .SetSmallIcon (Resource.Drawable.ic_logo);
+                    .SetSmallIcon (Resource.Drawable.logo_white);
 
                         NotificationManager notificationManager = Application.Context.GetSystemService (Context.NotificationService) as NotificationManager;
                         builder.SetDefaults (NotificationDefaults.Sound | NotificationDefaults.Vibrate);
@@ -146,7 +146,7 @@ namespace AutoFences
                     Notification.Builder builder = new Notification.Builder (Application.Context)
                     .SetContentTitle ("Mojio Notification")
                     .SetContentText ("Vehicle Speeding!")
-                    .SetSmallIcon (Resource.Drawable.ic_logo);
+                    .SetSmallIcon (Resource.Drawable.logo_white);
 
                     NotificationManager notificationManager = Application.Context.GetSystemService (Context.NotificationService) as NotificationManager;
                     builder.SetDefaults (NotificationDefaults.Sound | NotificationDefaults.Vibrate);
@@ -162,7 +162,7 @@ namespace AutoFences
                     Notification.Builder builder = new Notification.Builder (Application.Context)
                         .SetContentTitle ("Mojio GeoFencing Alert")
                         .SetContentText ("Vehicle has returned to the preset geofence perimeter")
-                        .SetSmallIcon (Resource.Drawable.ic_logo);
+                        .SetSmallIcon (Resource.Drawable.logo_white);
 
                     NotificationManager notificationManager = Application.Context.GetSystemService (Context.NotificationService) as NotificationManager;
                     builder.SetDefaults (NotificationDefaults.Sound | NotificationDefaults.Vibrate);
@@ -178,7 +178,7 @@ namespace AutoFences
                 Notification.Builder builder = new Notification.Builder (Application.Context)
                     .SetContentTitle ("Mojio GeoFencing Alert")
                     .SetContentText ("Vehicle has left the preset geofence perimeter")
-                    .SetSmallIcon (Resource.Drawable.ic_logo);
+                    .SetSmallIcon (Resource.Drawable.logo_white);
 
                 NotificationManager notificationManager = Application.Context.GetSystemService (Context.NotificationService) as NotificationManager;
                 builder.SetDefaults (NotificationDefaults.Sound | NotificationDefaults.Vibrate);
@@ -198,7 +198,7 @@ namespace AutoFences
                         Notification.Builder builder = new Notification.Builder (Application.Context)
                     .SetContentTitle ("Mojio ChronoFencing Alert")
                     .SetContentText ("Vehicle is in motion outside of the preset timespan!")
-                    .SetSmallIcon (Resource.Drawable.ic_logo);
+                    .SetSmallIcon (Resource.Drawable.logo_white);
 
                         NotificationManager notificationManager = Application.Context.GetSystemService (Context.NotificationService) as NotificationManager;
                         builder.SetDefaults (NotificationDefaults.Sound | NotificationDefaults.Vibrate);
@@ -213,7 +213,7 @@ namespace AutoFences
                             Notification.Builder builder = new Notification.Builder (Application.Context)
                             .SetContentTitle ("Mojio ChronoFencing Alert")
                             .SetContentText ("Vehicle is now inside of the preset timespan!")
-                            .SetSmallIcon (Resource.Drawable.ic_logo);
+                            .SetSmallIcon (Resource.Drawable.logo_white);
 
                             NotificationManager notificationManager = Application.Context.GetSystemService (Context.NotificationService) as NotificationManager;
                             builder.SetDefaults (NotificationDefaults.Sound | NotificationDefaults.Vibrate);

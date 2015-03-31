@@ -32,11 +32,13 @@ namespace AFLib
 
             dtStart = dtStart.ToLocalTime ();
 
+
             DateTime? dateOrNull = dtEnd;
             //Make sure not null TODO: Make timespan human readable
             if (dateOrNull != null) {
                 //get total trip length
                 DateTime notNull = (DateTime)dtEnd;
+                notNull = notNull.ToLocalTime ();
                 //tripLength = notNull.Subtract (dtStart).ToString();
                 //TimeSpan time = notNull.Subtract (dtStart);
                 TimeSpan time = notNull - dtStart;

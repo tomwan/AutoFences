@@ -1536,121 +1536,124 @@ namespace AutoFences
 			public const int list_pressed_autofences = 2130837603;
 			
 			// aapt resource value: 0x7f020064
-			public const int map_placeholder = 2130837604;
+			public const int logo_white = 2130837604;
 			
 			// aapt resource value: 0x7f020065
-			public const int mapButton = 2130837605;
+			public const int map_placeholder = 2130837605;
 			
 			// aapt resource value: 0x7f020066
-			public const int menu_dropdown_panel_autofences = 2130837606;
+			public const int mapButton = 2130837606;
 			
 			// aapt resource value: 0x7f020067
-			public const int mr_ic_audio_vol = 2130837607;
+			public const int menu_dropdown_panel_autofences = 2130837607;
 			
 			// aapt resource value: 0x7f020068
-			public const int mr_ic_media_route_connecting_holo_dark = 2130837608;
+			public const int mr_ic_audio_vol = 2130837608;
 			
 			// aapt resource value: 0x7f020069
-			public const int mr_ic_media_route_connecting_holo_light = 2130837609;
+			public const int mr_ic_media_route_connecting_holo_dark = 2130837609;
 			
 			// aapt resource value: 0x7f02006a
-			public const int mr_ic_media_route_disabled_holo_dark = 2130837610;
+			public const int mr_ic_media_route_connecting_holo_light = 2130837610;
 			
 			// aapt resource value: 0x7f02006b
-			public const int mr_ic_media_route_disabled_holo_light = 2130837611;
+			public const int mr_ic_media_route_disabled_holo_dark = 2130837611;
 			
 			// aapt resource value: 0x7f02006c
-			public const int mr_ic_media_route_holo_dark = 2130837612;
+			public const int mr_ic_media_route_disabled_holo_light = 2130837612;
 			
 			// aapt resource value: 0x7f02006d
-			public const int mr_ic_media_route_holo_light = 2130837613;
+			public const int mr_ic_media_route_holo_dark = 2130837613;
 			
 			// aapt resource value: 0x7f02006e
-			public const int mr_ic_media_route_off_holo_dark = 2130837614;
+			public const int mr_ic_media_route_holo_light = 2130837614;
 			
 			// aapt resource value: 0x7f02006f
-			public const int mr_ic_media_route_off_holo_light = 2130837615;
+			public const int mr_ic_media_route_off_holo_dark = 2130837615;
 			
 			// aapt resource value: 0x7f020070
-			public const int mr_ic_media_route_on_0_holo_dark = 2130837616;
+			public const int mr_ic_media_route_off_holo_light = 2130837616;
 			
 			// aapt resource value: 0x7f020071
-			public const int mr_ic_media_route_on_0_holo_light = 2130837617;
+			public const int mr_ic_media_route_on_0_holo_dark = 2130837617;
 			
 			// aapt resource value: 0x7f020072
-			public const int mr_ic_media_route_on_1_holo_dark = 2130837618;
+			public const int mr_ic_media_route_on_0_holo_light = 2130837618;
 			
 			// aapt resource value: 0x7f020073
-			public const int mr_ic_media_route_on_1_holo_light = 2130837619;
+			public const int mr_ic_media_route_on_1_holo_dark = 2130837619;
 			
 			// aapt resource value: 0x7f020074
-			public const int mr_ic_media_route_on_2_holo_dark = 2130837620;
+			public const int mr_ic_media_route_on_1_holo_light = 2130837620;
 			
 			// aapt resource value: 0x7f020075
-			public const int mr_ic_media_route_on_2_holo_light = 2130837621;
+			public const int mr_ic_media_route_on_2_holo_dark = 2130837621;
 			
 			// aapt resource value: 0x7f020076
-			public const int mr_ic_media_route_on_holo_dark = 2130837622;
+			public const int mr_ic_media_route_on_2_holo_light = 2130837622;
 			
 			// aapt resource value: 0x7f020077
-			public const int mr_ic_media_route_on_holo_light = 2130837623;
+			public const int mr_ic_media_route_on_holo_dark = 2130837623;
 			
 			// aapt resource value: 0x7f020078
-			public const int powered_by_google_dark = 2130837624;
+			public const int mr_ic_media_route_on_holo_light = 2130837624;
 			
 			// aapt resource value: 0x7f020079
-			public const int powered_by_google_light = 2130837625;
+			public const int powered_by_google_dark = 2130837625;
 			
 			// aapt resource value: 0x7f02007a
-			public const int progress_bg_autofences = 2130837626;
+			public const int powered_by_google_light = 2130837626;
 			
 			// aapt resource value: 0x7f02007b
-			public const int progress_primary_autofences = 2130837627;
+			public const int progress_bg_autofences = 2130837627;
 			
 			// aapt resource value: 0x7f02007c
-			public const int progress_secondary_autofences = 2130837628;
+			public const int progress_primary_autofences = 2130837628;
 			
 			// aapt resource value: 0x7f02007d
-			public const int sample_dashboard_item_background = 2130837629;
+			public const int progress_secondary_autofences = 2130837629;
 			
 			// aapt resource value: 0x7f02007e
-			public const int speedometer = 2130837630;
+			public const int sample_dashboard_item_background = 2130837630;
 			
 			// aapt resource value: 0x7f02007f
-			public const int spinner_ab_default_autofences = 2130837631;
+			public const int speedometer = 2130837631;
 			
 			// aapt resource value: 0x7f020080
-			public const int spinner_ab_disabled_autofences = 2130837632;
+			public const int spinner_ab_default_autofences = 2130837632;
 			
 			// aapt resource value: 0x7f020081
-			public const int spinner_ab_focused_autofences = 2130837633;
+			public const int spinner_ab_disabled_autofences = 2130837633;
 			
 			// aapt resource value: 0x7f020082
-			public const int spinner_ab_pressed_autofences = 2130837634;
+			public const int spinner_ab_focused_autofences = 2130837634;
 			
 			// aapt resource value: 0x7f020083
-			public const int stopwatch = 2130837635;
+			public const int spinner_ab_pressed_autofences = 2130837635;
 			
 			// aapt resource value: 0x7f020084
-			public const int tab_selected_autofences = 2130837636;
+			public const int stopwatch = 2130837636;
 			
 			// aapt resource value: 0x7f020085
-			public const int tab_selected_focused_autofences = 2130837637;
+			public const int tab_selected_autofences = 2130837637;
 			
 			// aapt resource value: 0x7f020086
-			public const int tab_selected_pressed_autofences = 2130837638;
+			public const int tab_selected_focused_autofences = 2130837638;
 			
 			// aapt resource value: 0x7f020087
-			public const int tab_unselected_autofences = 2130837639;
+			public const int tab_selected_pressed_autofences = 2130837639;
 			
 			// aapt resource value: 0x7f020088
-			public const int tab_unselected_focused_autofences = 2130837640;
+			public const int tab_unselected_autofences = 2130837640;
 			
 			// aapt resource value: 0x7f020089
-			public const int tab_unselected_pressed_autofences = 2130837641;
+			public const int tab_unselected_focused_autofences = 2130837641;
 			
 			// aapt resource value: 0x7f02008a
-			public const int tile = 2130837642;
+			public const int tab_unselected_pressed_autofences = 2130837642;
+			
+			// aapt resource value: 0x7f02008b
+			public const int tile = 2130837643;
 			
 			static Drawable()
 			{

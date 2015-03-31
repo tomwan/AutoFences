@@ -38,6 +38,7 @@ namespace AutoFences
         private static  String lastTime = "";
         private static  int tripIndex;
         private static  double fuelEcon;
+        private static SwipeRefreshLayout refresher;
 
         protected override void OnCreate (Bundle savedInstanceState)
         {
@@ -386,7 +387,11 @@ namespace AutoFences
                 fuelEfficiecny.Text = "   " + fe + " L/100km";
                 lastTripTime.Text = "   " + lastTime;
 
+
+                refresher.Refreshing = false;
             }
+
+
 
             public override View OnCreateView (LayoutInflater inflater, ViewGroup container,
                 Bundle savedInstanceState)
@@ -394,19 +399,22 @@ namespace AutoFences
                 View rootView = inflater.Inflate (Resource.Layout.Display, container, false);
 
 
-                getTripData (rootView);
 
-                var refresher = rootView.FindViewById<SwipeRefreshLayout> (Resource.Id.refresher);
+
+                refresher = rootView.FindViewById<SwipeRefreshLayout> (Resource.Id.refresher);
                 refresher.SetColorScheme (Resource.Color.primary_dark,
                     Resource.Color.accent,
                     Resource.Color.primary,
                     Resource.Color.primary_dark);
+
+                getTripData (rootView);
+
                 refresher.Refresh += async delegate {
 
                     firstStart = true;
-                    Toast.MakeText (Application.Context, "Refreshing...", ToastLength.Short).Show ();
+                    //Toast.MakeText (Application.Context, "Refreshing...", ToastLength.Short).Show ();
                     getTripData(rootView);
-                    refresher.Refreshing = false;
+                    //refresher.Refreshing = false;
                 };
 
                 Button launchMap = rootView.FindViewById<Button> (Resource.Id.MapButton);
