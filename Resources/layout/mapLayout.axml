@@ -6,19 +6,22 @@
     <FrameLayout
         p1:id="@+id/map"
         p1:layout_width="fill_parent"
-        p1:layout_height="fill_parent" />
+        p1:layout_height="fill_parent"
+        p1:layout_weight="10" />
     <SeekBar
         p1:layout_width="match_parent"
         p1:layout_height="wrap_content"
         p1:id="@+id/seekBarRadius"
         p1:indeterminate="false"
         p1:max="30000"
-        p1:progress="0" />
+        p1:progress="0"
+        p1:layout_weight="1" />
     <Button
         p1:text="Confirm New Radius"
         p1:layout_width="match_parent"
         p1:layout_height="wrap_content"
         p1:id="@+id/setRadius"
         style="?android:attr/borderlessButtonStyle"
-        p1:textColor="@color/accent" />
+        p1:textColor="@color/accent"
+        p1:layout_weight="1" />
 </LinearLayout>
